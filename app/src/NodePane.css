@@ -12,6 +12,13 @@
   color: #000;
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
+  transition: font-size 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .node-title {
+    font-size: 2.2rem;
+  }
 }
 
 .node-emoji {
@@ -23,6 +30,13 @@
   color: #000;
   font-size: 0.9rem;
   line-height: 1.6;
+  transition: font-size 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .node-content {
+    font-size: 1.15rem;
+  }
 }
 
 .node-content p {
@@ -39,6 +53,14 @@
   font-size: 1rem;
   font-weight: 600;
   margin: 0.75rem 0 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .node-content h1,
+  .node-content h2,
+  .node-content h3 {
+    font-size: 1.25rem;
+  }
 }
 
 .node-content ul,

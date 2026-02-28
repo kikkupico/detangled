@@ -74,7 +74,7 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
     const rect = containerRef.current.getBoundingClientRect();
     const scaleX = rect.width / width;
     const scaleY = rect.height / height;
-    const scale = Math.min(scaleX, scaleY, 1.5) * 0.9;
+    const scale = Math.min(scaleX, scaleY, 2.5) * 0.9;
     const x = (rect.width - width * scale) / 2;
     const y = (rect.height - height * scale) / 2;
     setTransform({ x, y, scale });

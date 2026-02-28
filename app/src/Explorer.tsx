@@ -126,7 +126,7 @@ export default function Explorer({ graph, onBack }: Props) {
         <div className="header-bar">
           <button className="header-btn" onClick={onBack} title="Back to home" aria-label="Back">
             <svg className="header-icon-svg" viewBox="0 0 20 20" width="20" height="20">
-              <polyline points="12,4 5,10 12,16" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M10 3 L3 9 V17 H8 V12 H12 V17 H17 V9 L10 3 Z" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
           <span className="header-title">{graph.meta.title}</span>

@@ -4,6 +4,7 @@
 }
 
 .explorer {
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
   min-height: 100dvh;
@@ -11,6 +12,27 @@
   flex-direction: column;
   position: relative;
   background: #fff;
+  transition: max-width 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .explorer {
+    max-width: 800px;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+}
+
+@media (min-width: 1200px) {
+  .explorer {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .explorer {
+    max-width: 1200px;
+  }
 }
 
 /* Unified header bar */
@@ -57,6 +79,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: font-size 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .header-title {
+    font-size: 1.4rem;
+  }
+  .header-btn {
+    padding: 10px;
+  }
+  .header-icon-svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* Mid pane wrapper */
