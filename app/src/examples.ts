@@ -1,5 +1,453 @@
 export const examples: { name: string; yaml: string }[] = [
   {
+    name: "Tech: Programming Family Tree",
+    yaml: `meta:
+  title: "The Web of Programming Languages"
+  description: |
+    A wide and deep exploration of how modern programming 
+    languages evolved from the earliest machine codes. This 
+    graph illustrates the massive branching factor of the 
+    software world, showing how different philosophies 
+    (imperative, functional, object-oriented) created 
+    entirely different lineages of technology.
+  start: [assembly]
+
+nodes:
+  assembly:
+    title: "Assembly & Machine Code"
+    short_title: "Assembly"
+    emoji: "🔢"
+    content: |
+      In the beginning, there was the hardware. 
+      Programmers wrote in binary or mnemonic 
+      Assembly code, tied directly to a specific 
+      CPU architecture. 
+
+      It was fast, but it was unreadable and 
+      impossible to port between machines.
+      
+      ![Assembly](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Table_of_x86_Registers_v2.svg/400px-Table_of_x86_Registers_v2.svg.png)
+    parents: []
+
+  fortran:
+    title: "FORTRAN (1957)"
+    short_title: "FORTRAN"
+    emoji: "🧪"
+    content: |
+      The first high-level language, designed 
+      specifically for scientific and 
+      engineering calculations. 
+
+      It introduced the concept of the 
+      "Compiler," allowing humans to write 
+      formulas instead of memory addresses.
+    parents: [assembly]
+
+  lisp:
+    title: "LISP (1958)"
+    short_title: "LISP"
+    emoji: "🌿"
+    content: |
+      While FORTRAN focused on numbers, John 
+      McCarthy's LISP focused on symbols and 
+      lists. 
+
+      It founded the **Functional Programming** 
+      lineage, introducing recursion, garbage 
+      collection, and the idea that "code is 
+      data."
+    parents: [assembly]
+
+  algol:
+    title: "ALGOL 60"
+    short_title: "ALGOL"
+    emoji: "📐"
+    content: |
+      The "Universal" language that defined 
+      the block-structured syntax we still 
+      use today (\`begin/end\`, \`if/then/else\`).
+
+      Almost every modern imperative language 
+      is a "descendant of ALGOL."
+    parents: [fortran]
+
+  c_lang:
+    title: "C (1972)"
+    short_title: "C"
+    emoji: "🏎️"
+    content: |
+      Developed at Bell Labs to write the 
+      UNIX operating system. 
+
+      C combined the power of Assembly with 
+      the structure of ALGOL. It became the 
+      "portable assembly" of the world.
+    parents: [algol]
+
+  smalltalk:
+    title: "Smalltalk (1972)"
+    short_title: "Smalltalk"
+    emoji: "💬"
+    content: |
+      While C was perfecting the imperative 
+      style, Smalltalk was perfecting 
+      **Object-Oriented Programming (OOP)**.
+
+      Everything was an object, and objects 
+      communicated via messages. It inspired 
+      the GUI and modern IDEs.
+    parents: [lisp, algol]
+
+  cpp:
+    title: "C++ (1985)"
+    short_title: "C++"
+    emoji: "🏗️"
+    content: |
+      Bjarne Stroustrup wanted to add 
+      Smalltalk-style objects to the 
+      efficiency of C.
+
+      The result was a massive, complex 
+      language that powered the desktop 
+      software revolution of the 90s.
+    parents: [c_lang, smalltalk]
+
+  python:
+    title: "Python (1991)"
+    short_title: "Python"
+    emoji: "🐍"
+    content: |
+      Guido van Rossum designed Python to 
+      be readable and "fun." 
+
+      It inherited from C (for its core) 
+      and ABC (for its syntax), becoming the 
+      dominant language for data science and 
+      automation.
+    parents: [c_lang]
+
+  java:
+    title: "Java (1995)"
+    short_title: "Java"
+    emoji: "☕"
+    content: |
+      "Write Once, Run Anywhere." 
+
+      Java simplified C++ by removing 
+      manual memory management (pointers) 
+      and running on a Virtual Machine (JVM). 
+      It conquered the enterprise world.
+    parents: [cpp]
+
+  javascript:
+    title: "JavaScript (1995)"
+    short_title: "JS"
+    emoji: "🕸️"
+    content: |
+      Created in 10 days for the Netscape 
+      browser. 
+
+      Despite its name, it has more in 
+      common with LISP and Self than Java. 
+      It is now the most widely used 
+      language in the world.
+    parents: [c_lang, lisp]
+
+  haskell:
+    title: "Haskell (1990)"
+    short_title: "Haskell"
+    emoji: "λ"
+    content: |
+      A purely functional language named 
+      after Haskell Curry. 
+
+      It introduced advanced type systems 
+      (Monads!) and lazy evaluation, 
+      pushing the boundaries of how we 
+      reason about programs.
+    parents: [lisp]
+
+  rust:
+    title: "Rust (2010)"
+    short_title: "Rust"
+    emoji: "🦀"
+    content: |
+      The modern successor to C++. 
+
+      It uses a "Borrow Checker" to provide 
+      memory safety without a garbage 
+      collector, merging functional concepts 
+      with low-level performance.
+    parents: [cpp, haskell]
+`,
+  },
+  {
+    name: "Tech: Smartphone Convergence",
+    yaml: `meta:
+  title: "The Convergence of the Smartphone"
+  description: |
+    A classic example of multiple independent technological 
+    paths (Telephony, Computing, Media, and Internet) 
+    converging to create a single, world-changing device. 
+    This graph shows how the iPhone (2007) wasn't just a 
+    new phone, but a synthesis of decades of separate 
+    innovation in completely different industries.
+  start: [telephony_root, computing_root, media_root, internet_root]
+
+nodes:
+  telephony_root:
+    title: "Mobile Telephony"
+    short_title: "Telephony"
+    emoji: "📞"
+    content: |
+      The path of the radio phone. From 
+      the massive "brick" phones of the 80s 
+      to the sleek Nokia 3310. 
+
+      This lineage focused on voice 
+      quality, battery life, and 
+      cellular signal handoffs.
+      
+      ![Nokia 3310](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nokia_3310_blue_rtl2.jpg/160px-Nokia_3310_blue_rtl2.jpg)
+    parents: []
+
+  computing_root:
+    title: "Personal Computing"
+    short_title: "Computing"
+    emoji: "💻"
+    content: |
+      The shrinking of the computer. From 
+      desktops to laptops to PDAs 
+      (Personal Digital Assistants) like 
+      the Palm Pilot.
+
+      This lineage focused on operating 
+      systems, apps, and processors.
+    parents: []
+
+  media_root:
+    title: "Portable Media"
+    short_title: "Media"
+    emoji: "🎵"
+    content: |
+      The evolution of music on the go. 
+      From the Sony Walkman to the 
+      Discman, and finally the iPod.
+
+      This lineage focused on storage 
+      (MP3s) and the user interface for 
+      browsing thousands of songs.
+    parents: []
+
+  internet_root:
+    title: "Wireless Connectivity"
+    short_title: "Connectivity"
+    emoji: "📡"
+    content: |
+      The move from wired ethernet to 
+      Wireless LAN (WiFi) and mobile data 
+      (GPRS/EDGE).
+
+      This lineage focused on networking 
+      protocols and "always-on" data.
+    parents: []
+
+  pda_phone:
+    title: "The Blackberry/Treo"
+    short_title: "Early Smart"
+    emoji: "⌨️"
+    content: |
+      Early attempts to merge telephony 
+      and computing. Great for email 
+      and calendars, but they were clunky 
+      and had tiny physical keyboards.
+    parents: [telephony_root, computing_root]
+
+  iphone_convergence:
+    title: "The iPhone (2007)"
+    short_title: "iPhone"
+    emoji: "📱"
+    content: |
+      ### The Great Convergence
+      Steve Jobs famously introduced it 
+      as "A widescreen iPod with touch 
+      controls, a revolutionary mobile 
+      phone, and a breakthrough internet 
+      communications device."
+
+      It was the first time all four 
+      paths—Phones, Computers, Media Players, 
+      and the Web—merged into a single, 
+      touch-driven device.
+      
+      ![iPhone 2007](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/IPhone_2G_PSD_Mockup.png/200px-IPhone_2G_PSD_Mockup.png)
+    parents: [pda_phone, media_root, internet_root]
+`,
+  },
+  {
+    name: "Science: Stellar Evolution",
+    yaml: `meta:
+  title: "The Life and Death of Stars"
+  description: |
+    A graph that begins linearly as all stars form from 
+    gas clouds, but then branches wildly based on a 
+    single variable: Mass. This illustrates how a 
+    shared starting point can lead to vastly different 
+    outcomes—from a quiet white dwarf to a reality-warping 
+    black hole.
+  start: [nebula]
+
+nodes:
+  nebula:
+    title: "Stellar Nursery"
+    short_title: "Nebula"
+    emoji: "☁️"
+    content: |
+      Giant Molecular Clouds (Nebulas) of 
+      hydrogen and dust collapse under 
+      gravity. 
+
+      This phase is universal. Every star 
+      begins as a cold, dark cloud 
+      starting to spin and heat up.
+      
+      ![Nebula](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eagle_nebula_pillars.jpg/300px-Eagle_nebula_pillars.jpg)
+    parents: []
+
+  protostar:
+    title: "Protostar"
+    short_title: "Protostar"
+    emoji: "🌟"
+    content: |
+      The core temperature reaches 
+      millions of degrees. Friction and 
+      pressure create a glowing sphere. 
+
+      It's not yet a star, but it's 
+      gathering mass and preparing for 
+      fusion.
+    parents: [nebula]
+
+  main_sequence:
+    title: "Main Sequence"
+    short_title: "Main Seq"
+    emoji: "☀️"
+    content: |
+      Nuclear fusion begins. Hydrogen 
+      fuses into Helium, releasing 
+      immense energy. 
+
+      The star is in a state of 
+      **Hydrostatic Equilibrium**—gravity 
+      pulls in, and radiation pressure 
+      pushes out.
+      
+      ![The Sun](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/300px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg)
+    parents: [protostar]
+
+  low_mass_branch:
+    title: "Branch: Low Mass Stars"
+    short_title: "Low Mass"
+    emoji: "🕯️"
+    content: |
+      Stars like our Sun (< 8 solar masses). 
+      They burn their fuel slowly over 
+      billions of years. 
+
+      When the hydrogen runs out, the 
+      core collapses and the outer layers 
+      expand.
+    parents: [main_sequence]
+
+  high_mass_branch:
+    title: "Branch: High Mass Stars"
+    short_title: "High Mass"
+    emoji: "🔥"
+    content: |
+      Stars (> 8 solar masses). They burn 
+      furious and fast, exhausting their 
+      fuel in just millions of years. 
+
+      They are the "rock stars" of the 
+      cosmos—live fast, die young.
+    parents: [main_sequence]
+
+  red_giant:
+    title: "Red Giant"
+    short_title: "Red Giant"
+    emoji: "🔴"
+    content: |
+      The star expands to 100x its 
+      original size. It starts fusing 
+      Helium into Carbon. 
+
+      Eventually, it sheds its outer 
+      layers into space.
+    parents: [low_mass_branch]
+
+  white_dwarf:
+    title: "White Dwarf"
+    short_title: "White Dwarf"
+    emoji: "💎"
+    content: |
+      The tiny, dense, glowing core that 
+      remains. No more fusion occurs. 
+
+      It will slowly cool over trillions 
+      of years until it becomes a cold 
+      Black Dwarf.
+    parents: [red_giant]
+
+  supernova:
+    title: "Supernova"
+    short_title: "Supernova"
+    emoji: "💥"
+    content: |
+      The core collapses so violently 
+      that it rebounds in a massive 
+      explosion, outshining an entire 
+      galaxy. 
+
+      This explosion creates all the 
+      heavy elements (Gold, Iron) in 
+      the universe.
+      
+      ![Supernova](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Crab_Nebula.jpg/300px-Crab_Nebula.jpg)
+    parents: [high_mass_branch]
+
+  neutron_star:
+    title: "Neutron Star"
+    short_title: "Neutron"
+    emoji: "🧲"
+    content: |
+      If the remaining core is between 
+      1.4 and 3 solar masses, it 
+      becomes a city-sized ball of 
+      pure neutrons. 
+
+      One teaspoon of this material 
+      would weigh a billion tons.
+    parents: [supernova]
+
+  black_hole:
+    title: "Black Hole"
+    short_title: "Black Hole"
+    emoji: "🕳️"
+    content: |
+      If the core is > 3 solar masses, 
+      not even neutron degeneracy 
+      can stop the collapse. 
+
+      Gravity becomes so strong that 
+      even light cannot escape. Space 
+      and time are warped into a 
+      singularity.
+      
+      ![Black Hole](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_M87.jpg/300px-Black_hole_-_M87.jpg)
+    parents: [supernova]
+`,
+  },
+  {
     name: "Software: The 500-Mile Email",
     yaml: `meta:
   title: "The Case of the 500-Mile Email"
@@ -32,6 +480,8 @@ nodes:
 
       The issue appeared suddenly after a scheduled system 
       maintenance window on the central mail server.
+      
+      ![SunOS](https://upload.wikimedia.org/wikipedia/en/thumb/8/84/SunOS_logo.svg/300px-SunOS_logo.svg.png)
     parents: []
 
   skepticism:
@@ -169,6 +619,8 @@ nodes:
       people collapse and die within 12 to 48 hours. The 
       local community is paralyzed by fear as families 
       are wiped out in their sleep.
+      
+      ![Ghost Map](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/400px-Snow-cholera-map-1.jpg)
     parents: []
 
   miasma_theory:
@@ -436,6 +888,8 @@ nodes:
       12 seconds, 120 feet. By the fourth 
       flight that day, Wilbur flies for 
       59 seconds. The age of aviation is born.
+      
+      ![First Flight](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/First_flight2.jpg/400px-First_flight2.jpg)
     parents: [wing_warping, custom_engine]
 `,
   },
