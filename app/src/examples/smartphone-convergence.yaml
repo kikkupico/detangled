@@ -1,0 +1,99 @@
+meta:
+  title: "The Convergence of the Smartphone"
+  description: |
+    A classic example of multiple independent technological
+    paths (Telephony, Computing, Media, and Internet)
+    converging to create a single, world-changing device.
+    This graph shows how the iPhone (2007) wasn't just a
+    new phone, but a synthesis of decades of separate
+    innovation in completely different industries.
+  start: [telephony_root, computing_root, media_root, internet_root]
+
+nodes:
+  telephony_root:
+    title: "Mobile Telephony"
+    short_title: "Telephony"
+    emoji: "📞"
+    content: |
+      The path of the radio phone. From
+      the massive "brick" phones of the 80s
+      to the sleek Nokia 3310.
+
+      This lineage focused on voice
+      quality, battery life, and
+      cellular signal handoffs.
+
+      ![Nokia 3310](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Nokia_3310_blue_rtl2.jpg/160px-Nokia_3310_blue_rtl2.jpg)
+    parents: []
+
+  computing_root:
+    title: "Personal Computing"
+    short_title: "Computing"
+    emoji: "💻"
+    content: |
+      The shrinking of the computer. From
+      desktops to laptops to PDAs
+      (Personal Digital Assistants) like
+      the Palm Pilot.
+
+      This lineage focused on operating
+      systems, apps, and processors.
+    parents: []
+
+  media_root:
+    title: "Portable Media"
+    short_title: "Media"
+    emoji: "🎵"
+    content: |
+      The evolution of music on the go.
+      From the Sony Walkman to the
+      Discman, and finally the iPod.
+
+      This lineage focused on storage
+      (MP3s) and the user interface for
+      browsing thousands of songs.
+    parents: []
+
+  internet_root:
+    title: "Wireless Connectivity"
+    short_title: "Connectivity"
+    emoji: "📡"
+    content: |
+      The move from wired ethernet to
+      Wireless LAN (WiFi) and mobile data
+      (GPRS/EDGE).
+
+      This lineage focused on networking
+      protocols and "always-on" data.
+    parents: []
+
+  pda_phone:
+    title: "The Blackberry/Treo"
+    short_title: "Early Smart"
+    emoji: "⌨️"
+    content: |
+      Early attempts to merge telephony
+      and computing. Great for email
+      and calendars, but they were clunky
+      and had tiny physical keyboards.
+    parents: [telephony_root, computing_root]
+
+  iphone_convergence:
+    title: "The iPhone (2007)"
+    short_title: "iPhone"
+    emoji: "📱"
+    content: |
+      ### The Great Convergence
+      Steve Jobs famously introduced it
+      as "A widescreen iPod with touch
+      controls, a revolutionary mobile
+      phone, and a breakthrough internet
+      communications device."
+
+      It was the first time all four
+      paths—Phones, Computers, Media Players,
+      and the Web—merged into a single,
+      touch-driven device.
+
+      ![iPhone 2007](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/IPhone_2G_PSD_Mockup.png/200px-IPhone_2G_PSD_Mockup.png)
+    parents: [pda_phone, media_root, internet_root]

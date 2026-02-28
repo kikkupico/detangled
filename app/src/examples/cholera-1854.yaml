@@ -1,0 +1,152 @@
+meta:
+  title: "The Broad Street Pump"
+  description: |
+    The 1854 Soho Cholera outbreak was a turning point in medical
+    history. At a time when the "Miasma Theory" of bad air dominated
+    science, Dr. John Snow used data visualization and shoe-leather
+    epidemiology to prove that the disease was water-borne. This
+    example illustrates a classic conflict between an established
+    but wrong scientific dogma and a new, evidence-based hypothesis
+    that initially seemed absurd to the authorities.
+  start: [outbreak]
+
+nodes:
+  outbreak:
+    title: "The Soho Outbreak"
+    short_title: "Outbreak"
+    emoji: "☣️"
+    content: |
+      In late August 1854, a terrifying outbreak of Cholera
+      hits the Soho district of London. In a single week,
+      over **10% of the population** in a small radius dies.
+
+      The symptoms are violent and rapid—perfectly healthy
+      people collapse and die within 12 to 48 hours. The
+      local community is paralyzed by fear as families
+      are wiped out in their sleep.
+
+      ![Ghost Map](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/400px-Snow-cholera-map-1.jpg)
+    parents: []
+
+  miasma_theory:
+    title: "Miasma Theory"
+    short_title: "Miasma"
+    emoji: "💨"
+    content: |
+      The scientific establishment, led by William Farr,
+      believes in **Miasma**. They argue that Cholera is
+      caused by "bad air" or "effluvia" rising from
+      rotting organic matter and sewage.
+
+      Soho is crowded and smells terrible, which seems
+      to support the theory. Officials tell citizens to
+      burn incense and open windows to "let the miasma out."
+    parents: [outbreak]
+
+  sewer_dead_end:
+    title: "Dead End: Sewer Cleaning"
+    short_title: "Sewer Error"
+    emoji: "⛔"
+    content: |
+      In an attempt to "clean the air," the Board of
+      Health orders the local sewers to be flushed
+      directly into the River Thames.
+
+      **The Catastrophe:** This "cleansing" actually
+      pushed concentrated cholera bacteria directly into
+      the river from which many water companies drew
+      their supply. Instead of stopping the miasma,
+      they poisoned the city's drinking water even further.
+    parents: [miasma_theory]
+
+  snow_hypothesis:
+    title: "Snow's Hypothesis"
+    short_title: "Water-borne"
+    emoji: "📓"
+    content: |
+      Dr. John Snow, a local physician, has long
+      doubted Miasma. He notes that Cholera affects the
+      gut, not the lungs—suggesting it must be
+      ingested rather than inhaled.
+
+      He begins a door-to-door investigation of the
+      victims' families, asking one simple question:
+      "Where did you get your water?"
+    parents: [outbreak]
+
+  ghost_map:
+    title: "The Ghost Map"
+    short_title: "Mapping"
+    emoji: "🗺️"
+    content: |
+      Snow creates a revolutionary map. He marks each
+      death as a black bar at the address where the
+      victim lived.
+
+      The visual data is shocking: a massive cluster of
+      bars surrounds the **Broad Street water pump**.
+      The further you move from that specific pump,
+      the fewer deaths you find.
+    parents: [snow_hypothesis]
+
+  anomaly_divergence:
+    title: "Divergent Anomalies"
+    short_title: "Anomalies"
+    emoji: "❓"
+    content: |
+      Two strange "anomalies" initially seem to
+      contradict Snow's map:
+
+      1. **The Brewery:** A brewery right next to
+         the pump had **zero** deaths among its 70 workers.
+      2. **The Hampstead Widow:** A woman living miles
+         away in a "clean" neighborhood died of Cholera.
+    parents: [ghost_map]
+
+  anomaly_explained:
+    title: "Anomalies Explained"
+    short_title: "Solved"
+    emoji: "✅"
+    content: |
+      Snow investigates further and finds the "exceptions"
+      are his strongest proof:
+
+      - **The Brewery:** The workers were allowed
+        free beer, so they rarely drank water. The
+        beer-making process involved boiling the
+        water, which killed the bacteria.
+      - **The Widow:** She used to live in Soho and
+        liked the "sweet" taste of the Broad Street
+        well. She had a bottle of it delivered to
+        her home in Hampstead every day.
+    parents: [anomaly_divergence]
+
+  convergence:
+    title: "Action & Proof"
+    short_title: "Convergence"
+    emoji: "💧"
+    content: |
+      Snow presents his map and the anomaly data to
+      the St. James Parish Board. While they are
+      still skeptical of his "germs," the evidence
+      of the pump's involvement is undeniable.
+
+      They agree to a simple experiment: **Remove
+      the pump handle.** Within days, the local
+      outbreak grinds to a halt.
+    parents: [anomaly_explained, sewer_dead_end]
+
+  legacy:
+    title: "Birth of Epidemiology"
+    short_title: "Legacy"
+    emoji: "🌱"
+    content: |
+      Snow's work founded the field of modern
+      epidemiology. It proved that mapping and
+      data-tracking could solve medical mysteries.
+
+      Decades later, Robert Koch would identify
+      *Vibrio cholerae* under a microscope, finally
+      providing the biological proof for what
+      John Snow saw on his map in 1854.
+    parents: [convergence]

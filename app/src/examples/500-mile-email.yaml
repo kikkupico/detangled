@@ -1,0 +1,140 @@
+meta:
+  title: "The Case of the 500-Mile Email"
+  description: |
+    Based on the legendary real-world case reported by Trey Harris.
+    This investigation tracks a seemingly "impossible" bug where a
+    university's email system worked perfectly for local recipients
+    but failed for anyone further than 500 miles away. It serves as
+    a masterclass in non-linear troubleshooting, moving from
+    skepticism and dead-end configuration checks to a startling
+    realization about the intersection of software timeouts and
+    the physical speed of light.
+  start: [incident]
+
+nodes:
+  incident:
+    title: "The Geography Bug"
+    short_title: "The Report"
+    emoji: "📧"
+    content: |
+      A department head at a university campus calls the help desk
+      with a bizarre complaint: "We can't send email further than
+      500 miles."
+
+      The administrator initially assumes the user is confused, but
+      the data is consistent. Emails to nearby cities like
+      Richmond (~400 miles) arrive instantly, while any attempt
+      to send to Memphis (~600 miles) or further results in a
+      permanent "Connection Timed Out" error.
+
+      The issue appeared suddenly after a scheduled system
+      maintenance window on the central mail server.
+
+      ![SunOS](https://upload.wikimedia.org/wikipedia/en/thumb/8/84/SunOS_logo.svg/300px-SunOS_logo.svg.png)
+    parents: []
+
+  skepticism:
+    title: "Initial Skepticism"
+    short_title: "Skepticism"
+    emoji: "🤨"
+    content: |
+      The system administrator, Trey Harris, starts with the
+      logical assumption that geography cannot affect software.
+      "Email doesn't have a mileage counter," he thinks.
+
+      He suspects a faulty DNS entry or a specific routing table
+      issue at the university's ISP. He begins running manual
+      probes to the failing addresses, expecting to find a
+      misconfigured gateway or a broken router somewhere in
+      the regional network backbone.
+    parents: [incident]
+
+  ping_dead_end:
+    title: "Dead End: Network Layer"
+    short_title: "Ping OK"
+    emoji: "⛔"
+    content: |
+      Network diagnostics show no obvious failures.
+      'Ping' and 'Traceroute' to the "too far" servers
+      return perfectly healthy responses.
+
+      - Round-trip time (RTT) to Memphis: **30ms**
+      - Packet loss: **0%**
+
+      This is a major dead end. If the network layer (OSI Layer 3)
+      is fine, why is the application layer (SMTP) timing out?
+      The packets are clearly making it to the destination,
+      but the email handshake is failing.
+    parents: [skepticism]
+
+  sendmail_check:
+    title: "Divergence: Sendmail Config"
+    short_title: "Sendmail"
+    emoji: "⚙️"
+    content: |
+      Trey shifts focus to the server software. The university
+      had recently upgraded to a newer version of SunOS, which
+      included a new version of the **Sendmail** daemon.
+
+      He dives into the notoriously complex `sendmail.cf`
+      configuration file. He suspects that the upgrade might
+      have reverted some custom tuning parameters, perhaps
+      imposing a strange security restriction on external
+      IP ranges that accidentally correlated with distance.
+    parents: [incident]
+
+  timeout_discovery:
+    title: "The 5ms Timeout"
+    short_title: "Timeout"
+    emoji: "⌛"
+    content: |
+      Upon deep inspection of the new config file, Trey finds
+      a single line that looks suspicious:
+      ```
+      O ConnectTimeout=0
+      ```
+
+      In this specific version of Sendmail, a value of "0" didn't
+      mean "infinite wait"—it meant "use the system's minimal
+      unit." On this SunOS build, that unit was **5 milliseconds**.
+
+      The server was giving every remote mail server exactly
+      5ms to respond to the initial "Hello" packet before
+      giving up and dropping the connection.
+    parents: [sendmail_check]
+
+  convergence:
+    title: "The Speed of Light"
+    short_title: "Physics"
+    emoji: "🎯"
+    content: |
+      ### The Synthesis of Physics and Code
+      Everything clicks into place. Light (and electrical signals
+      in fiber) travels at roughly 1 foot per nanosecond.
+      In fiber optics, the effective speed is about 2/3 of
+      the speed of light in a vacuum.
+
+      - **500 miles** = 2,640,000 feet.
+      - **Round trip** = 5,280,000 feet.
+      - At ~1ms per 200km, a 500-mile round trip takes
+        almost exactly **5 milliseconds**.
+
+      If a server was 501 miles away, the "I'm here!" signal
+      literally could not travel back through the glass fiber
+      fast enough to beat the 5ms software timeout. Physics
+      was the "mileage counter."
+    parents: [ping_dead_end, timeout_discovery]
+
+  resolution:
+    title: "Resolution"
+    short_title: "Fix"
+    emoji: "✅"
+    content: |
+      Trey changed the timeout value from `0` to the
+      standard `5m` (5 minutes).
+
+      The "Geography Bug" vanished immediately. This case
+      became a legend in the Unix community, illustrating
+      that when the "impossible" happens, you have to look
+      at the constants of the universe.
+    parents: [convergence]

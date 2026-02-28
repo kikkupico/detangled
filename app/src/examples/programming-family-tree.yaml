@@ -1,0 +1,178 @@
+meta:
+  title: "The Web of Programming Languages"
+  description: |
+    A wide and deep exploration of how modern programming
+    languages evolved from the earliest machine codes. This
+    graph illustrates the massive branching factor of the
+    software world, showing how different philosophies
+    (imperative, functional, object-oriented) created
+    entirely different lineages of technology.
+  start: [assembly]
+
+nodes:
+  assembly:
+    title: "Assembly & Machine Code"
+    short_title: "Assembly"
+    emoji: "🔢"
+    content: |
+      In the beginning, there was the hardware.
+      Programmers wrote in binary or mnemonic
+      Assembly code, tied directly to a specific
+      CPU architecture.
+
+      It was fast, but it was unreadable and
+      impossible to port between machines.
+
+      ![Assembly](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Table_of_x86_Registers_v2.svg/400px-Table_of_x86_Registers_v2.svg.png)
+    parents: []
+
+  fortran:
+    title: "FORTRAN (1957)"
+    short_title: "FORTRAN"
+    emoji: "🧪"
+    content: |
+      The first high-level language, designed
+      specifically for scientific and
+      engineering calculations.
+
+      It introduced the concept of the
+      "Compiler," allowing humans to write
+      formulas instead of memory addresses.
+    parents: [assembly]
+
+  lisp:
+    title: "LISP (1958)"
+    short_title: "LISP"
+    emoji: "🌿"
+    content: |
+      While FORTRAN focused on numbers, John
+      McCarthy's LISP focused on symbols and
+      lists.
+
+      It founded the **Functional Programming**
+      lineage, introducing recursion, garbage
+      collection, and the idea that "code is
+      data."
+    parents: [assembly]
+
+  algol:
+    title: "ALGOL 60"
+    short_title: "ALGOL"
+    emoji: "📐"
+    content: |
+      The "Universal" language that defined
+      the block-structured syntax we still
+      use today (`begin/end`, `if/then/else`).
+
+      Almost every modern imperative language
+      is a "descendant of ALGOL."
+    parents: [fortran]
+
+  c_lang:
+    title: "C (1972)"
+    short_title: "C"
+    emoji: "🏎️"
+    content: |
+      Developed at Bell Labs to write the
+      UNIX operating system.
+
+      C combined the power of Assembly with
+      the structure of ALGOL. It became the
+      "portable assembly" of the world.
+    parents: [algol]
+
+  smalltalk:
+    title: "Smalltalk (1972)"
+    short_title: "Smalltalk"
+    emoji: "💬"
+    content: |
+      While C was perfecting the imperative
+      style, Smalltalk was perfecting
+      **Object-Oriented Programming (OOP)**.
+
+      Everything was an object, and objects
+      communicated via messages. It inspired
+      the GUI and modern IDEs.
+    parents: [lisp, algol]
+
+  cpp:
+    title: "C++ (1985)"
+    short_title: "C++"
+    emoji: "🏗️"
+    content: |
+      Bjarne Stroustrup wanted to add
+      Smalltalk-style objects to the
+      efficiency of C.
+
+      The result was a massive, complex
+      language that powered the desktop
+      software revolution of the 90s.
+    parents: [c_lang, smalltalk]
+
+  python:
+    title: "Python (1991)"
+    short_title: "Python"
+    emoji: "🐍"
+    content: |
+      Guido van Rossum designed Python to
+      be readable and "fun."
+
+      It inherited from C (for its core)
+      and ABC (for its syntax), becoming the
+      dominant language for data science and
+      automation.
+    parents: [c_lang]
+
+  java:
+    title: "Java (1995)"
+    short_title: "Java"
+    emoji: "☕"
+    content: |
+      "Write Once, Run Anywhere."
+
+      Java simplified C++ by removing
+      manual memory management (pointers)
+      and running on a Virtual Machine (JVM).
+      It conquered the enterprise world.
+    parents: [cpp]
+
+  javascript:
+    title: "JavaScript (1995)"
+    short_title: "JS"
+    emoji: "🕸️"
+    content: |
+      Created in 10 days for the Netscape
+      browser.
+
+      Despite its name, it has more in
+      common with LISP and Self than Java.
+      It is now the most widely used
+      language in the world.
+    parents: [c_lang, lisp]
+
+  haskell:
+    title: "Haskell (1990)"
+    short_title: "Haskell"
+    emoji: "λ"
+    content: |
+      A purely functional language named
+      after Haskell Curry.
+
+      It introduced advanced type systems
+      (Monads!) and lazy evaluation,
+      pushing the boundaries of how we
+      reason about programs.
+    parents: [lisp]
+
+  rust:
+    title: "Rust (2010)"
+    short_title: "Rust"
+    emoji: "🦀"
+    content: |
+      The modern successor to C++.
+
+      It uses a "Borrow Checker" to provide
+      memory safety without a garbage
+      collector, merging functional concepts
+      with low-level performance.
+    parents: [cpp, haskell]

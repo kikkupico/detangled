@@ -1,0 +1,690 @@
+meta:
+  title: "The LeetCode Skill Tree (50 Problems)"
+  description: |
+    A comprehensive roadmap of 50 essential LeetCode problems.
+    This complex graph illustrates how advanced algorithms and data structures
+    are built upon foundational concepts. By following the paths, you can see
+    how mastering Two Sum and Binary Search eventually leads to solving
+    complex problems like Trapping Rain Water and Minimum Window Substring.
+    Difficulty is indicated by 🟢 (Easy), 🟡 (Medium), and 🔴 (Hard).
+  start: [contains_duplicate, best_time_to_buy, valid_palindrome, valid_parentheses, binary_search, reverse_linked_list, merge_two_sorted_lists, invert_binary_tree]
+
+nodes:
+  contains_duplicate:
+    title: "Contains Duplicate"
+    short_title: "Contains Duplicate"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/contains-duplicate/)**
+
+      The absolute foundation.
+
+      **New Concepts:**
+      - Array iteration
+      - Hash Sets for O(1) lookups
+    parents: []
+
+  valid_anagram:
+    title: "Valid Anagram"
+    short_title: "Valid Anagram"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/valid-anagram/)**
+
+      Builds on the O(1) lookup concept by tracking frequencies instead of just existence.
+
+      **New Concepts:**
+      - Frequency counting
+      - Hash Maps
+    parents: [contains_duplicate]
+
+  two_sum:
+    title: "Two Sum"
+    short_title: "Two Sum"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/two-sum/)**
+
+      Takes the Hash Map lookup concept and applies it to math and indices.
+
+      **New Concepts:**
+      - One-pass arithmetic complements
+    parents: [contains_duplicate]
+
+  group_anagrams:
+    title: "Group Anagrams"
+    short_title: "Group Anagrams"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/group-anagrams/)**
+
+      Combines frequency counting with complex Hash Map usage where values are lists.
+
+      **New Concepts:**
+      - String sorting as keys
+      - Grouping
+    parents: [valid_anagram, two_sum]
+
+  top_k_frequent_elements:
+    title: "Top K Frequent Elements"
+    short_title: "Top K Frequent Elements"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/top-k-frequent-elements/)**
+
+      Extends grouping by requiring sorting by frequency.
+
+      **New Concepts:**
+      - Bucket Sort
+      - Priority Queues (Heaps)
+    parents: [group_anagrams]
+
+  best_time_to_buy:
+    title: "Best Time to Buy & Sell Stock"
+    short_title: "Best Time to Buy & Sell Stock"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)**
+
+      Foundation of sliding window and state tracking.
+
+      **New Concepts:**
+      - Two Pointers (Slow/Fast)
+      - Tracking minimums
+    parents: []
+
+  longest_consecutive_sequence:
+    title: "Longest Consecutive Seq"
+    short_title: "Longest Consecutive Seq"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/longest-consecutive-sequence/)**
+
+      Applies O(1) lookups to find boundaries of sequences.
+
+      **New Concepts:**
+      - Intelligent sequence building
+      - O(n) limits
+    parents: [two_sum]
+
+  valid_palindrome:
+    title: "Valid Palindrome"
+    short_title: "Valid Palindrome"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/valid-palindrome/)**
+
+      Foundation of bidirectional pointer traversal.
+
+      **New Concepts:**
+      - Two Pointers (Left/Right)
+      - String filtering
+    parents: []
+
+  two_sum_ii:
+    title: "Two Sum II"
+    short_title: "Two Sum II"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)**
+
+      Replaces the Hash Map of Two Sum with the bidirectional pointers of Valid Palindrome.
+
+      **New Concepts:**
+      - Exploiting sorted arrays with pointers
+    parents: [two_sum, valid_palindrome]
+
+  three_sum:
+    title: "3Sum"
+    short_title: "3Sum"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/3sum/)**
+
+      Applies Two Sum II iteratively while managing complex duplicate state.
+
+      **New Concepts:**
+      - Reducing 3D problems to 2D
+      - Avoiding duplicates
+    parents: [two_sum_ii]
+
+  container_with_most_water:
+    title: "Container With Most Water"
+    short_title: "Container With Most Water"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/container-with-most-water/)**
+
+      Applies bidirectional pointers to maximize a geometric area.
+
+      **New Concepts:**
+      - Greedy pointer movement
+      - Area calculation
+    parents: [two_sum_ii]
+
+  trapping_rain_water:
+    title: "Trapping Rain Water"
+    short_title: "Trapping Rain Water"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/trapping-rain-water/)**
+
+      The ultimate evolution of the geometric pointer movement, requiring tracking bounds on both sides.
+
+      **New Concepts:**
+      - Prefix max arrays
+      - Advanced two-pointer state
+    parents: [container_with_most_water]
+
+  longest_substring_without_repeating:
+    title: "Longest Substring No Repeats"
+    short_title: "Longest Substring No Repeats"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**
+
+      Combines frequency counting with two pointers moving in the same direction.
+
+      **New Concepts:**
+      - Sliding Window
+      - Dynamic window resizing
+    parents: [valid_anagram, valid_palindrome]
+
+  longest_repeating_character_replacement:
+    title: "Longest Repeating Char Replacement"
+    short_title: "Longest Repeating Char Replacement"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/longest-repeating-character-replacement/)**
+
+      Adds a math constraint (k changes) to the sliding window.
+
+      **New Concepts:**
+      - Max frequency tracking within a window
+    parents: [longest_substring_without_repeating]
+
+  minimum_window_substring:
+    title: "Minimum Window Substring"
+    short_title: "Minimum Window Substring"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/minimum-window-substring/)**
+
+      The pinnacle of sliding window, requiring matching complex frequency states dynamically.
+
+      **New Concepts:**
+      - Multiple frequency maps
+      - 'Have' vs 'Need' tracking
+    parents: [longest_repeating_character_replacement, group_anagrams]
+
+  valid_parentheses:
+    title: "Valid Parentheses"
+    short_title: "Valid Parentheses"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/valid-parentheses/)**
+
+      The foundation of state-based parsing.
+
+      **New Concepts:**
+      - LIFO (Last-In-First-Out)
+      - Stacks
+    parents: []
+
+  min_stack:
+    title: "Min Stack"
+    short_title: "Min Stack"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/min-stack/)**
+
+      Builds on stack mechanics by tracking minimums at every level.
+
+      **New Concepts:**
+      - Parallel state tracking
+      - Design
+    parents: [valid_parentheses]
+
+  evaluate_reverse_polish_notation:
+    title: "Evaluate RPN"
+    short_title: "Evaluate RPN"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/evaluate-reverse-polish-notation/)**
+
+      Applies LIFO mechanics to evaluate expressions.
+
+      **New Concepts:**
+      - Mathematical parsing with stacks
+    parents: [min_stack]
+
+  daily_temperatures:
+    title: "Daily Temperatures"
+    short_title: "Daily Temperatures"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/daily-temperatures/)**
+
+      Evolves the stack into a 'Monotonic Stack' that tracks decreasing values for next-greater elements.
+
+      **New Concepts:**
+      - Monotonic Decreasing Stack
+    parents: [evaluate_reverse_polish_notation]
+
+  largest_rectangle_in_histogram:
+    title: "Largest Rectangle in Histogram"
+    short_title: "Largest Rectangle in Histogram"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/largest-rectangle-in-histogram/)**
+
+      The ultimate monotonic stack problem, calculating geometric bounds dynamically.
+
+      **New Concepts:**
+      - Monotonic Increasing Stack
+      - Boundary calculation
+    parents: [daily_temperatures]
+
+  binary_search:
+    title: "Binary Search"
+    short_title: "Binary Search"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/binary-search/)**
+
+      Foundation of searching sorted spaces.
+
+      **New Concepts:**
+      - Divide and Conquer
+      - Logarithmic time
+    parents: []
+
+  search_a_2d_matrix:
+    title: "Search a 2D Matrix"
+    short_title: "Search a 2D Matrix"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/search-a-2d-matrix/)**
+
+      Extends binary search from a line to a grid.
+
+      **New Concepts:**
+      - Coordinate mapping (1D to 2D)
+    parents: [binary_search]
+
+  find_minimum_in_rotated_sorted_array:
+    title: "Find Min in Rotated Array"
+    short_title: "Find Min in Rotated Array"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)**
+
+      Adapts binary search for spaces that are only partially sorted.
+
+      **New Concepts:**
+      - Identifying sorted halves
+    parents: [binary_search]
+
+  search_in_rotated_sorted_array:
+    title: "Search in Rotated Array"
+    short_title: "Search in Rotated Array"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)**
+
+      Combines coordinate manipulation with partial-sort logic.
+
+      **New Concepts:**
+      - Target localization in broken sorted spaces
+    parents: [search_a_2d_matrix, find_minimum_in_rotated_sorted_array]
+
+  median_of_two_sorted_arrays:
+    title: "Median of Two Sorted Arrays"
+    short_title: "Median of Two Sorted Arrays"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)**
+
+      The hardest binary search concept: searching a partition instead of an element.
+
+      **New Concepts:**
+      - Binary searching abstract boundaries
+    parents: [search_in_rotated_sorted_array]
+
+  reverse_linked_list:
+    title: "Reverse Linked List"
+    short_title: "Reverse Linked List"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/reverse-linked-list/)**
+
+      Foundation of linked structures.
+
+      **New Concepts:**
+      - Pointers
+      - Node manipulation
+    parents: []
+
+  merge_two_sorted_lists:
+    title: "Merge Two Sorted Lists"
+    short_title: "Merge Two Sorted Lists"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/merge-two-sorted-lists/)**
+
+      Foundation of list merging.
+
+      **New Concepts:**
+      - Dummy nodes
+      - Splicing lists
+    parents: []
+
+  linked_list_cycle:
+    title: "Linked List Cycle"
+    short_title: "Linked List Cycle"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/linked-list-cycle/)**
+
+      Brings the two-pointer concept into linked list spaces.
+
+      **New Concepts:**
+      - Floyd's Tortoise and Hare
+    parents: [valid_palindrome]
+
+  reorder_list:
+    title: "Reorder List"
+    short_title: "Reorder List"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/reorder-list/)**
+
+      A pure test combining reversal, merging, and fast/slow pointers.
+
+      **New Concepts:**
+      - Finding midpoints
+      - Alternating splices
+    parents: [reverse_linked_list, merge_two_sorted_lists]
+
+  remove_nth_node_from_end:
+    title: "Remove Nth Node"
+    short_title: "Remove Nth Node"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)**
+
+      Applies a 'gap' to two pointers to find trailing nodes.
+
+      **New Concepts:**
+      - Delayed pointers
+    parents: [reverse_linked_list]
+
+  copy_list_with_random_pointer:
+    title: "Copy List with Random Pointer"
+    short_title: "Copy List with Random Pointer"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/copy-list-with-random-pointer/)**
+
+      Combines linked list traversal with Hash Map mapping.
+
+      **New Concepts:**
+      - Mapping old nodes to new nodes
+    parents: [two_sum]
+
+  add_two_numbers:
+    title: "Add Two Numbers"
+    short_title: "Add Two Numbers"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/add-two-numbers/)**
+
+      Applies arithmetic while traversing nodes.
+
+      **New Concepts:**
+      - Carry math across nodes
+    parents: [reverse_linked_list]
+
+  merge_k_sorted_lists:
+    title: "Merge k Sorted Lists"
+    short_title: "Merge k Sorted Lists"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/merge-k-sorted-lists/)**
+
+      Combines list merging with priority queue sorting for efficiency.
+
+      **New Concepts:**
+      - Min-Heaps applied to linked nodes
+    parents: [merge_two_sorted_lists, top_k_frequent_elements]
+
+  invert_binary_tree:
+    title: "Invert Binary Tree"
+    short_title: "Invert Binary Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/invert-binary-tree/)**
+
+      Foundation of modifying tree structures.
+
+      **New Concepts:**
+      - Recursion
+      - Tree Traversal (DFS)
+    parents: []
+
+  maximum_depth_of_binary_tree:
+    title: "Max Depth of Binary Tree"
+    short_title: "Max Depth of Binary Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/maximum-depth-of-binary-tree/)**
+
+      Extends traversal by passing values up the call stack.
+
+      **New Concepts:**
+      - Bottom-up recursion
+      - State returning
+    parents: [invert_binary_tree]
+
+  diameter_of_binary_tree:
+    title: "Diameter of Binary Tree"
+    short_title: "Diameter of Binary Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)**
+
+      Calculates local values while updating a global maximum.
+
+      **New Concepts:**
+      - Global state updating during DFS
+    parents: [maximum_depth_of_binary_tree]
+
+  balanced_binary_tree:
+    title: "Balanced Binary Tree"
+    short_title: "Balanced Binary Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/balanced-binary-tree/)**
+
+      Uses the depth logic to strictly validate tree balance.
+
+      **New Concepts:**
+      - Early termination
+      - Returning multiple states
+    parents: [maximum_depth_of_binary_tree]
+
+  same_tree:
+    title: "Same Tree"
+    short_title: "Same Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/same-tree/)**
+
+      Synchronizes DFS across multiple structures.
+
+      **New Concepts:**
+      - Parallel traversal of two trees
+    parents: [invert_binary_tree]
+
+  subtree_of_another_tree:
+    title: "Subtree of Another Tree"
+    short_title: "Subtree of Another Tree"
+    emoji: "🟢"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/subtree-of-another-tree/)**
+
+      Uses 'Same Tree' as a helper function across every node.
+
+      **New Concepts:**
+      - Nested tree traversal
+    parents: [same_tree]
+
+  lowest_common_ancestor_bst:
+    title: "LCA of a BST"
+    short_title: "LCA of a BST"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)**
+
+      Combines Tree traversal with Binary Search logic.
+
+      **New Concepts:**
+      - Exploiting BST properties
+    parents: [invert_binary_tree, binary_search]
+
+  validate_binary_search_tree:
+    title: "Validate BST"
+    short_title: "Validate BST"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/validate-binary-search-tree/)**
+
+      Extends BST properties to enforce strict upper/lower bounds.
+
+      **New Concepts:**
+      - Boundary tracking (Min/Max limits)
+    parents: [lowest_common_ancestor_bst]
+
+  kth_smallest_element_in_bst:
+    title: "Kth Smallest Element in BST"
+    short_title: "Kth Smallest Element in BST"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)**
+
+      Uses the fact that In-Order traversal of a BST yields a sorted array.
+
+      **New Concepts:**
+      - In-order traversal properties
+    parents: [validate_binary_search_tree]
+
+  construct_binary_tree:
+    title: "Construct Tree from Preorder/Inorder"
+    short_title: "Construct Tree from Preorder/Inorder"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)**
+
+      Deconstructs traversal outputs back into a tree structure.
+
+      **New Concepts:**
+      - Array splitting
+      - Array to Tree mapping
+    parents: [validate_binary_search_tree]
+
+  binary_tree_maximum_path_sum:
+    title: "Binary Tree Max Path Sum"
+    short_title: "Binary Tree Max Path Sum"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)**
+
+      The ultimate evolution of 'Diameter', tracking complex path sums.
+
+      **New Concepts:**
+      - Path splitting
+      - Negative value rejection
+    parents: [diameter_of_binary_tree]
+
+  serialize_and_deserialize:
+    title: "Serialize and Deserialize Tree"
+    short_title: "Serialize and Deserialize Tree"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)**
+
+      Combines tree construction with string manipulation.
+
+      **New Concepts:**
+      - String processing
+      - Pre-order building
+    parents: [construct_binary_tree]
+
+  number_of_islands:
+    title: "Number of Islands"
+    short_title: "Number of Islands"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/number-of-islands/)**
+
+      Applies Tree DFS to a 2D matrix (Graph).
+
+      **New Concepts:**
+      - Grid boundaries
+      - Graph DFS
+    parents: [invert_binary_tree]
+
+  clone_graph:
+    title: "Clone Graph"
+    short_title: "Clone Graph"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/clone-graph/)**
+
+      Combines Node mapping (from Linked Lists) with Graph traversal.
+
+      **New Concepts:**
+      - Adjacency lists
+      - State mapping
+    parents: [number_of_islands, copy_list_with_random_pointer]
+
+  max_area_of_island:
+    title: "Max Area of Island"
+    short_title: "Max Area of Island"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/max-area-of-island/)**
+
+      Applies 'Max Depth' counting logic to 'Number of Islands'.
+
+      **New Concepts:**
+      - Area accumulation in graphs
+    parents: [number_of_islands]
+
+  pacific_atlantic_water_flow:
+    title: "Pacific Atlantic Water Flow"
+    short_title: "Pacific Atlantic Water Flow"
+    emoji: "🟡"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/pacific-atlantic-water-flow/)**
+
+      Traverses from the ocean boundaries inwards.
+
+      **New Concepts:**
+      - Reverse traversal
+      - Matrix intersections
+    parents: [max_area_of_island]
+
+  word_ladder:
+    title: "Word Ladder"
+    short_title: "Word Ladder"
+    emoji: "🔴"
+    content: |
+      **[LeetCode](https://leetcode.com/problems/word-ladder/)**
+
+      Transitions from DFS to BFS for shortest path discovery.
+
+      **New Concepts:**
+      - Breadth-First Search (BFS)
+      - Shortest Path
+    parents: [number_of_islands]

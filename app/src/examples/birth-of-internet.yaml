@@ -1,0 +1,291 @@
+meta:
+  title: "The Birth of the Internet"
+  description: |
+    Four independent threads—military command networks,
+    academic computing, telecommunications research, and
+    counterculture hacker ethics—wove together over
+    decades to create the internet. This graph shows how
+    innovations from completely separate worlds repeatedly
+    cross-pollinated, converged at critical moments like
+    TCP/IP and the World Wide Web, and then diverged again
+    into the modern internet we know today.
+  start: [arpanet, unix, packet_switching, hacker_ethics]
+
+nodes:
+  arpanet:
+    title: "ARPANET (1969)"
+    short_title: "ARPANET"
+    emoji: "🎖️"
+    content: |
+      The U.S. Department of Defense funds a network
+      to connect research universities. The goal:
+      a communications system with **no single point
+      of failure** that could survive a nuclear strike.
+
+      The first message sent over ARPANET was "LO"—
+      the system crashed before completing "LOGIN."
+    parents: []
+
+  unix:
+    title: "Unix (1969)"
+    short_title: "Unix"
+    emoji: "🖥️"
+    content: |
+      Ken Thompson and Dennis Ritchie at Bell Labs
+      build Unix—an operating system designed to be
+      **portable, modular, and shareable**.
+
+      Unlike mainframe OSes, Unix was written in C
+      and could run on different hardware. Bell Labs
+      distributed the source code to universities,
+      planting seeds everywhere.
+    parents: []
+
+  packet_switching:
+    title: "Packet Switching (1960s)"
+    short_title: "Packets"
+    emoji: "📡"
+    content: |
+      Paul Baran (RAND) and Donald Davies (NPL)
+      independently invent the same idea: instead
+      of dedicating a circuit to each call, **break
+      data into packets** and route them independently.
+
+      The telephone companies dismiss the idea as
+      absurd. It works anyway.
+    parents: []
+
+  hacker_ethics:
+    title: "Hacker Ethics (1960s)"
+    short_title: "Hackers"
+    emoji: "✊"
+    content: |
+      At MIT's Tech Model Railroad Club, a culture
+      emerges: information should be **free**, access
+      to computers should be **unlimited**, and
+      authority should be **distrusted**.
+
+      These values will shape every layer of the
+      internet, from open protocols to open source.
+    parents: []
+
+  tcp_ip:
+    title: "TCP/IP (1974-1983)"
+    short_title: "TCP/IP"
+    emoji: "🔗"
+    content: |
+      ### The First Great Convergence
+
+      Vint Cerf and Bob Kahn combine military
+      networking (ARPANET) with telecom theory
+      (packet switching) to create TCP/IP—a
+      universal protocol that lets **any network
+      talk to any other network**.
+
+      On January 1, 1983 ("Flag Day"), ARPANET
+      switches to TCP/IP. The internet is born.
+    parents: [arpanet, packet_switching]
+
+  bsd_unix:
+    title: "BSD Unix (1977-1983)"
+    short_title: "BSD"
+    emoji: "😈"
+    content: |
+      UC Berkeley takes AT&T's Unix and adds
+      networking code funded by DARPA—including
+      the **BSD socket API**, which becomes the
+      standard way every program talks to the
+      internet.
+
+      Military money + academic OS = the
+      networking stack we still use today.
+    parents: [unix, arpanet]
+
+  usenet:
+    title: "Usenet (1980)"
+    short_title: "Usenet"
+    emoji: "📰"
+    content: |
+      Two Duke grad students create a system for
+      Unix machines to exchange messages over
+      phone lines. Usenet becomes the first
+      large-scale **public discussion forum**—
+      unmoderated, decentralized, and chaotic.
+
+      It proves that people will use networks
+      for conversation, not just computation.
+    parents: [unix, hacker_ethics]
+
+  dns:
+    title: "DNS (1983)"
+    short_title: "DNS"
+    emoji: "📖"
+    content: |
+      The internet is growing too fast for a
+      single hosts.txt file. Paul Mockapetris
+      invents the **Domain Name System**—a
+      distributed database that maps human-readable
+      names to IP addresses.
+
+      It's the internet's phone book, and it
+      runs on the principle that no single
+      authority should control all names.
+    parents: [tcp_ip]
+
+  gnu_project:
+    title: "GNU Project (1983)"
+    short_title: "GNU"
+    emoji: "🦬"
+    content: |
+      Richard Stallman, frustrated that software
+      is becoming proprietary, launches GNU—a
+      project to build a **completely free**
+      operating system.
+
+      He writes the GPL license: you can use,
+      modify, and share the code, but you must
+      pass those freedoms along. Hacker ethics
+      become legally enforceable.
+    parents: [hacker_ethics, unix]
+
+  email:
+    title: "Email Goes Mainstream (1980s)"
+    short_title: "Email"
+    emoji: "📧"
+    content: |
+      Email predates the internet—it started as
+      messages between users on the same mainframe.
+      But with TCP/IP and DNS, it becomes the
+      internet's **killer app**.
+
+      By 1989, email is the reason most
+      organizations connect to the internet.
+    parents: [tcp_ip, dns]
+
+  www:
+    title: "The World Wide Web (1991)"
+    short_title: "WWW"
+    emoji: "🌐"
+    content: |
+      ### The Second Great Convergence
+
+      Tim Berners-Lee at CERN combines DNS
+      (addressable names), TCP/IP (universal
+      transport), and the hacker ethos of open
+      standards to create HTML, HTTP, and URLs.
+
+      He makes a fateful choice: **no patent,
+      no license, no fee.** The web is free.
+    parents: [dns, hacker_ethics]
+
+  linux:
+    title: "Linux (1991)"
+    short_title: "Linux"
+    emoji: "🐧"
+    content: |
+      Linus Torvalds, a Finnish student, posts
+      to Usenet: "I'm doing a (free) operating
+      system (just a hobby)."
+
+      He combines GNU's free tools with his own
+      kernel. Distributed via Usenet and FTP,
+      developed by volunteers worldwide, Linux
+      becomes the OS that **runs the internet**.
+    parents: [gnu_project, usenet]
+
+  browsers:
+    title: "The Browser Wars (1993-1998)"
+    short_title: "Browsers"
+    emoji: "🧭"
+    content: |
+      Mosaic (1993) adds **images** to the web,
+      making it visual. Netscape makes it fast
+      and adds JavaScript. Microsoft bundles
+      Internet Explorer with Windows.
+
+      The browser wars are brutal, but they
+      drive innovation at breakneck speed.
+      The web goes from text to multimedia
+      in five years.
+    parents: [www]
+
+  dotcom:
+    title: "The Dot-Com Boom (1995-2000)"
+    short_title: "Dot-Com"
+    emoji: "💰"
+    content: |
+      Venture capital floods into anything with
+      a ".com" in its name. Amazon, eBay, Google,
+      and thousands of forgotten startups race to
+      commercialize the web.
+
+      The bubble pops in 2000, but the
+      infrastructure it built—fiber optic cables,
+      data centers, payment systems—survives.
+    parents: [browsers, email]
+
+  open_source:
+    title: "Open Source Movement (1998)"
+    short_title: "Open Source"
+    emoji: "🔓"
+    content: |
+      Netscape releases its browser source code.
+      Eric Raymond and others rebrand "free
+      software" as **"open source"**—same
+      freedoms, friendlier to business.
+
+      Apache, MySQL, PHP, and Linux form the
+      "LAMP stack" that powers most of the
+      early web. Free software runs the
+      commercial internet.
+    parents: [linux, browsers]
+
+  social_web:
+    title: "The Social Web (2004-2010)"
+    short_title: "Social"
+    emoji: "👥"
+    content: |
+      Facebook, Twitter, YouTube, and Reddit
+      fulfill Usenet's original promise at
+      massive scale. User-generated content
+      replaces editorial content.
+
+      The internet shifts from "pages you read"
+      to "feeds you scroll." The attention
+      economy is born.
+    parents: [dotcom, open_source]
+
+  cloud:
+    title: "The Cloud (2006+)"
+    short_title: "Cloud"
+    emoji: "☁️"
+    content: |
+      Amazon rents out its excess server capacity
+      as AWS. The entire dot-com infrastructure
+      becomes available **on demand** to anyone
+      with a credit card.
+
+      Linux runs nearly every cloud server.
+      Open source runs nearly every service.
+      The hacker dream of universal access
+      is realized—as a subscription.
+    parents: [dotcom, linux]
+
+  modern_internet:
+    title: "The Modern Internet"
+    short_title: "Today"
+    emoji: "🌍"
+    content: |
+      ### The Third Convergence
+
+      Social networks, cloud computing, and
+      open source merge into the always-on,
+      mobile-first internet of today.
+
+      Every layer still carries its origins:
+      military resilience in the protocols,
+      academic openness in the standards,
+      telecom engineering in the infrastructure,
+      and hacker ethics in the culture—even
+      as all four are under constant tension.
+    parents: [social_web, cloud]

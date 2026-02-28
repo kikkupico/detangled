@@ -1,0 +1,299 @@
+meta:
+  title: "Unraveling DNA"
+  description: |
+    The discovery of DNA's structure was not one eureka
+    moment—it was four independent threads of research
+    (genetics, biochemistry, X-ray crystallography, and
+    bacteriology) that converged over decades. This graph
+    traces how each thread contributed essential pieces,
+    how they came together in Watson and Crick's 1953
+    model, and how the discovery diverged into the
+    technologies that define modern biology.
+  start: [mendel, nuclein, xray_origins, griffith]
+
+nodes:
+  mendel:
+    title: "Mendel's Peas (1866)"
+    short_title: "Mendel"
+    emoji: "🌱"
+    content: |
+      Gregor Mendel, an Augustinian friar, crosses
+      thousands of pea plants and discovers that
+      traits are inherited in **discrete units**
+      (later called genes) that follow mathematical
+      ratios.
+
+      His work is published, ignored for 35 years,
+      then rediscovered in 1900. The concept of a
+      "unit of heredity" is born—but nobody knows
+      what it's made of.
+    parents: []
+
+  nuclein:
+    title: "Nuclein (1869)"
+    short_title: "Nuclein"
+    emoji: "🧪"
+    content: |
+      Friedrich Miescher isolates a strange,
+      phosphorus-rich substance from the nuclei
+      of white blood cells in used surgical
+      bandages. He calls it **"nuclein."**
+
+      It's clearly important—it's in every cell
+      nucleus—but nobody knows what it does.
+      For decades, proteins are assumed to carry
+      heredity because they're more complex.
+    parents: []
+
+  xray_origins:
+    title: "X-ray Crystallography (1912)"
+    short_title: "X-rays"
+    emoji: "💎"
+    content: |
+      Max von Laue discovers that X-rays scatter
+      off crystal lattices in patterns that reveal
+      atomic structure. William and Lawrence Bragg
+      turn this into a practical technique.
+
+      It's a tool for physicists and chemists—
+      nobody is thinking about biology yet. But
+      this technique will eventually crack open
+      the secret of life.
+    parents: []
+
+  griffith:
+    title: "Griffith's Experiment (1928)"
+    short_title: "Griffith"
+    emoji: "🦠"
+    content: |
+      Frederick Griffith discovers something
+      bizarre: dead bacteria can **transform**
+      living bacteria, passing on new traits.
+      He calls it the "transforming principle."
+
+      Something in the dead cells carries
+      hereditary information and can be absorbed
+      by living cells. But what is it?
+    parents: []
+
+  chromosome_theory:
+    title: "Chromosomes Carry Genes (1910s-30s)"
+    short_title: "Chromosomes"
+    emoji: "🪰"
+    content: |
+      Thomas Hunt Morgan's fruit fly lab at
+      Columbia proves that Mendel's "units of
+      heredity" are physically located on
+      **chromosomes**—long structures visible
+      under a microscope.
+
+      Chromosomes are made of protein and DNA.
+      Most scientists bet on protein as the
+      hereditary molecule. They're wrong.
+    parents: [mendel]
+
+  avery:
+    title: "Avery's Bombshell (1944)"
+    short_title: "Avery"
+    emoji: "💣"
+    content: |
+      Oswald Avery, Colin MacLeod, and Maclyn
+      McCarty repeat Griffith's experiment with
+      ruthless precision. They systematically
+      destroy each component of the dead bacteria
+      to find the "transforming principle."
+
+      Destroy the protein? Transformation still
+      works. Destroy the RNA? Still works.
+      Destroy the **DNA**? Transformation stops.
+
+      **DNA is the molecule of heredity.** The
+      scientific establishment resists this
+      conclusion for nearly a decade.
+    parents: [griffith, nuclein]
+
+  chargaff:
+    title: "Chargaff's Rules (1950)"
+    short_title: "Chargaff"
+    emoji: "📊"
+    content: |
+      Erwin Chargaff, convinced by Avery's work,
+      analyzes DNA from dozens of species. He
+      finds a strange pattern: the amount of
+      adenine (A) always equals thymine (T), and
+      guanine (G) always equals cytosine (C).
+
+      **A=T, G=C.** Nobody knows why.
+
+      This is the crucial clue—it means the
+      bases pair up. But Chargaff himself never
+      figures out the structure.
+    parents: [avery]
+
+  hershey_chase:
+    title: "Hershey-Chase (1952)"
+    short_title: "Blender"
+    emoji: "🔬"
+    content: |
+      Alfred Hershey and Martha Chase use
+      radioactive labels to track what happens
+      when viruses infect bacteria. The viral
+      **DNA** enters the cell; the viral
+      **protein** stays outside.
+
+      This finally convinces the holdouts:
+      DNA, not protein, carries genetic
+      information. The race to solve its
+      structure begins in earnest.
+    parents: [avery, chromosome_theory]
+
+  photo51:
+    title: "Photo 51 (1952)"
+    short_title: "Photo 51"
+    emoji: "📸"
+    content: |
+      Rosalind Franklin at King's College London
+      produces the clearest X-ray diffraction
+      image of DNA ever taken. The X-shaped
+      pattern reveals that DNA is a **helix**
+      with specific, measurable dimensions.
+
+      Franklin is methodical—she wants more
+      data before publishing. Her colleague
+      Maurice Wilkins shows the photo to
+      James Watson without her knowledge.
+    parents: [xray_origins, avery]
+
+  model_building:
+    title: "Watson & Crick Build Models (1952-53)"
+    short_title: "Models"
+    emoji: "🏗️"
+    content: |
+      James Watson and Francis Crick at Cambridge
+      take a different approach: instead of pure
+      experiment, they build **physical models**
+      of possible DNA structures using metal
+      plates and clamps.
+
+      Their first attempt (a triple helix) is
+      embarrassingly wrong. Franklin points out
+      the errors. They go back to the drawing
+      board.
+    parents: [hershey_chase, chargaff]
+
+  double_helix:
+    title: "The Double Helix (1953)"
+    short_title: "Double Helix"
+    emoji: "🧬"
+    content: |
+      ### The Great Convergence
+
+      Watson and Crick combine everything:
+      - **Chargaff's rules** (A=T, G=C) explain
+        base pairing across two strands
+      - **Photo 51** gives the helix dimensions
+      - **Model building** reveals how the pieces
+        physically fit
+
+      On February 28, 1953, they walk into the
+      Eagle pub and announce they have "found
+      the secret of life." Their model is
+      published in *Nature* on April 25, 1953.
+    parents: [model_building, photo51]
+
+  genetic_code:
+    title: "Cracking the Code (1961-66)"
+    short_title: "The Code"
+    emoji: "📝"
+    content: |
+      DNA's structure is solved, but how does it
+      actually **encode** information? Marshall
+      Nirenberg and Har Gobind Khorana crack the
+      genetic code: three-letter "codons" of
+      DNA bases map to specific amino acids.
+
+      64 codons, 20 amino acids. The code is
+      universal—the same in bacteria, oak trees,
+      and humans. Life runs on one language.
+    parents: [double_helix]
+
+  recombinant_dna:
+    title: "Genetic Engineering (1973)"
+    short_title: "Engineering"
+    emoji: "✂️"
+    content: |
+      Stanley Cohen and Herbert Boyer cut DNA
+      from one organism and paste it into another
+      using restriction enzymes—molecular scissors.
+
+      The first genetically engineered organism is
+      a bacterium carrying a frog gene. Within a
+      decade, engineered bacteria are producing
+      human insulin, saving millions of diabetics
+      from relying on pig pancreases.
+    parents: [genetic_code]
+
+  pcr:
+    title: "PCR (1983)"
+    short_title: "PCR"
+    emoji: "🔁"
+    content: |
+      Kary Mullis invents the **Polymerase Chain
+      Reaction**—a way to make billions of copies
+      of a specific DNA sequence from a tiny sample.
+
+      PCR transforms every field it touches:
+      forensics (DNA from a single hair),
+      medicine (detecting viruses), archaeology
+      (sequencing ancient DNA). It makes the
+      invisible visible.
+    parents: [genetic_code]
+
+  dna_forensics:
+    title: "DNA Forensics (1984)"
+    short_title: "Forensics"
+    emoji: "🔍"
+    content: |
+      Alec Jeffreys discovers that certain DNA
+      regions vary wildly between individuals—
+      a genetic fingerprint. In 1986, DNA evidence
+      first exonerates an innocent suspect and then
+      identifies the real killer in a murder case.
+
+      The same molecule Miescher scraped from
+      bandages in 1869 is now solving crimes.
+    parents: [pcr]
+
+  human_genome:
+    title: "Human Genome Project (2003)"
+    short_title: "Genome"
+    emoji: "📖"
+    content: |
+      A 13-year, $3 billion international effort
+      sequences all 3.2 billion base pairs of
+      human DNA. The result: humans have only
+      ~20,000 genes—fewer than a grape.
+
+      The real surprise is how much DNA **doesn't**
+      code for proteins. The "junk DNA" turns out
+      to be regulatory—switches that control when
+      and where genes activate.
+    parents: [pcr, recombinant_dna]
+
+  crispr:
+    title: "CRISPR (2012)"
+    short_title: "CRISPR"
+    emoji: "🎯"
+    content: |
+      Jennifer Doudna and Emmanuelle Charpentier
+      adapt a bacterial immune system into a
+      precision gene-editing tool. CRISPR can
+      find a specific sequence in 3 billion base
+      pairs and cut it like a word processor's
+      find-and-replace.
+
+      From Mendel's peas to editing human embryos
+      in 146 years. The double helix that Watson
+      and Crick built from wire and tin plates is
+      now something we can rewrite at will.
+    parents: [human_genome]

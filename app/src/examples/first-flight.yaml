@@ -1,0 +1,142 @@
+meta:
+  title: "The Quest for the Sky"
+  description: |
+    The invention of the airplane was not just about adding an engine
+    to a glider. It required a fundamental shift in how inventors
+    viewed "control." This graph follows the non-linear path from
+    failed attempts at mimicking bird flight to the Wright Brothers'
+    revolutionary realization that a plane should be unstable but
+    controllable—just like a bicycle.
+  start: [ornithopter]
+
+nodes:
+  ornithopter:
+    title: "Mimicking Birds"
+    short_title: "Ornithopter"
+    emoji: "🦢"
+    content: |
+      For centuries, humans looked at birds and
+      assumed the secret to flight was **flapping**.
+
+      Early inventors built "Ornithopters"—machines
+      with mechanical wings powered by human muscle
+      or early steam engines. They believed that if
+      they could just flap fast enough, they would
+      achieve lift.
+    parents: []
+
+  dead_end_flapping:
+    title: "Dead End: Flapping"
+    short_title: "Failure"
+    emoji: "⛔"
+    content: |
+      Ornithopters failed for two reasons:
+      1. **Biomechanics:** Human muscles are too
+         weak to lift our body weight via flapping.
+      2. **Structural Stress:** The mechanical
+         stresses of rapidly flapping large wings
+         caused every prototype to shake itself apart.
+
+      By the late 1800s, serious inventors realized
+      flapping was a dead end for human-scale flight.
+    parents: [ornithopter]
+
+  divergence_gliding:
+    title: "Divergence: Gliding"
+    short_title: "Gliders"
+    emoji: "🪂"
+    content: |
+      Otto Lilienthal, the "Glider King," realizes
+      we should separate **lift** from **propulsion**.
+
+      He builds fixed-wing gliders and makes
+      thousands of flights from a man-made hill.
+      He proves that curved (cambered) wings
+      produce the most lift. However, he lacks
+      a way to turn or control the glider's roll.
+    parents: [ornithopter]
+
+  power_problem:
+    title: "The Power Problem"
+    short_title: "Engines"
+    emoji: "⚙️"
+    content: |
+      While some sought flight through gliders, the
+      industrial revolution was independently solving
+      the problem of **propulsion**.
+
+      However, in 1900, engines were still monsters
+      of cast iron designed for factories and
+      heavy automobiles.
+
+      - Steam engines: High power but far too heavy
+        due to boilers and water.
+      - Early gas engines: Promising, but heavy and
+        notoriously unreliable.
+    parents: []
+
+  control_problem:
+    title: "The Control Problem"
+    short_title: "Control"
+    emoji: "🕹️"
+    content: |
+      Most inventors (like Samuel Langley) tried
+      to build "inherently stable" planes—ships
+      of the air that would stay level on their own.
+
+      The Wright Brothers, being bicycle mechanics,
+      had a different insight: A bicycle is
+      **unstable**, but the rider controls it
+      through constant tiny adjustments. They
+      decided a plane should be the same.
+    parents: [divergence_gliding]
+
+  wing_warping:
+    title: "Wing Warping"
+    short_title: "Warping"
+    emoji: "✈️"
+    content: |
+      Wilbur Wright observes buzzards twisting
+      their wingtips to bank into turns. He
+      realizes they need a way to change the
+      shape of the wing mid-flight.
+
+      They develop **"Wing Warping"**—a system
+      of pulleys that twists the fabric wings
+      to provide 3-axis control (pitch, roll,
+      and yaw). This is the "Aha!" moment
+      of aeronautical engineering.
+    parents: [control_problem]
+
+  custom_engine:
+    title: "The Aluminum Engine"
+    short_title: "Custom Engine"
+    emoji: "🔥"
+    content: |
+      Unable to buy a lightweight engine, the
+      Wrights and their mechanic Charlie Taylor
+      build their own in their bike shop.
+
+      They use a revolutionary **aluminum block**
+      to keep the weight down to 180 lbs while
+      still producing 12 horsepower.
+    parents: [power_problem]
+
+  convergence:
+    title: "Kitty Hawk (1903)"
+    short_title: "Success"
+    emoji: "🏁"
+    content: |
+      On December 17, 1903, the pieces converge:
+      - The **Lift** from their wind-tunnel data.
+      - The **Power** from the aluminum engine.
+      - The **Control** from wing-warping and
+        the rear rudder.
+
+      Orville Wright makes the first flight:
+      12 seconds, 120 feet. By the fourth
+      flight that day, Wilbur flies for
+      59 seconds. The age of aviation is born.
+
+      ![First Flight](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/First_flight2.jpg/400px-First_flight2.jpg)
+    parents: [wing_warping, custom_engine]

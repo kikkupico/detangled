@@ -139,11 +139,13 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
         viewBox={`0 0 ${width} ${height}`}
       >
         {edges.map((e, i) => {
-          const midY = (e.fromPos.y + e.toPos.y) / 2;
+          const fromY = e.fromPos.y + 20;
+          const toY = e.toPos.y - 20;
+          const midY = (fromY + toY) / 2;
           return (
             <path
               key={i}
-              d={`M ${e.fromPos.x} ${e.fromPos.y + 20} C ${e.fromPos.x} ${midY}, ${e.toPos.x} ${midY}, ${e.toPos.x} ${e.toPos.y - 20}`}
+              d={`M ${e.fromPos.x} ${fromY} C ${e.fromPos.x} ${midY}, ${e.toPos.x} ${midY}, ${e.toPos.x} ${toY}`}
               className="gv-edge"
             />
           );
@@ -183,6 +185,16 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
             </g>
           );
         })}
+        {edges.map((e, i) => (
+          <g key={`stubs-${i}`}>
+            {/* outgoing stub: from dot inside node down to border */}
+            <line x1={e.fromPos.x} y1={e.fromPos.y + 13} x2={e.fromPos.x} y2={e.fromPos.y + 21} className="gv-edge-stub" />
+            <circle cx={e.fromPos.x} cy={e.fromPos.y + 13} r={1.5} className="gv-edge-dot" />
+            {/* incoming stub: from border up to dot inside node */}
+            <line x1={e.toPos.x} y1={e.toPos.y - 21} x2={e.toPos.x} y2={e.toPos.y - 13} className="gv-edge-stub" />
+            <circle cx={e.toPos.x} cy={e.toPos.y - 13} r={1.5} className="gv-edge-dot" />
+          </g>
+        ))}
       </svg>
     </div>
   );

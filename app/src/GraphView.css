@@ -24,6 +24,16 @@
   cursor: pointer;
 }
 
+.gv-edge-stub {
+  stroke: #ccc;
+  stroke-width: 1.5;
+}
+
+.gv-edge-dot {
+  fill: #ccc;
+  stroke: none;
+}
+
 .gv-node circle {
   fill: #fff;
   stroke: #1a1a1a;
@@ -37,9 +47,9 @@
 }
 
 .gv-node.current circle {
-  fill: #1a1a1a;
+  fill: #fff;
   stroke: #1a1a1a;
-  stroke-width: 3;
+  stroke-width: 4;
 }
 
 .gv-label-bg {
@@ -65,7 +75,7 @@
 }
 
 .gv-node.current .gv-node-title {
-  fill: #1a1a1a;
+  fill: #555;
   font-weight: 600;
 }
 
@@ -86,7 +96,7 @@
 }
 
 .gv-node.current .gv-node-depth {
-  fill: #fff;
+  fill: #1a1a1a;
 }
 
 .gv-node-emoji {
