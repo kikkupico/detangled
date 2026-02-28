@@ -13,7 +13,6 @@ export default function NodePane({ node }: Props) {
       <div className="node-content">
         <Markdown>{node.content}</Markdown>
       </div>
-      <div className="node-id">{node.id}</div>
     </div>
   );
 }

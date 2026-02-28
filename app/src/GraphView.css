@@ -3,6 +3,7 @@
   overflow: hidden;
   position: relative;
   touch-action: none;
+  background: #fafafa;
 }
 
 .graph-view-svg {
@@ -14,8 +15,9 @@
 
 .gv-edge {
   fill: none;
-  stroke: #000;
-  stroke-width: 1;
+  stroke: #ccc;
+  stroke-width: 1.5;
+  transition: stroke 0.15s;
 }
 
 .gv-node {
@@ -24,29 +26,33 @@
 
 .gv-node circle {
   fill: #fff;
-  stroke: #000;
+  stroke: #1a1a1a;
   stroke-width: 2;
-  transition: fill 0.15s;
+  transition: fill 0.15s, stroke-width 0.15s;
 }
 
 .gv-node:hover circle {
-  fill: #ddd;
+  fill: #f0f0f0;
+  stroke-width: 2.5;
 }
 
 .gv-node.current circle {
-  fill: #000;
-  stroke: #000;
+  fill: #1a1a1a;
+  stroke: #1a1a1a;
   stroke-width: 3;
 }
 
 .gv-label-bg {
   fill: #fff;
   stroke: none;
+  opacity: 0.9;
 }
 
 .gv-node-title {
-  fill: #000;
+  fill: #555;
+  font-family: "DM Sans", system-ui, sans-serif;
   font-size: 11px;
+  font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
   transition: font-size 0.3s ease;
@@ -59,12 +65,13 @@
 }
 
 .gv-node.current .gv-node-title {
-  fill: #000;
+  fill: #1a1a1a;
   font-weight: 600;
 }
 
 .gv-node-depth {
-  fill: #000;
+  fill: #1a1a1a;
+  font-family: "DM Sans", system-ui, sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-anchor: middle;

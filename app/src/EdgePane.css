@@ -30,29 +30,35 @@
 
 .edge-line {
   fill: none;
-  stroke: #000;
+  stroke: #bbb;
   stroke-width: 1;
 }
 
 .edge-circle {
   fill: #fff;
-  stroke: #000;
-  stroke-width: 2.5;
-  transition: fill 0.15s, r 0.3s ease;
+  stroke: #1a1a1a;
+  stroke-width: 2;
+  transition: fill 0.15s, r 0.3s ease, stroke-width 0.15s;
 }
 
 @media (min-width: 768px) {
   .edge-circle {
-    stroke-width: 3;
+    stroke-width: 2.5;
   }
 }
 
 .edge-group:hover .edge-circle {
-  fill: #ddd;
+  fill: #f0f0f0;
+  stroke-width: 3;
+}
+
+.edge-group:hover .edge-line {
+  stroke: #1a1a1a;
 }
 
 .edge-label {
-  fill: #000;
+  fill: #1a1a1a;
+  font-family: "DM Sans", system-ui, sans-serif;
   font-size: 11px;
   text-anchor: start;
   pointer-events: none;
@@ -76,20 +82,25 @@
   transform: translateX(-50%);
   background: none;
   border: none;
-  color: #000;
-  font-size: 0.75rem;
+  color: #555;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
   cursor: pointer;
-  padding: 0 4px;
+  padding: 0 6px;
   white-space: nowrap;
+  transition: color 0.15s;
 }
 
 .edge-title-btn:hover {
-  opacity: 0.5;
+  color: #1a1a1a;
 }
 
 .edge-title-text {
-  fill: #000;
+  fill: #555;
+  font-family: "DM Sans", system-ui, sans-serif;
   font-size: 11px;
+  font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
 }

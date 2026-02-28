@@ -5,15 +5,16 @@
 }
 
 :root {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-  color: #000;
-  background-color: #ddd;
+  color: #1a1a1a;
+  background-color: #e8e8e8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
 }
 
 body {
@@ -24,4 +25,9 @@ body {
 
 #root {
   min-height: 100dvh;
+}
+
+::selection {
+  background: #1a1a1a;
+  color: #fff;
 }
