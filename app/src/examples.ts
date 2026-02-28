@@ -8,6 +8,7 @@ import firstFlight from "./examples/first-flight.yaml?raw";
 import birthOfInternet from "./examples/birth-of-internet.yaml?raw";
 import unravelingDna from "./examples/unraveling-dna.yaml?raw";
 import jackTheRipper from "./examples/jack-the-ripper.yaml?raw";
+import worldWar2 from "./examples/world-war-2.yaml?raw";
 
 export const examples: { name: string; yaml: string }[] = [
   { name: "CS: The LeetCode Skill Tree", yaml: leetcodeSkillTree },
@@ -20,4 +21,5 @@ export const examples: { name: string; yaml: string }[] = [
   { name: "History: Birth of the Internet", yaml: birthOfInternet },
   { name: "Science: Unraveling DNA", yaml: unravelingDna },
   { name: "Mystery: Jack the Ripper", yaml: jackTheRipper },
+  { name: "History: World War II", yaml: worldWar2 },
 ];

@@ -1,0 +1,679 @@
+meta:
+  title: "World War II (1939-1945)"
+  description: |
+    A comprehensive timeline of the deadliest conflict in human history. 
+    Tracing the roots from the end of WWI, the rise of totalitarian regimes, 
+    major theaters of war, to the dawn of the nuclear age and the Cold War.
+  start: [treaty_versailles, great_depression, japanese_militarism]
+
+nodes:
+  treaty_versailles:
+    title: "Treaty of Versailles (1919)"
+    short_title: "Versailles"
+    emoji: "📜"
+    content: |
+      ![Treaty of Versailles](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Treaty_of_Versailles%2C_English_version.jpg/400px-Treaty_of_Versailles%2C_English_version.jpg)
+
+      The peace treaty that ended World War I. It imposed heavy reparations, territorial losses, and the "War Guilt Clause" on Germany, creating deep resentment.
+    parents: []
+
+  weimar_republic:
+    title: "The Weimar Republic (1919-1933)"
+    short_title: "Weimar"
+    emoji: "🇩🇪"
+    content: "Germany's democratic government established after WWI. Burdened by Versailles reparations and political extremism, it struggled to maintain stability."
+    parents: [treaty_versailles]
+
+  great_depression:
+    title: "The Great Depression (1929)"
+    short_title: "Depression"
+    emoji: "📉"
+    content: |
+      ![Migrant Mother](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Lange-MigrantMother02.jpg/400px-Lange-MigrantMother02.jpg)
+      
+      A severe worldwide economic depression. The financial turmoil destabilized governments globally and made extremist ideologies more appealing.
+    parents: []
+
+  rise_of_mussolini:
+    title: "Rise of Benito Mussolini"
+    short_title: "Mussolini"
+    emoji: "🦅"
+    content: |
+      ![Benito Mussolini](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Benito_Mussolini_Color.jpg/400px-Benito_Mussolini_Color.jpg)
+      
+      Mussolini founded the National Fascist Party in Italy, promising to restore Roman glory and exploiting post-WWI unrest.
+    parents: [treaty_versailles]
+
+  march_on_rome:
+    title: "March on Rome (1922)"
+    short_title: "Rome"
+    emoji: "👞"
+    content: "Fascist Blackshirts marched on Rome, intimidating King Victor Emmanuel III into appointing Mussolini as Prime Minister."
+    parents: [rise_of_mussolini]
+
+  rise_of_hitler:
+    title: "Rise of Adolf Hitler"
+    short_title: "Hitler"
+    emoji: "卐"
+    content: "An Austrian-born veteran of WWI who transformed the German Workers' Party into the Nazi Party."
+    parents: [weimar_republic]
+
+  beer_hall_putsch:
+    title: "Beer Hall Putsch (1923)"
+    short_title: "Putsch"
+    emoji: "🍺"
+    content: "Hitler's failed attempt to seize power in Munich. While in jail, he dictated 'Mein Kampf'."
+    parents: [rise_of_hitler]
+
+  hitler_chancellor:
+    title: "Hitler Becomes Chancellor (1933)"
+    short_title: "Chancellor"
+    emoji: "👔"
+    content: |
+      ![Adolf Hitler](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/400px-Hitler_portrait_crop.jpg)
+      
+      Amidst economic crisis, the Nazi Party grew. Conservative elites convinced President Hindenburg to appoint Hitler.
+    parents: [beer_hall_putsch, great_depression]
+
+  reichstag_fire:
+    title: "Reichstag Fire (1933)"
+    short_title: "Reichstag"
+    emoji: "🔥"
+    content: "The German parliament building was set ablaze. Hitler blamed communists to suspend civil liberties."
+    parents: [hitler_chancellor]
+
+  enabling_act:
+    title: "The Enabling Act (1933)"
+    short_title: "Dictatorship"
+    emoji: "📜"
+    content: "Formalized Hitler's absolute dictatorial power, allowing laws to bypass the Reichstag."
+    parents: [reichstag_fire]
+
+  night_of_long_knives:
+    title: "Night of the Long Knives (1934)"
+    short_title: "Purge"
+    emoji: "🗡️"
+    content: "Hitler purged the SA (paramilitary) leadership to consolidate power and win the army's support."
+    parents: [enabling_act]
+
+  nuremberg_laws:
+    title: "Nuremberg Laws (1935)"
+    short_title: "Racist Laws"
+    emoji: "⚖️"
+    content: "Antisemitic laws enacted in Nazi Germany, stripping Jews of citizenship and forbidding intermarriage."
+    parents: [enabling_act]
+
+  kristallnacht:
+    title: "Kristallnacht (1938)"
+    short_title: "Broken Glass"
+    emoji: "🪟"
+    content: "A violent pogrom against Jews across Germany, resulting in destroyed businesses, burned synagogues, and mass arrests."
+    parents: [nuremberg_laws]
+
+  remilitarization_rhineland:
+    title: "Remilitarization of the Rhineland (1936)"
+    short_title: "Rhineland"
+    emoji: "🪖"
+    content: "Violating the Treaty of Versailles, Hitler ordered German troops into the demilitarized Rhineland."
+    parents: [enabling_act]
+
+  spanish_civil_war:
+    title: "Spanish Civil War (1936-1939)"
+    short_title: "Spain"
+    emoji: "🇪🇸"
+    content: |
+      ![Guernica Ruins](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ruins_of_Guernica_%281937%29.jpg/400px-Ruins_of_Guernica_%281937%29.jpg)
+      
+      A proxy war where Nazi Germany and Fascist Italy supported Franco's Nationalists.
+    parents: [march_on_rome, remilitarization_rhineland]
+
+  japanese_militarism:
+    title: "Rise of Japanese Militarism"
+    short_title: "Japan"
+    emoji: "🇯🇵"
+    content: |
+      ![Japanese troops in Manchuria](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Japanese_troops_entering_Mukden.jpg/400px-Japanese_troops_entering_Mukden.jpg)
+      
+      Military leaders pushed for imperial expansion to secure raw materials and 'living space' in Asia.
+    parents: [great_depression]
+
+  invasion_of_manchuria:
+    title: "Invasion of Manchuria (1931)"
+    short_title: "Manchuria"
+    emoji: "🗺️"
+    content: "Japan invaded Manchuria, establishing the puppet state of Manchukuo. The League of Nations failed to act."
+    parents: [japanese_militarism]
+
+  second_sino_japanese_war:
+    title: "Second Sino-Japanese War (1937)"
+    short_title: "Sino-Japanese"
+    emoji: "⚔️"
+    content: "Full-scale war between China and Japan, becoming a major Asian theater of WWII."
+    parents: [invasion_of_manchuria]
+
+  nanjing_massacre:
+    title: "Nanjing Massacre (1937)"
+    short_title: "Nanjing"
+    emoji: "🩸"
+    content: "Mass murder and rape committed by Imperial Japanese troops against the residents of Nanjing."
+    parents: [second_sino_japanese_war]
+
+  anschluss:
+    title: "Anschluss (1938)"
+    short_title: "Anschluss"
+    emoji: "🇦🇹"
+    content: "The annexation of Austria into Nazi Germany, met with appeasement from the international community."
+    parents: [remilitarization_rhineland]
+
+  munich_agreement:
+    title: "Munich Agreement (1938)"
+    short_title: "Munich"
+    emoji: "🤝"
+    content: "Britain and France let Germany annex the Sudetenland in exchange for a promise of peace."
+    parents: [anschluss]
+
+  invasion_of_czechoslovakia:
+    title: "Invasion of Czechoslovakia (1939)"
+    short_title: "Czech Fall"
+    emoji: "🇨🇿"
+    content: "Hitler violated the Munich Agreement by occupying the rest of Czechoslovakia."
+    parents: [munich_agreement]
+
+  molotov_ribbentrop_pact:
+    title: "Molotov-Ribbentrop Pact (1939)"
+    short_title: "Nazi-Soviet Pact"
+    emoji: "📜"
+    content: "A non-aggression pact between Germany and the USSR, secretly dividing Eastern Europe."
+    parents: [invasion_of_czechoslovakia]
+
+  invasion_of_poland:
+    title: "Invasion of Poland (1939)"
+    short_title: "Poland"
+    emoji: "🇵🇱"
+    content: |
+      ![German forces border barrier](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Polish_border_barrier_1939.jpg/400px-Polish_border_barrier_1939.jpg)
+      
+      September 1, 1939: Germany invaded Poland using Blitzkrieg tactics. The official start of WWII.
+    parents: [molotov_ribbentrop_pact]
+
+  uk_france_declare_war:
+    title: "UK and France Declare War"
+    short_title: "War Declared"
+    emoji: "🇬🇧"
+    content: "Ending appeasement, Britain and France declared war on Germany on September 3, 1939."
+    parents: [invasion_of_poland]
+
+  winter_war:
+    title: "The Winter War (1939-1940)"
+    short_title: "Winter War"
+    emoji: "🇫🇮"
+    content: "The USSR invaded Finland. The fierce Finnish resistance exposed Red Army weaknesses."
+    parents: [molotov_ribbentrop_pact]
+
+  phoney_war:
+    title: "The Phoney War (1939-1940)"
+    short_title: "Phoney War"
+    emoji: "⏳"
+    content: "An eight-month period with little major ground fighting on the Western Front."
+    parents: [uk_france_declare_war]
+
+  invasion_denmark_norway:
+    title: "Invasion of Denmark & Norway"
+    short_title: "Scandinavia"
+    emoji: "🇩🇰"
+    content: "Germany invaded to secure iron ore routes and naval bases."
+    parents: [phoney_war]
+
+  maginot_line:
+    title: "The Maginot Line"
+    short_title: "Maginot"
+    emoji: "🧱"
+    content: "A massive line of concrete fortifications built by France. Germany simply bypassed it through the Ardennes."
+    parents: [phoney_war]
+
+  invasion_france_low_countries:
+    title: "Invasion of France & Low Countries"
+    short_title: "Fall Gelb"
+    emoji: "🇫🇷"
+    content: "May 1940: Germany launched a Blitzkrieg through the Ardennes, catching Allied forces off guard."
+    parents: [maginot_line]
+
+  dunkirk_evacuation:
+    title: "Evacuation of Dunkirk"
+    short_title: "Dunkirk"
+    emoji: "🚢"
+    content: "Operation Dynamo rescued over 330,000 trapped Allied soldiers from the beaches of Dunkirk."
+    parents: [invasion_france_low_countries]
+
+  fall_of_france:
+    title: "Fall of France (1940)"
+    short_title: "France Falls"
+    emoji: "🏳️"
+    content: |
+      ![Hitler in Paris](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Adolf_Hitler_in_Paris_1940.jpg/400px-Adolf_Hitler_in_Paris_1940.jpg)
+      
+      France surrendered on June 22, 1940, leaving Britain alone against Nazi Germany.
+    parents: [dunkirk_evacuation]
+
+  vichy_france:
+    title: "Vichy France"
+    short_title: "Vichy"
+    emoji: "🤝"
+    content: "A collaborationist French state established under Marshal Pétain."
+    parents: [fall_of_france]
+
+  battle_of_britain:
+    title: "Battle of Britain (1940)"
+    short_title: "Britain"
+    emoji: "🛩️"
+    content: "The RAF defended the UK against the Luftwaffe. The first major campaign fought entirely by air."
+    parents: [fall_of_france]
+
+  the_blitz:
+    title: "The Blitz"
+    short_title: "Blitz"
+    emoji: "💥"
+    content: "A German bombing campaign against the UK aiming to break civilian morale."
+    parents: [battle_of_britain]
+
+  enigma_code:
+    title: "Cracking the Enigma"
+    short_title: "Enigma"
+    emoji: "📠"
+    content: "Allied codebreakers at Bletchley Park, notably Alan Turing, cracked German ciphers, providing vital intelligence."
+    parents: [battle_of_britain]
+
+  tripartite_pact:
+    title: "Tripartite Pact (1940)"
+    short_title: "Axis Powers"
+    emoji: "🤝"
+    content: "Germany, Italy, and Japan formed the Axis Powers."
+    parents: [the_blitz, second_sino_japanese_war]
+
+  north_african_campaign:
+    title: "North African Campaign"
+    short_title: "North Africa"
+    emoji: "🏜️"
+    content: "Battles in the desert between Allied forces and Rommel's Afrika Korps."
+    parents: [fall_of_france, tripartite_pact]
+
+  invasion_balkans:
+    title: "Invasion of the Balkans (1941)"
+    short_title: "Balkans"
+    emoji: "🇬🇷"
+    content: "Germany invaded Yugoslavia and Greece to secure its southern flank before attacking the USSR."
+    parents: [tripartite_pact]
+
+  operation_barbarossa:
+    title: "Operation Barbarossa (1941)"
+    short_title: "Barbarossa"
+    emoji: "⚔️"
+    content: "June 1941: The massive German invasion of the Soviet Union, breaking the non-aggression pact."
+    parents: [invasion_balkans, molotov_ribbentrop_pact]
+
+  battle_of_kiev:
+    title: "Battle of Kiev (1941)"
+    short_title: "Kiev"
+    emoji: "🇺🇦"
+    content: "A massive encirclement of Soviet troops, resulting in over 600,000 casualties and POWs."
+    parents: [operation_barbarossa]
+
+  siege_of_leningrad:
+    title: "Siege of Leningrad"
+    short_title: "Leningrad"
+    emoji: "❄️"
+    content: "An 872-day blockade of the city. Over a million civilians died of starvation and bombardment."
+    parents: [operation_barbarossa]
+
+  battle_of_moscow:
+    title: "Battle of Moscow (1941-1942)"
+    short_title: "Moscow"
+    emoji: "🏰"
+    content: |
+      ![Soviet troops near Moscow](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Soviet_offensive_Moscow_December_1941.jpg/400px-Soviet_offensive_Moscow_December_1941.jpg)
+      
+      The Soviet defense halted the German advance, marking Hitler's first major strategic defeat.
+    parents: [battle_of_kiev]
+
+  holocaust_begins:
+    title: "The Holocaust"
+    short_title: "Holocaust"
+    emoji: "✡️"
+    content: "The systematic, industrial-scale genocide of 6 million Jews and millions of others by the Nazi regime."
+    parents: [operation_barbarossa, kristallnacht]
+
+  warsaw_ghetto_uprising:
+    title: "Warsaw Ghetto Uprising (1943)"
+    short_title: "Ghetto Uprising"
+    emoji: "🔥"
+    content: "Jewish resistance in the Warsaw Ghetto fought against deportation to extermination camps."
+    parents: [holocaust_begins]
+
+  lend_lease:
+    title: "Lend-Lease Act"
+    short_title: "Lend-Lease"
+    emoji: "📦"
+    content: "The US supplied food, oil, and materiel to the Allies before and during its formal entry into the war."
+    parents: [the_blitz]
+
+  pearl_harbor:
+    title: "Attack on Pearl Harbor (1941)"
+    short_title: "Pearl Harbor"
+    emoji: "💣"
+    content: |
+      ![USS Shaw exploding](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/USS_Shaw_explodes_in_Pearl_Harbor.jpg/400px-USS_Shaw_explodes_in_Pearl_Harbor.jpg)
+      
+      A surprise military strike by Japan on the US naval base in Hawaii.
+    parents: [japanese_militarism, lend_lease]
+
+  us_enters_war:
+    title: "United States Enters WWII"
+    short_title: "US Entry"
+    emoji: "🇺🇸"
+    content: "Following Pearl Harbor, the US declared war on Japan. Germany then declared war on the US."
+    parents: [pearl_harbor]
+
+  fall_of_philippines:
+    title: "Fall of the Philippines"
+    short_title: "Philippines"
+    emoji: "🇵🇭"
+    content: "Japan rapidly captured the US-held Philippines."
+    parents: [pearl_harbor]
+
+  bataan_death_march:
+    title: "Bataan Death March"
+    short_title: "Bataan"
+    emoji: "💀"
+    content: "The brutal forcible transfer of US and Filipino POWs by the Japanese Army."
+    parents: [fall_of_philippines]
+
+  doolittle_raid:
+    title: "Doolittle Raid (1942)"
+    short_title: "Doolittle"
+    emoji: "🛩️"
+    content: "The first US air raid to strike the Japanese home islands, providing a major morale boost."
+    parents: [us_enters_war]
+
+  battle_of_coral_sea:
+    title: "Battle of the Coral Sea (1942)"
+    short_title: "Coral Sea"
+    emoji: "🌊"
+    content: "The first naval battle where aircraft carriers engaged each other without ships directly firing."
+    parents: [us_enters_war]
+
+  battle_of_midway:
+    title: "Battle of Midway (1942)"
+    short_title: "Midway"
+    emoji: "🎯"
+    content: "US codebreakers intercepted Japanese plans, allowing the US Navy to sink four aircraft carriers. The turning point of the Pacific War."
+    parents: [battle_of_coral_sea, doolittle_raid]
+
+  battle_of_guadalcanal:
+    title: "Guadalcanal Campaign (1942-43)"
+    short_title: "Guadalcanal"
+    emoji: "🌴"
+    content: "Six months of bitter jungle warfare marking the US transition to the strategic offensive in the Pacific."
+    parents: [battle_of_midway]
+
+  battle_of_stalingrad:
+    title: "Battle of Stalingrad (1942-43)"
+    short_title: "Stalingrad"
+    emoji: "🏭"
+    content: |
+      ![Stalingrad ruins](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/RIA_Novosti_archive_image_124118_S._Strunnikov.jpg/400px-RIA_Novosti_archive_image_124118_S._Strunnikov.jpg)
+      
+      The bloodiest battle in warfare history. The destruction of the German 6th Army was the turning point on the Eastern Front.
+    parents: [battle_of_moscow]
+
+  battle_of_el_alamein:
+    title: "Battle of El Alamein (1942)"
+    short_title: "El Alamein"
+    emoji: "🐪"
+    content: "British forces decisively defeated Rommel in Egypt, a turning point in North Africa."
+    parents: [north_african_campaign]
+
+  operation_torch:
+    title: "Operation Torch (1942)"
+    short_title: "Torch"
+    emoji: "🔥"
+    content: "The Anglo-American invasion of French North Africa to clear Axis forces."
+    parents: [battle_of_el_alamein, us_enters_war]
+
+  casablanca_conference:
+    title: "Casablanca Conference (1943)"
+    short_title: "Casablanca"
+    emoji: "🤝"
+    content: "Allies agreed to demand 'unconditional surrender' from the Axis powers."
+    parents: [operation_torch]
+
+  invasion_of_sicily:
+    title: "Invasion of Sicily (1943)"
+    short_title: "Sicily"
+    emoji: "🍋"
+    content: "Initiated the Italian Campaign, taking Sicily from Axis control."
+    parents: [operation_torch]
+
+  fall_of_mussolini:
+    title: "Fall of Mussolini"
+    short_title: "Mussolini Falls"
+    emoji: "📉"
+    content: "Mussolini was deposed and Italy signed an armistice with the Allies."
+    parents: [invasion_of_sicily]
+
+  battle_of_kursk:
+    title: "Battle of Kursk (1943)"
+    short_title: "Kursk"
+    emoji: "🚜"
+    content: "The largest tank battle in history. The Soviets halted the German offensive and seized the initiative."
+    parents: [battle_of_stalingrad]
+
+  tehran_conference:
+    title: "Tehran Conference (1943)"
+    short_title: "Tehran"
+    emoji: "🇮🇷"
+    content: "The 'Big Three' coordinated strategy, committing to open a second front in Western Europe."
+    parents: [casablanca_conference, battle_of_kursk]
+
+  battle_of_the_atlantic:
+    title: "Battle of the Atlantic"
+    short_title: "Atlantic"
+    emoji: "⛴️"
+    content: "The long fight to keep supply lines to Britain open against German U-boats."
+    parents: [us_enters_war, enigma_code]
+
+  strategic_bombing:
+    title: "Strategic Bombing Campaign"
+    short_title: "Bombing"
+    emoji: "✈️"
+    content: "Massive Allied air raids on German cities and industry to destroy the war economy."
+    parents: [battle_of_the_atlantic]
+
+  d_day:
+    title: "D-Day: Invasion of Normandy (1944)"
+    short_title: "D-Day"
+    emoji: "🏖️"
+    content: |
+      ![Into the Jaws of Death](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Into_the_Jaws_of_Death_23-0455M_edit.jpg/400px-Into_the_Jaws_of_Death_23-0455M_edit.jpg)
+      
+      June 6, 1944: Operation Overlord. The largest amphibious invasion in history opened the Western Front.
+    parents: [tehran_conference, battle_of_the_atlantic]
+
+  operation_valkyrie:
+    title: "July 20 Plot (1944)"
+    short_title: "Valkyrie"
+    emoji: "💣"
+    content: "A failed assassination attempt on Hitler by German military officers."
+    parents: [d_day, battle_of_kursk]
+
+  operation_bagration:
+    title: "Operation Bagration (1944)"
+    short_title: "Bagration"
+    emoji: "🗺️"
+    content: "A massive Soviet offensive that annihilated the German Army Group Centre."
+    parents: [battle_of_kursk, d_day]
+
+  warsaw_uprising:
+    title: "Warsaw Uprising (1944)"
+    short_title: "Warsaw"
+    emoji: "🇵🇱"
+    content: "Polish resistance fought to liberate Warsaw. Soviet forces halted, allowing the Germans to crush it."
+    parents: [operation_bagration]
+
+  liberation_of_paris:
+    title: "Liberation of Paris (1944)"
+    short_title: "Paris Freed"
+    emoji: "🇫🇷"
+    content: "Allied forces and the French Resistance liberated Paris."
+    parents: [d_day]
+
+  operation_market_garden:
+    title: "Operation Market Garden (1944)"
+    short_title: "Market Garden"
+    emoji: "🪂"
+    content: "An ambitious but ultimately failed Allied airborne operation in the Netherlands."
+    parents: [liberation_of_paris]
+
+  battle_of_the_bulge:
+    title: "Battle of the Bulge (1944-45)"
+    short_title: "The Bulge"
+    emoji: "🌲"
+    content: "Hitler's last major offensive on the Western Front, catching the Allies by surprise but failing."
+    parents: [operation_market_garden]
+
+  yalta_conference:
+    title: "Yalta Conference (1945)"
+    short_title: "Yalta"
+    emoji: "🤝"
+    content: "The Big Three discussed postwar reorganization, laying groundwork for the Cold War."
+    parents: [battle_of_the_bulge, operation_bagration]
+
+  firebombing_tokyo:
+    title: "Firebombing of Tokyo (1945)"
+    short_title: "Tokyo Bombing"
+    emoji: "🔥"
+    content: "Devastating US B-29 incendiary raids on Japanese cities, causing massive casualties."
+    parents: [battle_of_guadalcanal]
+
+  battle_of_iwo_jima:
+    title: "Battle of Iwo Jima (1945)"
+    short_title: "Iwo Jima"
+    emoji: "🌋"
+    content: |
+      ![Raising the Flag](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/WW2_Iwo_Jima_flag_raising.jpg/400px-WW2_Iwo_Jima_flag_raising.jpg)
+      
+      Fierce battle to capture the island for use by B-29 bombers.
+    parents: [firebombing_tokyo]
+
+  battle_of_okinawa:
+    title: "Battle of Okinawa (1945)"
+    short_title: "Okinawa"
+    emoji: "🏝️"
+    content: "The largest amphibious assault in the Pacific Theater, with unprecedented casualties."
+    parents: [battle_of_iwo_jima]
+
+  kamikaze:
+    title: "Kamikaze Attacks"
+    short_title: "Kamikaze"
+    emoji: "🛩️"
+    content: "Desperate Japanese suicide plane attacks against Allied naval vessels."
+    parents: [battle_of_okinawa]
+
+  battle_of_berlin:
+    title: "Battle of Berlin (1945)"
+    short_title: "Berlin"
+    emoji: "🚩"
+    content: |
+      ![Raising flag over Reichstag](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Reichstag_flag_original.jpg/400px-Reichstag_flag_original.jpg)
+      
+      The Red Army captured the German capital in vicious urban combat.
+    parents: [yalta_conference]
+
+  hitler_suicide:
+    title: "Death of Adolf Hitler"
+    short_title: "Hitler's Death"
+    emoji: "💀"
+    content: "Hitler committed suicide in the Führerbunker as Soviet troops closed in."
+    parents: [battle_of_berlin]
+
+  ve_day:
+    title: "Victory in Europe Day (1945)"
+    short_title: "V-E Day"
+    emoji: "✌️"
+    content: "May 8, 1945: The formal acceptance of Nazi Germany's unconditional surrender."
+    parents: [hitler_suicide]
+
+  potsdam_conference:
+    title: "Potsdam Conference (1945)"
+    short_title: "Potsdam"
+    emoji: "🇩🇪"
+    content: "Finalized the division of Germany and issued an ultimatum to Japan."
+    parents: [ve_day]
+
+  manhattan_project:
+    title: "The Manhattan Project"
+    short_title: "Manhattan"
+    emoji: "🧪"
+    content: "A secret US project that produced the first nuclear weapons."
+    parents: [us_enters_war]
+
+  atomic_bombings:
+    title: "Atomic Bombings (1945)"
+    short_title: "Atomic Bombs"
+    emoji: "🍄"
+    content: |
+      ![Atomic cloud over Nagasaki](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Atomic_bombing_of_Japan.jpg/400px-Atomic_bombing_of_Japan.jpg)
+      
+      The US dropped atomic bombs on Hiroshima and Nagasaki, causing unprecedented destruction.
+    parents: [manhattan_project, potsdam_conference, kamikaze]
+
+  soviet_invasion_manchuria:
+    title: "Soviet Invasion of Manchuria"
+    short_title: "Manchuria"
+    emoji: "🐻"
+    content: "The USSR declared war on Japan and rapidly overwhelmed forces in Manchuria."
+    parents: [potsdam_conference]
+
+  vj_day:
+    title: "Victory over Japan Day (1945)"
+    short_title: "V-J Day"
+    emoji: "🎊"
+    content: |
+      ![V-J Day in Times Square](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/V-J_Day_in_Times_Square_%28crop%29.jpg/400px-V-J_Day_in_Times_Square_%28crop%29.jpg)
+      
+      September 2, 1945: Japan formally surrendered, ending World War II.
+    parents: [atomic_bombings, soviet_invasion_manchuria]
+
+  united_nations_formed:
+    title: "United Nations Formed (1945)"
+    short_title: "UN"
+    emoji: "🇺🇳"
+    content: "Created to replace the League of Nations and maintain international peace."
+    parents: [vj_day]
+
+  nuremberg_trials:
+    title: "Nuremberg Trials"
+    short_title: "Nuremberg"
+    emoji: "⚖️"
+    content: "Military tribunals to prosecute prominent leaders of Nazi Germany."
+    parents: [ve_day, united_nations_formed]
+
+  division_of_germany:
+    title: "Division of Germany"
+    short_title: "Divided Germany"
+    emoji: "🧱"
+    content: "Germany and Berlin were divided into Allied occupation zones, splitting the country."
+    parents: [potsdam_conference]
+
+  marshall_plan:
+    title: "Marshall Plan"
+    short_title: "Marshall Plan"
+    emoji: "💵"
+    content: "US initiative to provide massive economic aid to rebuild Western European economies."
+    parents: [division_of_germany]
+
+  cold_war_begins:
+    title: "The Cold War Begins"
+    short_title: "Cold War"
+    emoji: "🧊"
+    content: "Tension between the US and USSR emerged, defining geopolitics for a half-century."
+    parents: [united_nations_formed, marshall_plan]
