@@ -1,0 +1,71 @@
+#+title: detangled
+
+* Prototype
+the prototype is a front end application that can take as input a yaml pasted in a text area box and shows it as an explorable graph. The graph is navigated in a unique way.
+** yaml format
+detangled yaml represents an array of node objects with optional parent references. eg
+#+begin_src yaml
+meta:
+  title: A Node graph
+  description: |
+    some desc
+nodes:
+ node1:
+   title: Node 1
+   short_title: node1
+   content: |
+    node 1 content...
+   parents: []
+  node2:
+    title: Node 2
+    short_title: node2
+    content: |
+      node 2 content
+    parents: [node1, node3]
+  node 3:
+    title: Node 3
+    short_title: node3
+    content: |
+      node 3 content
+#+end_src
+** Main UI
+*** DONE it resembles the rough diagram in  detangled-concept.png .
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE there's a menu button (with some kind of graph icon) that shows the entire top-down graph with the current node marked.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE graph view is the initial view
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE It is optimised for mobile screens and uses a fixed-width on larger screens to resemble the mobile view.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE There are three panes, a slim top pane, a large mid pane and a slim bottom pane
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE THe top pane shows the parents of the current node as circles and a curved edge connects the circles and the mid pane. the numbers of the circles represent the depth of that parent node.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE the bottom pane is similar but shows the outgoing nodes and edges ie. the nodes for which the current node is a parent. the numbers below the circle represent the 'height' of that node.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE the mid pane shows the title and the content of the current node
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE in the middle pane, a set of circle are overlaid, much like a carousel component. swiping left/right will help the user navigate the sibling nodes like a carousel.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE improve navigation in the details view
+CLOSED: [2026-02-28 Sat 11:00]
+**** [X] swiping or scrolling up/down should load the first child/parent
+**** [X] swiping left/right should load the previous/next sibling
+**** [X] keyboard arrow keys also supported
+*** DONE make the graph view occupy the whole content pane like it's a whole page. It shouldn't be a popup. It should look like a standalone page, that's zoomable and pannable.
+CLOSED: [2026-02-28 Sat 11:00]
+*** DONE black and white high-contrast theme
+CLOSED: [2026-02-28 Sat 11:15]
+** home ui
+*** DONE the home ui is shown when the app is opened. It has a textbox for pasting the yaml content to be visualised.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE there are also a few examples like a fictional bug RCA, a brief note on the discovery of the lightbulb, napolean's march etc.
+CLOSED: [2026-02-28 Sat 10:32]
+*** DONE logo added to home page
+CLOSED: [2026-02-28 Sat 11:20]
+
+** DONE UX improvs
+CLOSED: [2026-02-28 Sat]
+*** [X] Have a uniform 'header' pane at the top for both graph and details views. It should have a 'back' arrow on the left to take to the home page, a graph icon or a page icon on the right to switch between graph and details views. The title of the whole yaml should be in the middle.
+*** [X] In the graph view, give the text labels a background colour of white, so that they look legible even even placed over the edges.
+*** [X] For siblings in graph view, alternate label the placement between top and down so that each label gets more 'breathing' space.

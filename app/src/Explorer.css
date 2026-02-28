@@ -1,0 +1,104 @@
+.explorer-wrapper {
+  min-height: 100dvh;
+  background: #ddd;
+}
+
+.explorer {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+}
+
+/* Unified header bar */
+.header-bar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #000;
+  flex-shrink: 0;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+
+.header-btn:hover {
+  opacity: 0.5;
+}
+
+.header-icon-svg circle {
+  fill: #000;
+  stroke: none;
+}
+
+.header-icon-svg line {
+  stroke: #000;
+  stroke-width: 1.5;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mid pane wrapper */
+.mid-pane-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sibling carousel - overlaid inside mid pane */
+.sibling-carousel {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  z-index: 5;
+}
+
+.sibling-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.sibling-dot:hover {
+  background: #999;
+}
+
+.sibling-dot.active {
+  background: #000;
+}

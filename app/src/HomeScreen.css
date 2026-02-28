@@ -1,0 +1,102 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  justify-content: center;
+  background: #fff;
+}
+
+.home-logo {
+  width: 340px;
+  height: auto;
+  margin: 0 0 0.5rem;
+}
+
+.home-subtitle {
+  font-size: 0.85rem;
+  color: #000;
+  margin: 0 0 2rem;
+}
+
+.home-textarea {
+  width: 100%;
+  min-height: 180px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  color: #000;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.8rem;
+  padding: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.home-textarea:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.home-error {
+  color: #c0392b;
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0;
+}
+
+.home-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.home-btn:active {
+  transform: scale(0.97);
+}
+
+.home-btn.primary {
+  background: #000;
+  color: #fff;
+  margin-top: 1rem;
+  width: 100%;
+  font-weight: 500;
+}
+
+.home-btn.primary:hover {
+  background: #333;
+}
+
+.home-examples {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.home-examples-label {
+  font-size: 0.8rem;
+  color: #000;
+  margin: 0 0 0.25rem;
+}
+
+.home-btn.example {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+}
+
+.home-btn.example:hover {
+  background: #000;
+  color: #fff;
+}
