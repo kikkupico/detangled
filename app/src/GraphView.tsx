@@ -171,9 +171,15 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
               <text x={n.x} y={labelY} className="gv-node-title">
                 {gn.shortTitle}
               </text>
-              <text x={n.x} y={n.y + 5} className="gv-node-depth">
-                {gn.depth}
-              </text>
+              {gn.emoji ? (
+                <text x={n.x} y={n.y + 7} className="gv-node-emoji">
+                  {gn.emoji}
+                </text>
+              ) : (
+                <text x={n.x} y={n.y + 5} className="gv-node-depth">
+                  {gn.depth}
+                </text>
+              )}
             </g>
           );
         })}

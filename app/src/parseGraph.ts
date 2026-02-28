@@ -3,7 +3,7 @@ import type { Graph, GraphNode, GraphMeta } from "./types";
 
 interface RawYaml {
   meta?: { title?: string; description?: string; start?: string[] };
-  nodes?: Record<string, { title?: string; short_title?: string; content?: string; parents?: string[] }>;
+  nodes?: Record<string, { title?: string; short_title?: string; emoji?: string; content?: string; parents?: string[] }>;
 }
 
 export function parseGraph(yamlStr: string): Graph {
@@ -15,7 +15,7 @@ export function parseGraph(yamlStr: string): Graph {
 
   // Support both new format (meta + nodes) and legacy flat format
   let meta: GraphMeta;
-  let rawNodes: Record<string, { title?: string; short_title?: string; content?: string; parents?: string[] }>;
+  let rawNodes: Record<string, { title?: string; short_title?: string; emoji?: string; content?: string; parents?: string[] }>;
 
   if ("nodes" in raw && raw.nodes && typeof raw.nodes === "object") {
     const r = raw as RawYaml;
@@ -24,11 +24,11 @@ export function parseGraph(yamlStr: string): Graph {
       description: r.meta?.description ?? "",
       start: r.meta?.start ?? [],
     };
-    rawNodes = r.nodes as Record<string, { title?: string; short_title?: string; content?: string; parents?: string[] }>;
+    rawNodes = r.nodes as Record<string, { title?: string; short_title?: string; emoji?: string; content?: string; parents?: string[] }>;
   } else {
     // Legacy flat format - all top-level keys are nodes
     meta = { title: "Untitled Graph", description: "", start: [] };
-    rawNodes = raw as Record<string, { title?: string; short_title?: string; content?: string; parents?: string[] }>;
+    rawNodes = raw as Record<string, { title?: string; short_title?: string; emoji?: string; content?: string; parents?: string[] }>;
   }
 
   const nodes: Record<string, GraphNode> = {};
@@ -38,6 +38,7 @@ export function parseGraph(yamlStr: string): Graph {
       id,
       title: val?.title ?? id,
       shortTitle: val?.short_title ?? val?.title ?? id,
+      emoji: val?.emoji ?? "",
       content: val?.content ?? "",
       parents: val?.parents ?? [],
       children: [],

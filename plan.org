@@ -13,6 +13,7 @@ nodes:
  node1:
    title: Node 1
    short_title: node1
+   emoji: "\uD83D\uDCA1"
    content: |
     node 1 content...
    parents: []
@@ -69,3 +70,11 @@ CLOSED: [2026-02-28 Sat]
 *** [X] Have a uniform 'header' pane at the top for both graph and details views. It should have a 'back' arrow on the left to take to the home page, a graph icon or a page icon on the right to switch between graph and details views. The title of the whole yaml should be in the middle.
 *** [X] In the graph view, give the text labels a background colour of white, so that they look legible even even placed over the edges.
 *** [X] For siblings in graph view, alternate label the placement between top and down so that each label gets more 'breathing' space.
+** DONE emoji field for nodes
+CLOSED: [2026-02-28 Sat]
+*** [X] add 'emoji' field to node type — displayed inside circle in graph view, next to title in details view
+*** [X] update all examples with appropriate emojis
+** DONE markdown support
+CLOSED: [2026-02-28 Sat]
+*** [X] add support for markdown in the node description
+*** [X] improve all examples to leverage markdown support

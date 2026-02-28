@@ -11,8 +11,11 @@
   font-weight: 400;
   color: #000;
   margin: 0 0 1rem;
-  border-bottom: 1px solid #000;
   padding-bottom: 0.75rem;
+}
+
+.node-emoji {
+  margin-right: 0.4rem;
 }
 
 .node-content {
@@ -23,7 +26,67 @@
 }
 
 .node-content p {
-  margin: 0;
+  margin: 0 0 0.5rem;
+}
+
+.node-content p:last-child {
+  margin-bottom: 0;
+}
+
+.node-content h1,
+.node-content h2,
+.node-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.node-content ul,
+.node-content ol {
+  margin: 0.25rem 0;
+  padding-left: 1.25rem;
+}
+
+.node-content li {
+  margin: 0.15rem 0;
+}
+
+.node-content code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.82rem;
+  background: #f0f0f0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+.node-content pre {
+  background: #f0f0f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.node-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.node-content blockquote {
+  margin: 0.5rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #000;
+  color: #333;
+}
+
+.node-content strong {
+  font-weight: 600;
+}
+
+.node-content hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0.75rem 0;
 }
 
 .node-id {

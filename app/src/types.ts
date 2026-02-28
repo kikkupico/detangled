@@ -2,6 +2,7 @@ export interface GraphNode {
   id: string;
   title: string;
   shortTitle: string;
+  emoji: string;
   content: string;
   parents: string[];
   children: string[];
