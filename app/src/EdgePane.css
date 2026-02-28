@@ -1,6 +1,7 @@
 .edge-pane {
   position: relative;
   flex-shrink: 0;
+  background: #fafafa;
 }
 
 .edge-pane.empty {

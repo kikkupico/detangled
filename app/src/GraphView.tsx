@@ -17,7 +17,8 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
   const { layoutNodes, edges, width, height } = useMemo(() => {
     const byDepth: Record<number, string[]> = {};
     let maxDepth = 0;
-    for (const node of Object.values(graph.nodes)) {
+    const nodesArray = Object.values(graph.nodes).sort((a, b) => a.id.localeCompare(b.id));
+    for (const node of nodesArray) {
       const d = node.depth;
       if (!byDepth[d]) byDepth[d] = [];
       byDepth[d].push(node.id);
