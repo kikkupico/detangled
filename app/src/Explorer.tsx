@@ -30,11 +30,12 @@ export default function Explorer({ graph, onBack }: Props) {
     return Object.values(graph.nodes)
       .filter((n) => n.depth === node.depth)
       .sort((a, b) => a.id.localeCompare(b.id));
-  }, [graph, node.depth]);
+  }, [graph, node.depth, currentId]);
 
   // Swipe/drag handling using pointer events
   const pointerStart = useRef<{ x: number; y: number; t: number; id: number } | null>(null);
   const midRef = useRef<HTMLDivElement>(null);
+  const lastWheelNav = useRef(0);
 
   const navigate = useCallback(
     (direction: "left" | "right" | "up" | "down") => {
@@ -58,6 +59,8 @@ export default function Explorer({ graph, onBack }: Props) {
   );
 
   const onPointerDown = useCallback((e: React.PointerEvent) => {
+    // Disable click-and-drag swipe for mouse, keep for touch
+    if (e.pointerType === "mouse") return;
     if (e.button !== 0) return;
     if ((e.target as HTMLElement).closest("button, a")) return;
     pointerStart.current = { x: e.clientX, y: e.clientY, t: Date.now(), id: e.pointerId };
@@ -84,6 +87,52 @@ export default function Explorer({ graph, onBack }: Props) {
     },
     [navigate],
   );
+
+  // Trackpad navigation (two-finger scroll)
+  useEffect(() => {
+    const el = midRef.current;
+    if (!el || showGraph) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const { deltaX, deltaY } = e;
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+
+      // Always prevent default on significant horizontal movement to avoid browser back/forward
+      if (absX > absY && absX > 10) {
+        if (e.cancelable) e.preventDefault();
+      }
+
+      const now = Date.now();
+      if (now - lastWheelNav.current < 500) return;
+
+      const threshold = 20;
+
+      if (absX > absY && absX > threshold) {
+        navigate(deltaX > 0 ? "left" : "right");
+        lastWheelNav.current = now;
+      } else if (absY > absX && absY > threshold) {
+        const pane = el.querySelector(".node-pane");
+        if (pane) {
+          const isAtTop = pane.scrollTop <= 0;
+          const isAtBottom = Math.ceil(pane.scrollTop + pane.clientHeight) >= pane.scrollHeight;
+
+          if (deltaY < 0 && isAtTop) {
+            navigate("down");
+            lastWheelNav.current = now;
+            if (e.cancelable) e.preventDefault();
+          } else if (deltaY > 0 && isAtBottom) {
+            navigate("up");
+            lastWheelNav.current = now;
+            if (e.cancelable) e.preventDefault();
+          }
+        }
+      }
+    };
+
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, [navigate, showGraph]);
 
   // Keyboard navigation
   useEffect(() => {

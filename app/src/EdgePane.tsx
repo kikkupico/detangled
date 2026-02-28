@@ -16,8 +16,8 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
   const count = nodes.length;
   const svgHeight = 50;
   const circleR = 5;
-  const titleSpace = direction === "up" ? 12 : 0;
-  const circleCY = direction === "up" ? circleR + 6 + titleSpace : svgHeight - circleR - 6;
+  const titleSpace = 12;
+  const circleCY = direction === "up" ? circleR + 6 + titleSpace : svgHeight - circleR - 6 - titleSpace;
   const edgeEndY = direction === "up" ? svgHeight : 0;
   const r = 4; // corner radius
 
@@ -54,6 +54,8 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
             ].join(" ");
           }
 
+          const labelY = direction === "up" ? circleCY - circleR - 4 : circleCY + circleR + 12;
+
           return (
             <g
               key={node.id}
@@ -63,30 +65,13 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
             >
               <path d={path} className="edge-line" />
               <circle cx={cx} cy={circleCY} r={circleR} className="edge-circle" />
-              {direction === "up" && (
-                <text x={cx} y={circleCY - circleR - 4} className="edge-title-text">
-                  {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
-                </text>
-              )}
+              <text x={cx} y={labelY} className="edge-title-text">
+                {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
+              </text>
             </g>
           );
         })}
       </svg>
-      {direction === "down" && (
-        <div className="edge-titles">
-          {nodes.map((node, i) => (
-            <button
-              key={node.id}
-              className="edge-title-btn"
-              style={{ left: `${((i + 1) / (count + 1)) * 100}%` }}
-              onClick={() => onSelect(node.id)}
-              title={node.title}
-            >
-              {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

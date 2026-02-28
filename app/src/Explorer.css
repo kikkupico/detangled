@@ -107,6 +107,7 @@
   overflow: hidden;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
+  overscroll-behavior-x: none;
 }
 
 /* Sibling carousel - overlaid inside mid pane */
