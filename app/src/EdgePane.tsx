@@ -65,12 +65,9 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
               <circle cx={cx} cy={circleCY} r={circleR} className="edge-circle" />
               {direction === "up" && (
                 <text x={cx} y={circleCY - circleR - 4} className="edge-title-text">
-                  {node.shortTitle}
+                  {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
                 </text>
               )}
-              <text x={cx + circleR + 5} y={circleCY + 4} className="edge-label">
-                {labelFn(node)}
-              </text>
             </g>
           );
         })}
@@ -85,7 +82,7 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
               onClick={() => onSelect(node.id)}
               title={node.title}
             >
-              {node.shortTitle}
+              {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
             </button>
           ))}
         </div>
