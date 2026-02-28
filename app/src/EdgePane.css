@@ -2,10 +2,23 @@
   position: relative;
   flex-shrink: 0;
   background: #fafafa;
+  min-height: 50px;
+}
+
+@media (min-width: 768px) {
+  .edge-pane {
+    min-height: 80px;
+  }
 }
 
 .edge-pane.empty {
-  height: 12px;
+  min-height: 50px;
+}
+
+@media (min-width: 768px) {
+  .edge-pane.empty {
+    min-height: 80px;
+  }
 }
 
 .edge-pane.up {
