@@ -10,9 +10,20 @@ interface Props {
 
 export default function GraphView({ graph, currentId, onSelect }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
+  const [transform, setTransform] = useState<{ x: number; y: number; scale: number }>(() => {
+    const saved = sessionStorage.getItem(`gv-transform-${graph.meta.title}`);
+    return saved ? JSON.parse(saved) : { x: 0, y: 0, scale: 1 };
+  });
+  const [hasInitialized, setHasInitialized] = useState(false);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+
+  // Save transform to sessionStorage when it changes
+  useEffect(() => {
+    if (hasInitialized) {
+      sessionStorage.setItem(`gv-transform-${graph.meta.title}`, JSON.stringify(transform));
+    }
+  }, [transform, graph.meta.title, hasInitialized]);
 
   const { layoutNodes, edges, width, height } = useMemo(() => {
     const byDepth: Record<number, string[]> = {};
@@ -69,17 +80,27 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
     return { layoutNodes: layoutNodesArr, edges: edgesArr, width: w, height: h, nodeRadius };
   }, [graph]);
 
-  // Center graph initially
+  // Center graph initially if no saved transform
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || hasInitialized) return;
+    
+    const saved = sessionStorage.getItem(`gv-transform-${graph.meta.title}`);
+    if (saved) {
+      setHasInitialized(true);
+      return;
+    }
+
     const rect = containerRef.current.getBoundingClientRect();
+    if (rect.width === 0) return; // Wait for layout
+
     const scaleX = rect.width / width;
     const scaleY = rect.height / height;
     const scale = Math.min(scaleX, scaleY, 2.5) * 0.9;
     const x = (rect.width - width * scale) / 2;
     const y = (rect.height - height * scale) / 2;
     setTransform({ x, y, scale });
-  }, [width, height]);
+    setHasInitialized(true);
+  }, [width, height, graph.meta.title, hasInitialized]);
 
   // Mouse/touch pan
   const onPointerDown = useCallback((e: React.PointerEvent) => {
