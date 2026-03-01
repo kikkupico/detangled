@@ -261,7 +261,6 @@ export default function Explorer({ graph, onBack }: Props) {
                 sortedSiblings={sortedSiblings}
                 currentId={currentId}
                 onNavigate={navigate}
-                onSelect={setCurrentId}
               />
             </div>
 
