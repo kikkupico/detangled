@@ -19,6 +19,8 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
   const dragStart = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
   const activePointers = useRef<Map<number, { x: number; y: number }>>(new Map());
   const lastPinchState = useRef<{ dist: number; mx: number; my: number } | null>(null);
+  const lastTap = useRef<{ x: number; y: number; t: number } | null>(null);
+  const pointerDownPos = useRef<{ x: number; y: number } | null>(null);
 
   // Save transform to sessionStorage when it changes
   useEffect(() => {
@@ -109,14 +111,18 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
     activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     const onNode = !!(e.target as HTMLElement).closest(".gv-node");
 
-    if (activePointers.current.size === 1 && !onNode) {
-      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-      setDragging(true);
-      dragStart.current = { x: e.clientX, y: e.clientY, tx: transform.x, ty: transform.y };
+    if (activePointers.current.size === 1) {
+      if (e.pointerType === "touch") pointerDownPos.current = { x: e.clientX, y: e.clientY };
+      if (!onNode) {
+        (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+        setDragging(true);
+        dragStart.current = { x: e.clientX, y: e.clientY, tx: transform.x, ty: transform.y };
+      }
     } else if (activePointers.current.size === 2) {
       (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
       setDragging(false);
       lastPinchState.current = null;
+      pointerDownPos.current = null; // pinch — no tap
     }
   }, [transform.x, transform.y]);
 
@@ -160,6 +166,32 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
     }
     if (activePointers.current.size === 0) {
       setDragging(false);
+
+      // Double-tap to zoom (touch only)
+      if (e.pointerType === "touch" && pointerDownPos.current) {
+        const moved = Math.hypot(e.clientX - pointerDownPos.current.x, e.clientY - pointerDownPos.current.y);
+        pointerDownPos.current = null;
+
+        if (moved < 10) {
+          const now = Date.now();
+          const rect = containerRef.current!.getBoundingClientRect();
+          const mx = e.clientX - rect.left;
+          const my = e.clientY - rect.top;
+
+          if (lastTap.current && now - lastTap.current.t < 300) {
+            lastTap.current = null;
+            setTransform((t) => {
+              const newScale = Math.max(0.2, Math.min(3, t.scale * 1.75));
+              const ratio = newScale / t.scale;
+              return { scale: newScale, x: mx - (mx - t.x) * ratio, y: my - (my - t.y) * ratio };
+            });
+          } else {
+            lastTap.current = { x: mx, y: my, t: now };
+          }
+        } else {
+          lastTap.current = null;
+        }
+      }
     }
   }, []);
 
