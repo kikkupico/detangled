@@ -34,8 +34,6 @@ export default function Explorer({ graph, onBack }: Props) {
       .sort((a, b) => a.id.localeCompare(b.id));
   }, [graph, node.depth, currentId]);
 
-  // Swipe/drag handling using pointer events
-  const pointerStart = useRef<{ x: number; y: number; t: number; id: number } | null>(null);
   const midRef = useRef<HTMLDivElement>(null);
   const lastWheelNav = useRef(0);
 
@@ -60,35 +58,88 @@ export default function Explorer({ graph, onBack }: Props) {
     [currentId, sortedSiblings, graph],
   );
 
-  const onPointerDown = useCallback((e: React.PointerEvent) => {
-    // Disable click-and-drag swipe for mouse, keep for touch
-    if (e.pointerType === "mouse") return;
-    if (e.button !== 0) return;
-    if ((e.target as HTMLElement).closest("button, a")) return;
-    pointerStart.current = { x: e.clientX, y: e.clientY, t: Date.now(), id: e.pointerId };
-  }, []);
+  // Touch gesture handling for mobile (single-finger swipe)
+  useEffect(() => {
+    const el = midRef.current;
+    if (!el || showGraph) return;
 
-  const onPointerUp = useCallback(
-    (e: React.PointerEvent) => {
-      if (!pointerStart.current || pointerStart.current.id !== e.pointerId) return;
-      const dx = e.clientX - pointerStart.current.x;
-      const dy = e.clientY - pointerStart.current.y;
-      const dt = Date.now() - pointerStart.current.t;
-      pointerStart.current = null;
+    let touchStart: { x: number; y: number; t: number; atTop: boolean; atBottom: boolean } | null = null;
+    let gesture: "nav-x" | "nav-y" | "scroll" | null = null;
 
-      if (dt > 600) return;
+    function onTouchStart(e: TouchEvent) {
+      if (e.touches.length !== 1) return;
+      if ((e.target as HTMLElement).closest("button, a")) return;
+      const touch = e.touches[0];
+      const pane = el!.querySelector(".node-pane");
+      const atTop = !pane || pane.scrollTop <= 0;
+      const atBottom = !pane || Math.ceil(pane.scrollTop + pane.clientHeight) >= pane.scrollHeight;
+      touchStart = { x: touch.clientX, y: touch.clientY, t: Date.now(), atTop, atBottom };
+      gesture = null;
+    }
+
+    function onTouchMove(e: TouchEvent) {
+      if (!touchStart || e.touches.length !== 1) return;
+      const touch = e.touches[0];
+      const dx = touch.clientX - touchStart.x;
+      const dy = touch.clientY - touchStart.y;
       const absDx = Math.abs(dx);
       const absDy = Math.abs(dy);
+
+      // Classify gesture once we have enough movement to know direction
+      if (!gesture && (absDx > 8 || absDy > 8)) {
+        if (absDx > absDy) {
+          gesture = "nav-x";
+        } else if ((dy > 0 && touchStart.atTop) || (dy < 0 && touchStart.atBottom)) {
+          gesture = "nav-y";
+        } else {
+          gesture = "scroll";
+        }
+      }
+
+      // Block native scroll only when we've claimed the gesture for navigation
+      if (gesture === "nav-x" || gesture === "nav-y") {
+        e.preventDefault();
+      }
+    }
+
+    function onTouchEnd(e: TouchEvent) {
+      if (!touchStart || e.changedTouches.length === 0) return;
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - touchStart.x;
+      const dy = touch.clientY - touchStart.y;
+      const dt = Date.now() - touchStart.t;
+      const { atTop, atBottom } = touchStart;
+      const g = gesture;
+      touchStart = null;
+      gesture = null;
+
+      if (dt > 600) return;
       const threshold = 40;
 
-      if (absDx > absDy && absDx > threshold) {
+      if (g === "nav-x" && Math.abs(dx) > threshold) {
         navigate(dx < 0 ? "left" : "right");
-      } else if (absDy > absDx && absDy > threshold) {
-        navigate(dy < 0 ? "up" : "down");
+      } else if (g === "nav-y" && Math.abs(dy) > threshold) {
+        if (dy > 0 && atTop) navigate("down");
+        else if (dy < 0 && atBottom) navigate("up");
       }
-    },
-    [navigate],
-  );
+    }
+
+    function onTouchCancel() {
+      touchStart = null;
+      gesture = null;
+    }
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: false });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+    el.addEventListener("touchcancel", onTouchCancel, { passive: true });
+    return () => {
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchend", onTouchEnd);
+      el.removeEventListener("touchcancel", onTouchCancel);
+    };
+  }, [navigate, showGraph]);
 
   // Trackpad navigation (two-finger scroll)
   useEffect(() => {
@@ -180,8 +231,6 @@ export default function Explorer({ graph, onBack }: Props) {
             <div
               className="mid-pane-wrapper"
               ref={midRef}
-              onPointerDown={onPointerDown}
-              onPointerUp={onPointerUp}
             >
               <NodePane node={node} />
               <SiblingCarousel
