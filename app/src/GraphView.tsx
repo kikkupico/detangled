@@ -17,6 +17,8 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
   const [hasInitialized, setHasInitialized] = useState(false);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+  const activePointers = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const lastPinchState = useRef<{ dist: number; mx: number; my: number } | null>(null);
 
   // Save transform to sessionStorage when it changes
   useEffect(() => {
@@ -102,34 +104,80 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
     setHasInitialized(true);
   }, [width, height, graph.meta.title, hasInitialized]);
 
-  // Mouse/touch pan
+  // Mouse/touch pan + pinch zoom
   const onPointerDown = useCallback((e: React.PointerEvent) => {
-    if ((e.target as HTMLElement).closest(".gv-node")) return;
-    setDragging(true);
-    dragStart.current = { x: e.clientX, y: e.clientY, tx: transform.x, ty: transform.y };
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const onNode = !!(e.target as HTMLElement).closest(".gv-node");
+
+    if (activePointers.current.size === 1 && !onNode) {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+      setDragging(true);
+      dragStart.current = { x: e.clientX, y: e.clientY, tx: transform.x, ty: transform.y };
+    } else if (activePointers.current.size === 2) {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+      setDragging(false);
+      lastPinchState.current = null;
+    }
   }, [transform.x, transform.y]);
 
   const onPointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragging) return;
-    const dx = e.clientX - dragStart.current.x;
-    const dy = e.clientY - dragStart.current.y;
-    setTransform((t) => ({ ...t, x: dragStart.current.tx + dx, y: dragStart.current.ty + dy }));
+    activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (activePointers.current.size === 2) {
+      const [p1, p2] = Array.from(activePointers.current.values());
+      const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+      const rect = containerRef.current!.getBoundingClientRect();
+      const mx = (p1.x + p2.x) / 2 - rect.left;
+      const my = (p1.y + p2.y) / 2 - rect.top;
+
+      if (lastPinchState.current) {
+        const { dist: prevDist, mx: prevMx, my: prevMy } = lastPinchState.current;
+        const zoomFactor = dist / prevDist;
+        const panX = mx - prevMx;
+        const panY = my - prevMy;
+        setTransform((t) => {
+          const newScale = Math.max(0.2, Math.min(3, t.scale * zoomFactor));
+          const ratio = newScale / t.scale;
+          return {
+            scale: newScale,
+            x: mx - (mx - t.x) * ratio + panX,
+            y: my - (my - t.y) * ratio + panY,
+          };
+        });
+      }
+      lastPinchState.current = { dist, mx, my };
+    } else if (dragging) {
+      const dx = e.clientX - dragStart.current.x;
+      const dy = e.clientY - dragStart.current.y;
+      setTransform((t) => ({ ...t, x: dragStart.current.tx + dx, y: dragStart.current.ty + dy }));
+    }
   }, [dragging]);
 
-  const onPointerUp = useCallback(() => {
-    setDragging(false);
+  const onPointerUp = useCallback((e: React.PointerEvent) => {
+    activePointers.current.delete(e.pointerId);
+    if (activePointers.current.size < 2) {
+      lastPinchState.current = null;
+    }
+    if (activePointers.current.size === 0) {
+      setDragging(false);
+    }
   }, []);
 
-  // Wheel zoom
+  // Wheel: always zoom (Google Maps behavior — pan is drag-only)
+  // Mouse wheel: discrete steps; trackpad scroll/pinch: smooth continuous
   const onWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
     const rect = containerRef.current!.getBoundingClientRect();
     const mx = e.clientX - rect.left;
     const my = e.clientY - rect.top;
-    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+
+    const isMouseWheel = !e.ctrlKey && Math.abs(e.deltaY) >= 50;
+    const factor = isMouseWheel
+      ? e.deltaY > 0 ? 0.9 : 1.1
+      : Math.max(0.1, 1 - e.deltaY * 0.005);
+
     setTransform((t) => {
-      const newScale = Math.max(0.2, Math.min(3, t.scale * delta));
+      const newScale = Math.max(0.2, Math.min(3, t.scale * factor));
       const ratio = newScale / t.scale;
       return {
         scale: newScale,
