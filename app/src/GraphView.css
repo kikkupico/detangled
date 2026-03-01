@@ -16,7 +16,7 @@
 
 .gv-edge {
   fill: none;
-  stroke: var(--accent-color);
+  stroke: var(--border-med);
   stroke-width: 1.5;
   transition: stroke var(--transition-fast);
 }
@@ -26,12 +26,12 @@
 }
 
 .gv-edge-stub {
-  stroke: var(--accent-color);
+  stroke: var(--border-med);
   stroke-width: 1.5;
 }
 
 .gv-edge-dot {
-  fill: var(--accent-color);
+  fill: var(--border-med);
   stroke: none;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .gv-node-title {
-  fill: var(--text-muted);
+  fill: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
@@ -76,7 +76,7 @@
 }
 
 .gv-node.current .gv-node-title {
-  fill: var(--text-muted);
+  fill: var(--text-primary);
   font-weight: 600;
 }
 

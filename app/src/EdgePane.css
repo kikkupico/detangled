@@ -2,7 +2,7 @@
   position: relative;
   flex-shrink: 0;
   background: var(--bg-color);
-  height: clamp(48px, 10dvh, 84px);
+  height: clamp(56px, 12dvh, 96px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -10,10 +10,12 @@
 
 .edge-pane.up {
   padding-top: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .edge-pane.down {
   padding-bottom: var(--space-6);
+  border-top: 1px solid var(--border-color);
 }
 
 .edge-svg {
@@ -25,24 +27,25 @@
 
 @media (min-width: 768px) {
   .edge-pane.up {
-    padding-top: var(--space-4);
+    padding-top: var(--space-5);
   }
   .edge-pane.down {
-    padding-bottom: var(--space-4);
+    padding-bottom: var(--space-5);
   }
 }
 
 .edge-line {
   fill: none;
-  stroke: #bbb;
-  stroke-width: 1;
+  stroke: var(--accent-color);
+  stroke-width: 1.5;
+  transition: stroke var(--transition-med), stroke-width var(--transition-med);
 }
 
 .edge-circle {
-  fill: #fff;
-  stroke: var(--text-primary);
+  fill: var(--panel-bg);
+  stroke: var(--accent-color);
   stroke-width: 2;
-  transition: fill var(--transition-fast), r var(--transition-med), stroke-width var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 @media (min-width: 768px) {
@@ -51,18 +54,27 @@
   }
 }
 
+.edge-group {
+  cursor: pointer;
+}
+
 .edge-group:hover .edge-circle {
-  fill: #f0f0f0;
+  fill: var(--bg-color);
+  stroke: var(--text-primary);
   stroke-width: 3;
+  transform: scale(1.05);
 }
 
 .edge-group:hover .edge-line {
   stroke: var(--text-primary);
+  stroke-width: 2;
 }
 
 .edge-label-bg {
   fill: var(--bg-color);
-  opacity: 0.9;
+  opacity: 0.95;
+  rx: 4px;
+  ry: 4px;
 }
 
 .edge-title-text {
@@ -72,6 +84,12 @@
   font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
+  transition: fill var(--transition-fast);
+}
+
+.edge-group:hover .edge-title-text {
+  fill: var(--text-primary);
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
