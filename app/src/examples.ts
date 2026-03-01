@@ -8,8 +8,10 @@ import unravelingDna from "./examples/unraveling-dna.yaml?raw";
 import jackTheRipper from "./examples/jack-the-ripper.yaml?raw";
 import worldWar2 from "./examples/world-war-2.yaml?raw";
 import evolutionOfLlms from "./examples/evolution-of-llms.yaml?raw";
+import modernAviation from "./examples/modern-aviation.yaml?raw";
 
 export const examples: { name: string; yaml: string }[] = [
+  { name: "History: Modern Aviation", yaml: modernAviation },
   { name: "CS: The LeetCode Skill Tree", yaml: leetcodeSkillTree },
   { name: "Tech: Programming Family Tree", yaml: programmingFamilyTree },
   { name: "Science: Stellar Evolution", yaml: stellarEvolution },

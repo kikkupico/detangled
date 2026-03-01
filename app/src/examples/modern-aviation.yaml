@@ -1,0 +1,163 @@
+meta:
+  title: "The Chronicles of Modern Aviation"
+  description: |
+    From the sand dunes of Kitty Hawk to the edge of space, the history of aviation is a story of relentless innovation, courage, and the mastery of physics. This graph explores the pivotal moments that transformed the airplane from a fragile wood-and-canvas experiment into a global industry that defines the modern world.
+  start: [wright_flyer]
+
+nodes:
+  wright_flyer:
+    title: "The Wright Flyer: Kitty Hawk (1903)"
+    short_title: "1903 Start"
+    emoji: "✈️"
+    content: |
+      On December 17, 1903, in the cold winds of Kitty Hawk, North Carolina, Orville and Wilbur Wright achieved what many thought impossible: the first powered, controlled, and sustained flight of a heavier-than-air aircraft. Their machine, the Wright Flyer, was a biplane with a 40-foot wingspan, constructed from spruce and ash wood and covered in pride-of-the-west muslin.
+
+      The flight lasted only 12 seconds and covered 120 feet—less than the wingspan of a modern Boeing 747—but it changed history forever. The Wrights' success wasn't just about lift and power; it was about their revolutionary approach to **3-axis control**. By warping the wings (roll), using a forward elevator (pitch), and a rear rudder (yaw), they became the first to truly pilot an aircraft rather than just being a passenger in a glider.
+
+      ![The Wright Flyer taking off](https://commons.wikimedia.org/wiki/Special:FilePath/First_flight2.jpg?width=800)
+
+      *The historic first flight at Kitty Hawk, with Orville at the controls and Wilbur running alongside.*
+
+      ![Orville and Wilbur Wright](https://commons.wikimedia.org/wiki/Special:FilePath/Wright_brothers_portrait.jpg?width=600)
+
+      *The brothers who solved the puzzle of flight in their Dayton, Ohio bicycle shop.*
+    parents: []
+    children: [ww1_crucible]
+
+  ww1_crucible:
+    title: "WWI: The Crucible of Innovation (1914-1918)"
+    short_title: "WWI Leap"
+    emoji: "⚔️"
+    content: |
+      Before World War I, airplanes were largely toys for the wealthy and curiosities for the military. The war acted as a brutal but effective accelerator for aeronautical engineering. In just four years, aircraft evolved from fragile reconnaissance platforms into specialized fighters, bombers, and ground-attack machines.
+
+      Engine power increased from the Wrights' 12 horsepower to over 400 horsepower. Wood and fabric began to give way to metal framing, and the pusher-propeller design was replaced by the tractor configuration (engine in front), which was more aerodynamically efficient. The introduction of the synchronization gear—allowing machine guns to fire through the propeller arc—turned the airplane into a lethal weapon and led to the era of "dogfighting."
+
+      ![Sopwith Camel biplane](https://commons.wikimedia.org/wiki/Special:FilePath/Sopwith_Camel_front_view_1.jpg?width=800)
+
+      *The Sopwith Camel, one of the most famous Allied fighters of the war, known for its maneuverability.*
+
+      ![Fokker Dr.I Triplane](https://commons.wikimedia.org/wiki/Special:FilePath/Fokker_Dr_I.jpg?width=800)
+
+      *The iconic Fokker Triplane used by the Red Baron, Manfred von Richthofen.*
+    parents: [wright_flyer]
+    children: [golden_age]
+
+  golden_age:
+    title: "The Golden Age & Lindbergh (1920s-1930s)"
+    short_title: "Golden Age"
+    emoji: "🏆"
+    content: |
+      The decades following WWI are known as the Golden Age of Flight. Aviation transitioned from a military tool to a public obsession. Barnstormers traveled the countryside giving rides, and air races pushed designers to maximize speed. The most defining moment of this era was Charles Lindbergh's 1927 solo non-stop flight across the Atlantic in the *Spirit of St. Louis*.
+
+      Lindbergh's success proved that long-distance air travel was feasible. This era also saw the rise of female pioneers like Amelia Earhart and the development of the "airmail" system, which provided the financial backbone for the nascent airline industry. Technically, this period saw the move toward all-metal monoplanes, enclosed cockpits, and retractable landing gear.
+
+      ![Spirit of St. Louis](https://commons.wikimedia.org/wiki/Special:FilePath/Spirit_of_St_Louis_NASM_DC_001.jpg?width=800)
+
+      *The Spirit of St. Louis, a custom-built Ryan monoplane that Lindbergh flew for 33.5 hours.*
+
+      ![Amelia Earhart](https://commons.wikimedia.org/wiki/Special:FilePath/Amelia_Earhart_1932.jpg?width=600)
+
+      *Amelia Earhart, the first woman to fly solo across the Atlantic, becoming a global icon.*
+    parents: [ww1_crucible]
+    children: [ww2_jet_leap]
+
+  ww2_jet_leap:
+    title: "WWII & The Jet Revolution (1939-1945)"
+    short_title: "Jet Engine"
+    emoji: "🚀"
+    content: |
+      World War II pushed aviation to its absolute physical limits. Propeller-driven planes like the P-51 Mustang and the Spitfire reached speeds near the sound barrier, but they were limited by the physics of the propeller itself. The solution came from independent work by Frank Whittle in Britain and Hans von Ohain in Germany: the **turbojet engine**.
+
+      By replacing the propeller with a high-speed turbine that compressed air and mixed it with fuel, the jet engine allowed for unprecedented speeds and altitudes. The Messerschmitt Me 262 became the world's first operational jet fighter, though it arrived too late to change the course of the war. This period also saw the development of pressurized cabins (B-29 Superfortress) and early radar systems, laying the groundwork for modern commercial aviation.
+
+      ![Me 262 Jet Fighter](https://commons.wikimedia.org/wiki/Special:FilePath/Messerschmitt_Me_262_A-1a_Schwalbe_at_the_National_Museum_of_the_US_Air_Force.jpg?width=800)
+
+      *The Me 262, a revolutionary aircraft that made all propeller-driven fighters obsolete overnight.*
+
+      ![Frank Whittle's Jet Engine](https://commons.wikimedia.org/wiki/Special:FilePath/Power_Jets_W.1A_jet_engine.jpg?width=600)
+
+      *A replica of the early Whittle jet engine, a marvel of thermodynamics.*
+    parents: [golden_age]
+    children: [commercial_boom, supersonic_era]
+
+  commercial_boom:
+    title: "The Jet Age: Boeing 707 (1950s)"
+    short_title: "Mass Travel"
+    emoji: "🌍"
+    content: |
+      The introduction of the Boeing 707 in 1958 signaled the beginning of the "Jet Age" for the general public. Before the 707, international travel was a slow, vibrating journey on propeller planes or a weeks-long voyage by sea. The jet engine made the world smaller.
+
+      The 707 was safe, fast, and relatively quiet. It allowed airlines to carry more passengers further than ever before, leading to the democratization of travel. No longer was flight reserved for the "Jet Set" elite; it became a utility for the masses. This era established the hub-and-spoke model of airports and the modern infrastructure of global tourism and business.
+
+      ![Boeing 707 in Pan Am livery](https://commons.wikimedia.org/wiki/Special:FilePath/Pan_am_707.jpg?width=800)
+
+      *The Boeing 707, the aircraft that brought the world into the jet age.*
+
+      ![Jet Engine Diagram](https://commons.wikimedia.org/wiki/Special:FilePath/Jet_engine.svg?width=600)
+
+      *A schematic diagram of a typical gas turbine jet engine.*
+    parents: [ww2_jet_leap]
+    children: [digital_aviation]
+
+  supersonic_era:
+    title: "The Supersonic Dream: Concorde (1969-2003)"
+    short_title: "Concorde"
+    emoji: "⚡"
+    content: |
+      If the 1950s were about mass travel, the 1960s were about pure speed. Engineers in Britain and France collaborated to build the Concorde, a delta-wing masterpiece capable of flying at Mach 2.04—over twice the speed of sound. 
+
+      Crossing the Atlantic took just 3.5 hours, so fast that passengers arrived "before they left" due to time zone differences. However, the Concorde was a technical triumph but a commercial struggle. It was incredibly expensive to operate, noisy (sonic booms prohibited overland flights), and thirsty for fuel. While the supersonic dream faded with its retirement in 2003, it remains a high-water mark of human engineering.
+
+      ![Concorde in flight](https://commons.wikimedia.org/wiki/Special:FilePath/Concorde_216_(G-BOAF)_last_flight.jpg?width=800)
+
+      *The Concorde, arguably the most beautiful and technically advanced airliner ever built.*
+
+      ![Concorde cockpit](https://commons.wikimedia.org/wiki/Special:FilePath/Concorde_cockpit.jpg?width=600)
+
+      *The incredibly complex cockpit of the Concorde, requiring a pilot, co-pilot, and flight engineer.*
+    parents: [ww2_jet_leap]
+    children: [digital_aviation]
+
+  digital_aviation:
+    title: "Digital Flight: Fly-by-Wire (1980s-Present)"
+    short_title: "Digital Sky"
+    emoji: "💻"
+    content: |
+      By the late 20th century, the focus of innovation shifted from airframes and engines to computers and software. The most significant development was **Fly-by-Wire (FBW)**. Traditionally, pilots moved the plane's surfaces via mechanical cables and hydraulics. In FBW, the pilot's inputs are sent to a computer, which interprets them and commands the actuators.
+
+      This allowed for "flight envelope protection," preventing pilots from making maneuvers that would stall or break the plane. Computers also optimized fuel efficiency and allowed for the development of "glass cockpits," where traditional dials were replaced by multi-function displays. Today, aircraft like the Airbus A350 and Boeing 787 are essentially flying servers, managing millions of lines of code to ensure safety and efficiency.
+
+      ![Modern Glass Cockpit](https://commons.wikimedia.org/wiki/Special:FilePath/Airbus_A380_cockpit.jpg?width=800)
+
+      *The cockpit of an Airbus A380, featuring large LCD screens and side-stick controllers.*
+
+      ![Boeing 787 Wing Test](https://commons.wikimedia.org/wiki/Special:FilePath/Boeing_787_wing_test.jpg?width=800)
+
+      *Testing the flex of a composite wing on a Boeing 787, made possible by advanced digital design.*
+    parents: [commercial_boom, supersonic_era]
+    children: [future_aviation]
+
+  future_aviation:
+    title: "The Future: Decarbonization (2020s & Beyond)"
+    short_title: "Future Flight"
+    emoji: "🌱"
+    content: |
+      The next great frontier for aviation is sustainability. The industry is under pressure to reach net-zero emissions by 2050. This is leading to a massive resurgence in radical design concepts not seen since the early days of flight.
+
+      Engineers are exploring several paths:
+      1. **Sustainable Aviation Fuel (SAF):** Biofuels that can be dropped into existing jet engines.
+      2. **Electric Propulsion:** Battery-powered planes for short-haul "urban air mobility" (eVTOL).
+      3. **Hydrogen Power:** Using liquid hydrogen either as a combustible fuel or in fuel cells to generate electricity.
+
+      The challenge is immense—jet fuel is incredibly energy-dense compared to batteries—but the goal is a second "Golden Age" of flight that is clean, quiet, and available to all.
+
+      ![Electric eVTOL prototype](https://commons.wikimedia.org/wiki/Special:FilePath/Volocopter_VC200_2nd_flight.jpg?width=800)
+
+      *A Volocopter prototype, representing the future of urban electric air travel.*
+
+      ![Hydrogen aircraft concept](https://commons.wikimedia.org/wiki/Special:FilePath/Airbus-ZEROe-Turbofan-Concept.jpg?width=800)
+
+      *The Airbus ZEROe concept, a hydrogen-powered aircraft aimed at zero-emission commercial flight.*
+    parents: [digital_aviation]
+    children: []
