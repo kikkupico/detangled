@@ -62,7 +62,6 @@
   fill: var(--bg-color);
   stroke: var(--text-primary);
   stroke-width: 3;
-  transform: scale(1.05);
 }
 
 .edge-group:hover .edge-line {

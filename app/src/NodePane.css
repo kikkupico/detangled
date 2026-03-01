@@ -1,6 +1,6 @@
 .node-pane {
   flex: 1;
-  padding: var(--space-12) var(--space-12) var(--space-20);
+  padding: 0 var(--space-12); /* Sides only, top/bottom handled by content/pseudo */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -11,9 +11,23 @@
 
 @media (max-width: 767px) {
   .node-pane {
-    padding: var(--space-8) var(--space-6) var(--space-16);
+    padding: 0 var(--space-6);
     align-items: stretch;
   }
+}
+
+.node-pane::before {
+  content: "";
+  display: block;
+  height: var(--space-6);
+  flex-shrink: 0;
+}
+
+.node-pane::after {
+  content: "";
+  display: block;
+  height: 80px; /* Reduced scroll space at the bottom */
+  flex-shrink: 0;
 }
 
 .node-short-title {
@@ -66,7 +80,7 @@
 .node-content {
   width: 100%;
   max-width: 720px;
-  flex: 1;
+  flex-shrink: 0; /* Ensure it doesn't compress */
   color: var(--text-primary);
   font-size: var(--text-base);
   line-height: 1.8;
