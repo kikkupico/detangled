@@ -21,7 +21,7 @@ export default function HomeScreen({ onLoad }: Props) {
 
   return (
     <div className="home">
-      <img src="/logo.jpg" alt="detangled" className="home-logo" />
+      <img src="./logo.jpg" alt="detangled" className="home-logo" />
       <p className="home-subtitle">Explore structured knowledge as a graph</p>
 
       <textarea
