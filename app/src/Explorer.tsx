@@ -27,12 +27,30 @@ export default function Explorer({ graph, onBack }: Props) {
     .filter((c) => graph.nodes[c])
     .map((c) => graph.nodes[c]);
 
-  // Siblings: same depth, sorted
+  // Siblings: children of parents, sorted
   const sortedSiblings = useMemo(() => {
-    return Object.values(graph.nodes)
-      .filter((n) => n.depth === node.depth)
+    const parentIds = node.parents;
+    if (parentIds.length === 0) {
+      // If no parents, fall back to all roots or nodes at depth 0
+      return Object.values(graph.nodes)
+        .filter((n) => n.depth === 0)
+        .sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    const siblingsSet = new Set<string>();
+    parentIds.forEach((pId) => {
+      const parent = graph.nodes[pId];
+      if (parent) {
+        parent.children.forEach((cId) => {
+          if (graph.nodes[cId]) siblingsSet.add(cId);
+        });
+      }
+    });
+
+    return Array.from(siblingsSet)
+      .map((id) => graph.nodes[id])
       .sort((a, b) => a.id.localeCompare(b.id));
-  }, [graph, node.depth, currentId]);
+  }, [graph, node.id, node.parents]);
 
   const midRef = useRef<HTMLDivElement>(null);
   const lastWheelNav = useRef(0);
