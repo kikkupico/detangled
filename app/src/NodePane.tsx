@@ -16,7 +16,11 @@ export default function NodePane({ node }: Props) {
 
   return (
     <div className="node-pane" ref={paneRef}>
-      <h2 className="node-title">{node.emoji && <span className="node-emoji">{node.emoji}</span>}{node.title}</h2>
+      <div className="node-short-title">{node.shortTitle}</div>
+      <h2 className="node-title">
+        {node.emoji && <span className="node-emoji">{node.emoji}</span>}
+        {node.title}
+      </h2>
       <div className="node-content">
         <Markdown>{node.content}</Markdown>
       </div>

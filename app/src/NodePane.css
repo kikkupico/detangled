@@ -1,24 +1,44 @@
 .node-pane {
   flex: 1;
-  padding: var(--space-10) var(--space-8) var(--space-20);
+  padding: var(--space-12) var(--space-12) var(--space-20);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: var(--panel-bg);
+  width: 100%;
 }
 
 @media (max-width: 767px) {
   .node-pane {
     padding: var(--space-8) var(--space-6) var(--space-16);
+    align-items: stretch;
   }
 }
 
+.node-short-title {
+  width: 100%;
+  max-width: 720px;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-6);
+  opacity: 0.6;
+  user-select: none;
+}
+
 .node-title {
+  width: 100%;
+  max-width: 720px;
   font-family: var(--font-serif);
   font-size: var(--text-xl);
   font-weight: 400;
   color: var(--text-primary);
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-8);
   padding-bottom: var(--space-4);
   line-height: 1.2;
   transition: font-size var(--transition-med);
@@ -27,7 +47,7 @@
 
 @media (min-width: 768px) {
   .node-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     padding-bottom: var(--space-5);
   }
 }
@@ -44,6 +64,8 @@
 }
 
 .node-content {
+  width: 100%;
+  max-width: 720px;
   flex: 1;
   color: var(--text-primary);
   font-size: var(--text-base);
