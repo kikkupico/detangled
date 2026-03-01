@@ -67,10 +67,16 @@ export default function Explorer({ graph, onBack }: Props) {
         if (curIdx > 0) setCurrentId(sortedSiblings[curIdx - 1].id);
       } else if (direction === "up") {
         const children = graph.nodes[currentId].children.filter((c) => graph.nodes[c]);
-        if (children.length > 0) setCurrentId(children[0]);
+        if (children.length > 0) {
+          const midIdx = Math.floor((children.length - 1) / 2);
+          setCurrentId(children[midIdx]);
+        }
       } else if (direction === "down") {
         const parents = graph.nodes[currentId].parents.filter((p) => graph.nodes[p]);
-        if (parents.length > 0) setCurrentId(parents[0]);
+        if (parents.length > 0) {
+          const midIdx = Math.floor((parents.length - 1) / 2);
+          setCurrentId(parents[midIdx]);
+        }
       }
     },
     [currentId, sortedSiblings, graph],
