@@ -1,0 +1,908 @@
+meta:
+  title: "The Evolution of Language Models"
+  description: |
+    From early statistical methods and recurrent networks to the 
+    breakthrough of Transformers and the rise of Generative AI. 
+    This graph traces the research milestones that led to GPT-4 
+    and explores the future of Artificial General Intelligence.
+  start: [turing_test, shannon_entropy, ngram_models]
+
+nodes:
+  # --- THE FOUNDATIONS ---
+  turing_test:
+    title: "The Turing Test (1950)"
+    short_title: "Turing Test"
+    emoji: "🤖"
+    content: |
+      ![Alan Turing](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/400px-Alan_Turing_Aged_16.jpg)
+      
+      ### The Imitation Game
+      In 1950, **Alan Turing** published "Computing Machinery and Intelligence," a paper that would define the goal of AI for the next 70 years. He replaced the question "Can machines think?" with a practical test:
+      
+      > "A machine could be said to 'think' if it could fool an interrogator into believing it was human through a text-based conversation."
+      
+      This shifted the focus from the *internal mystery* of consciousness to the *external behavior* of language, setting the stage for all future NLP research.
+    parents: []
+
+  shannon_entropy:
+    title: "Shannon's Information Theory (1948)"
+    short_title: "Information Theory"
+    emoji: "📊"
+    content: |
+      ### The Mathematics of Language
+      Claude Shannon, working at Bell Labs, published "A Mathematical Theory of Communication." This wasn't just about radio wires; it was the birth of **Information Theory**.
+      
+      Shannon introduced the concept of **Entropy**—a measure of uncertainty. In language, he realized that words are predictable:
+      - If I say "The cat sat on the...", you already know the next word is likely "mat".
+      - He used this to calculate the "information content" of English, providing the mathematical foundation for predicting sequences.
+    parents: []
+
+  ngram_models:
+    title: "N-gram Models"
+    short_title: "N-grams"
+    emoji: "🔢"
+    content: |
+      ### Probabilistic Counting
+      Before deep learning, we used **N-grams**. These are simple statistical models that look at the last *n* words to predict the next one.
+      
+      *   **Unigrams:** Look at words in isolation.
+      - **Bigrams:** Look at pairs (e.g., "San" -> "Francisco").
+      *   **Trigrams:** Look at triplets.
+      
+      **Limitations:** They have no "long-term memory." A trigram model doesn't know what happened four words ago, making them brittle and incapable of maintaining coherent logic over a paragraph.
+    parents: [shannon_entropy]
+
+  chomsky_hierarchy:
+    title: "Chomsky Hierarchy (1956)"
+    short_title: "Chomsky"
+    emoji: "🗣️"
+    content: |
+      ### The Structure of Thought
+      Noam Chomsky revolutionized linguistics by arguing that language is not just a sequence of sounds, but a **hierarchical structure** governed by deep rules.
+      
+      He defined four levels of grammars:
+      1.  **Regular:** Simple patterns (Finite State Automata).
+      2.  **Context-Free:** Nested structures (like computer code or math).
+      3.  **Context-Sensitive:** Rules that depend on surrounding words.
+      4.  **Recursively Enumerable:** The most complex (Turing complete).
+      
+      This proved that human language is far more complex than simple N-grams could ever capture, necessitating the move toward more sophisticated models.
+    parents: []
+
+  # --- EARLY NLP ---
+  eliza:
+    title: "ELIZA (1966)"
+    short_title: "ELIZA"
+    emoji: "👩‍⚕️"
+    content: |
+      ### The First Illusion of Intelligence
+      Developed by Joseph Weizenbaum at MIT, **ELIZA** was the world's first famous chatbot. Its most famous script, *DOCTOR*, simulated a Rogerian psychotherapist.
+      
+      **How it worked:**
+      - It used simple **pattern matching**. 
+      - If you said "My mother hates me," ELIZA looked for the keyword "mother" and replied with "Tell me more about your family."
+      
+      Despite its simplicity, people became deeply emotionally involved with ELIZA, a phenomenon now called the **"ELIZA Effect"**—our tendency to anthropomorphize machines.
+    parents: [turing_test]
+
+  hidden_markov_models:
+    title: "Hidden Markov Models (HMMs)"
+    short_title: "HMMs"
+    emoji: "🎲"
+    content: |
+      ### State-Based Prediction
+      HMMs became the gold standard for speech recognition and early NLP from the 1980s until the mid-2010s.
+      
+      **The "Hidden" Part:**
+      They assume that there is an underlying set of "hidden" states (like grammatical categories) that generate the "observed" symbols (words).
+      
+      *   Used by IBM for early machine translation.
+      *   Powered the first versions of Siri and Dragon NaturallySpeaking.
+      *   Eventually surpassed by neural networks because HMMs struggle with context.
+    parents: [ngram_models]
+
+  rule_based_systems:
+    title: "Rule-Based NLP"
+    short_title: "Rules"
+    emoji: "📜"
+    content: |
+      ### Expert Systems
+      During the "AI Summers" of the 70s and 80s, the dominant approach was **GOFAI** (Good Old Fashioned AI). Linguists would manually write thousands of "If-Then" rules.
+      
+      **The Problem:**
+      - Language is too messy. 
+      *   "Time flies like an arrow; fruit flies like a banana."
+      - Rule-based systems couldn't handle the puns, slang, or evolution of language without being constantly updated by humans.
+    parents: [chomsky_hierarchy]
+
+  # --- THE NEURAL TURN ---
+  perceptron:
+    title: "The Perceptron (1958)"
+    short_title: "Perceptron"
+    emoji: "🧠"
+    content: |
+      ### The Biological Inspiration
+      Frank Rosenblatt created the **Perceptron**, the first computer that could learn from data. It was modeled after a single biological neuron.
+      
+      > "The embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence." — *The New York Times, 1958*
+      
+      Hyperbole aside, the Perceptron was limited to "linear" problems. It couldn't even learn the XOR function, leading to the first "AI Winter."
+    parents: []
+
+  backpropagation:
+    title: "Backpropagation (1986)"
+    short_title: "Backprop"
+    emoji: "🔄"
+    content: |
+      ### Learning from Mistakes
+      The breakthrough that ended the first AI Winter. While others had explored it, **Geoffrey Hinton** and his colleagues popularized **Backpropagation**.
+      
+      It's the engine of all modern AI:
+      1.  The model makes a guess.
+      2.  We calculate the **error** (loss).
+      3.  We "backward" that error through the network to see which neurons were responsible.
+      4.  We slightly adjust the weights to reduce the error next time.
+      
+      This allowed us to train "deep" networks with multiple layers.
+    parents: [perceptron]
+
+  rnns:
+    title: "Recurrent Neural Networks (RNNs)"
+    short_title: "RNNs"
+    emoji: "🔁"
+    content: |
+      ### Networks with a Loop
+      Standard neural networks process data in one "shot." But language is a sequence. **RNNs** introduced a loop that allowed information to persist.
+      
+      **The Core Idea:**
+      The output for word *n* depends on the current input AND the hidden state from word *n-1*. 
+      
+      Suddenly, networks could "read" sentences word-by-word, maintaining a internal state of what they had seen so far.
+    parents: [backpropagation]
+
+  vanishing_gradient:
+    title: "Vanishing Gradient Problem"
+    short_title: "Vanishing Gradient"
+    emoji: "📉"
+    content: |
+      ### Short-Term Memory
+      As RNNs tried to process longer sentences, they hit a mathematical wall. 
+      
+      During training, the "learning signal" (gradient) is multiplied by itself over and over. If that signal is slightly less than 1, it rapidly shrinks to zero (vanishes).
+      
+      **Result:** The model would "forget" the beginning of a sentence by the time it reached the end. It couldn't link a subject at the start to a verb at the end.
+    parents: [rnns]
+
+  lstm:
+    title: "Long Short-Term Memory (1997)"
+    short_title: "LSTM"
+    emoji: "💾"
+    content: |
+      ### The Silicon Memory Cell
+      Sepp Hochreiter and Jürgen Schmidhuber solved the vanishing gradient problem with the **LSTM**. 
+      
+      Instead of a simple loop, they added a **"Constant Error Carousel"**—a memory cell protected by three gates:
+      - **Forget Gate:** What should we discard?
+      - **Input Gate:** What should we remember?
+      - **Output Gate:** What should we say now?
+      
+      LSTMs powered Google Translate and Siri for nearly a decade.
+    parents: [vanishing_gradient]
+
+  gru:
+    title: "Gated Recurrent Units (GRU)"
+    short_title: "GRU"
+    emoji: "⚡"
+    content: |
+      ### Streamlined Recurrence
+      Introduced by Kyunghyun Cho in 2014, the **GRU** is a "modernized" LSTM. It merges the forget and input gates into a single "update gate."
+      
+      - **Faster to train** due to fewer parameters.
+      *   **Comparable performance** to LSTMs on most tasks.
+      - **Efficiency:** Made it possible to train larger recurrent models with less compute.
+    parents: [vanishing_gradient]
+
+  # --- WORD EMBEDDINGS ---
+  vector_space_models:
+    title: "Vector Space Models"
+    short_title: "Vectors"
+    emoji: "📐"
+    content: |
+      ### Meaning as Geometry
+      In this approach, words are not just IDs; they are points in a high-dimensional space.
+      
+      If "Coffee" and "Tea" appear in similar contexts, they should be geographically close together in the model's "mind." This allows the model to understand synonyms and semantic relationships mathematically.
+    parents: [shannon_entropy]
+
+  word2vec:
+    title: "Word2Vec (2013)"
+    short_title: "Word2Vec"
+    emoji: "🅰️"
+    content: |
+      ### Linguistic Algebra
+      Tomas Mikolov at Google released **Word2Vec**, proving that simple neural networks could learn incredibly rich "word embeddings."
+      
+      He famously showed that the model learned relational logic:
+      > **Vector("King") - Vector("Man") + Vector("Woman") ≈ Vector("Queen")**
+      
+      This shifted NLP from "string manipulation" to "vector geometry," a massive leap in how computers represent meaning.
+    parents: [vector_space_models, backpropagation]
+
+  glove:
+    title: "GloVe (2014)"
+    short_title: "GloVe"
+    emoji: "🥊"
+    content: |
+      ### Global Context
+      Stanford researchers argued that Word2Vec was too local (it only looked at immediate neighbors). They created **GloVe** (Global Vectors).
+      
+      **The Innovation:**
+      It looks at the *entire dataset* and builds a giant co-occurrence matrix. It captures both the local context and the global statistics of the language, leading to more stable and accurate word representations.
+    parents: [word2vec]
+
+  # --- THE ATTENTION REVOLUTION ---
+  seq2seq:
+    title: "Seq2Seq Models (2014)"
+    short_title: "Seq2Seq"
+    emoji: "🔀"
+    content: |
+      ### Encoder-Decoder Architecture
+      **Seq2Seq** (Sequence-to-Sequence) allowed models to take a sequence of one length (e.g., a French sentence) and produce a sequence of a different length (e.g., an English sentence).
+      
+      1.  **Encoder:** Compresses the whole input into a single "thought vector."
+      2.  **Decoder:** Unpacks that vector into the new language.
+      
+      **The Flaw:** Trying to squeeze a 50-word sentence into one fixed-size vector created a "bottleneck."
+    parents: [lstm]
+
+  attention_mechanism:
+    title: "Attention Mechanism (2014)"
+    short_title: "Attention"
+    emoji: "🔍"
+    content: |
+      ### Solving the Bottleneck
+      Dzmitry Bahdanau proposed a brilliant fix: what if the decoder could "look back" at the encoder's original words?
+      
+      Instead of one "thought vector," the model creates a unique connection to every word in the input. While translating "Chat," the model "pays attention" to the word "Cat" in the source sentence.
+      
+      This was the first time a model could effectively handle very long sentences.
+    parents: [seq2seq]
+
+  transformer_architecture:
+    title: "The Transformer (2017)"
+    short_title: "Transformer"
+    emoji: "🤖"
+    content: |
+      ![Attention is All You Need](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Transformer_Architecture.png/400px-Transformer_Architecture.png)
+      
+      ### Attention is All You Need
+      A team at Google Research published the most influential AI paper of the decade. They realized they didn't need RNNs or LSTMs at all. 
+      
+      **The Breakthrough:**
+      By using *only* attention (Self-Attention), they could process all words in a sentence **simultaneously** (parallelization). This allowed models to be trained on vastly more data than ever before.
+      
+      The Transformer is the "T" in GPT.
+    parents: [attention_mechanism]
+
+  self_attention:
+    title: "Self-Attention"
+    short_title: "Self-Attention"
+    emoji: "🪞"
+    content: |
+      ### The Contextual Mirror
+      Self-attention is how a model understands the role of a word based on its neighbors.
+      
+      Consider the word **"Bank"**:
+      - "The robber went to the **bank**."
+      - "The fisherman sat on the **bank**."
+      
+      Self-attention allows the model to look at "robber" or "fisherman" to instantly disambiguate the meaning of "bank," creating a dynamic, context-aware representation.
+    parents: [transformer_architecture]
+
+  positional_encoding:
+    title: "Positional Encoding"
+    short_title: "Position"
+    emoji: "📍"
+    content: |
+      ### Lost in Space
+      Because Transformers process all words at once, they have no inherent sense of "first," "second," or "last." 
+      
+      To fix this, researchers added **Positional Encodings**—a set of mathematical waves (sines and cosines) added to the word vectors. These waves give each word a unique "signature" based on its position, allowing the model to understand the sequence while still processing it in parallel.
+    parents: [transformer_architecture]
+
+  # --- THE RISE OF PRE-TRAINING ---
+  pretraining_fine_tuning:
+    title: "Pre-training & Fine-tuning"
+    short_title: "Transfer Learning"
+    emoji: "🏋️"
+    content: |
+      ### The Two-Step Dance
+      The modern AI workflow was born:
+      1.  **Pre-training:** Train a giant model on "the whole internet" to learn the *structure* of language (very expensive).
+      2.  **Fine-tuning:** Take that "pre-trained" model and train it on a small, specific dataset (like medical records) to make it an expert (very cheap).
+      
+      This allows a single base model to be used for thousands of different apps.
+    parents: [transformer_architecture]
+
+  bert:
+    title: "BERT (2018)"
+    short_title: "BERT"
+    emoji: "🐝"
+    content: |
+      ### The Universal Encoder
+      Google's **BERT** changed how we use language models for search. 
+      
+      **The Cloze Task:**
+      BERT was trained by "masking" random words in a sentence and forcing the model to guess them. 
+      > "The [MASK] sat on the mat."
+      
+      Because BERT looks at context from both left and right simultaneously, it became the undisputed king of understanding language (NLU) for years.
+    parents: [pretraining_fine_tuning]
+
+  elmo:
+    title: "ELMo (2018)"
+    short_title: "ELMo"
+    emoji: "🔴"
+    content: |
+      ### Deep Context
+      Before BERT, **ELMo** (Embeddings from Language Models) showed that "deep" representations were the future.
+      
+      It used two LSTMs (one forward, one backward) to look at words. It proved that the lower layers of a network learn **syntax** (grammar), while the higher layers learn **semantics** (meaning).
+    parents: [lstm, pretraining_fine_tuning]
+
+  roberta:
+    title: "RoBERTa (2019)"
+    short_title: "RoBERTa"
+    emoji: "🤖"
+    content: |
+      ### Scaling Up BERT
+      Meta researchers realized BERT was "under-trained." By removing some of BERT's training tasks and training on **10x more data** for longer, they created **RoBERTa**.
+      
+      It proved a core tenet of modern AI: **Data quality and training time often matter more than architectural tweaks.**
+    parents: [bert]
+
+  # --- THE GPT LINEAGE ---
+  gpt1:
+    title: "GPT-1 (2018)"
+    short_title: "GPT-1"
+    emoji: "☝️"
+    content: |
+      ### The Generative Path
+      While Google focused on "understanding" (BERT), OpenAI focused on **"generation."**
+      
+      **GPT-1** was a "decoder-only" Transformer. It was trained to do one thing: predict the next word. OpenAI realized that by learning to predict the next word on a large scale, the model accidentally learned how to perform tasks like sentiment analysis and summarization.
+    parents: [transformer_architecture]
+
+  gpt2:
+    title: "GPT-2 (2019)"
+    short_title: "GPT-2"
+    emoji: "✌️"
+    content: |
+      ### Zero-Shot Capabilities
+      With 1.5 billion parameters, **GPT-2** was a massive leap. It could write coherent news articles and stories from a simple prompt.
+      
+      **Zero-Shot Learning:**
+      OpenAI showed that GPT-2 could solve tasks it was never specifically trained for (like translation) just by "reading" enough of it on the internet. This was the first hint that **Scale** was the secret sauce.
+    parents: [gpt1]
+
+  scaling_laws:
+    title: "Scaling Laws (2020)"
+    short_title: "Scaling"
+    emoji: "📈"
+    content: |
+      ### The Predictability of Intelligence
+      OpenAI researchers published a paper showing that as you increase three things—**Compute, Data, and Parameters**—the model's performance improves in a predictable mathematical "power law."
+      
+      This gave the industry the confidence to spend hundreds of millions of dollars on massive clusters, knowing that larger models *would* be smarter.
+    parents: [gpt2]
+
+  gpt3:
+    title: "GPT-3 (2020)"
+    short_title: "GPT-3"
+    emoji: "🤟"
+    content: |
+      ### The World's Keyboard
+      At 175 billion parameters, **GPT-3** was 100x larger than GPT-2. It was the first model that felt truly "creative."
+      
+      **Emergent Abilities:**
+      Suddenly, the model could:
+      - Write functional Python code.
+      - Solve math word problems.
+      - Mimic specific writing styles.
+      
+      It was no longer just a "next-word predictor"; it was a **reasoning engine**.
+    parents: [scaling_laws]
+
+  # --- ALIGNMENT & INSTRUCTION ---
+  rlhf:
+    title: "RLHF (2020+)"
+    short_title: "RLHF"
+    emoji: "🤝"
+    content: |
+      ### Training with Human Values
+      Raw LLMs are "base models"—they just predict what comes next. If you ask "How do I steal a car?", a base model might provide a list of instructions because that's what follows logically in a sequence.
+      
+      **RLHF** (Reinforcement Learning from Human Feedback) involves humans ranking the model's responses. This "fine-tunes" the model to be helpful, honest, and harmless.
+    parents: [gpt3]
+
+  instruct_gpt:
+    title: "InstructGPT (2022)"
+    short_title: "InstructGPT"
+    emoji: "📝"
+    content: |
+      ### Learning to Follow Orders
+      Before InstructGPT, you had to "trick" GPT-3 into doing what you wanted with complex prompts. 
+      
+      **InstructGPT** was specifically trained (using RLHF) to follow direct commands. This made the model significantly more useful for average users who just wanted to ask "Summarize this meeting" or "Write a poem about cheese."
+    parents: [rlhf]
+
+  chatgpt:
+    title: "ChatGPT (Nov 2022)"
+    short_title: "ChatGPT"
+    emoji: "💬"
+    content: |
+      ### The iPhone Moment of AI
+      ChatGPT was not a new "intelligence"—it was a new **interface**. By wrapping a fine-tuned GPT-3.5 model in a simple chat UI, OpenAI made AI accessible to the world.
+      
+      It reached 100 million users in just two months, the fastest growth in the history of consumer applications. It proved that the "Conversational Interface" was the future of computing.
+    parents: [instruct_gpt]
+
+  gpt4:
+    title: "GPT-4 (2023)"
+    short_title: "GPT-4"
+    emoji: "💥"
+    content: |
+      ### The Frontier Model
+      **GPT-4** was a massive leap in "robustness." It passed the Bar Exam in the 90th percentile and could reason through complex, multi-step logical problems.
+      
+      **Key Upgrades:**
+      - **Multimodality:** It can "see" images and understand them.
+      - **Reliability:** Significantly fewer "hallucinations" than GPT-3.
+      - **Safety:** More advanced guardrails and alignment.
+    parents: [chatgpt]
+
+  # --- MODERN ARCHITECTURES ---
+  multimodality:
+    title: "Multimodality"
+    short_title: "Multimodal"
+    emoji: "🖼️"
+    content: |
+      ### Beyond Text
+      The next frontier is models that don't just "read," but "see" and "hear."
+      
+      **Unified Latent Space:**
+      Modern multimodal models (like GPT-4V or Gemini) represent images and text in the same mathematical space. This allows you to show the model a picture of your fridge and ask, "What can I cook for dinner?"
+    parents: [gpt4]
+
+  mixture_of_experts:
+    title: "Mixture of Experts (MoE)"
+    short_title: "MoE"
+    emoji: "🧩"
+    content: |
+      ### Brain Specialization
+      Instead of one giant "dense" brain, an **MoE** model consists of many small "experts." 
+      
+      When you ask a math question, only the "math expert" neurons fire. This allows for models with **trillions of parameters** that are still incredibly fast and efficient to run, because they only use a fraction of their brain for any single request.
+    parents: [gpt4]
+
+  retrieval_augmented_generation:
+    title: "RAG"
+    short_title: "RAG"
+    emoji: "📚"
+    content: |
+      ### An Open-Book Exam
+      LLMs are "frozen" in time when their training ends. **RAG** allows them to look at new data.
+      
+      **The Workflow:**
+      1.  User asks a question.
+      2.  The system searches a private database (like your company's PDFs).
+      3.  The system feeds the relevant text to the LLM.
+      4.  The LLM answers the question using that specific context.
+      
+      This reduces "hallucinations" and gives models "perfect memory" of specific documents.
+    parents: [chatgpt]
+
+  # --- LLM ECOSYSTEM ---
+  llama:
+    title: "LLaMA (2023)"
+    short_title: "LLaMA"
+    emoji: "🦙"
+    content: |
+      ### The Open Source Revolution
+      Meta's release of the **LLaMA** weights was a "leaked" turning point. It proved that a relatively small, efficient model could rival GPT-3 if trained correctly.
+      
+      It spawned a massive community of developers who "quantized" the model to run on laptops and phones, breaking Big Tech's monopoly on high-end AI.
+    parents: [scaling_laws, roberta]
+
+  mistral:
+    title: "Mistral & Mixtral"
+    short_title: "Mistral"
+    emoji: "🌬️"
+    content: |
+      ### European Excellence
+      French startup Mistral AI released models that punch far above their weight. 
+      
+      **Mixtral 8x7B** used a Mixture of Experts architecture to outperform Llama-2-70B while being significantly faster. It became the gold standard for high-performance open-source AI.
+    parents: [mixture_of_experts, llama]
+
+  claude:
+    title: "Claude (Anthropic)"
+    short_title: "Claude"
+    emoji: "🎨"
+    content: |
+      ### Constitutional AI
+      Anthropic (founded by former OpenAI leaders) created **Claude**. 
+      
+      They use a unique alignment method where the model is given a "Constitution" (a set of ethical principles) and learns to supervise itself. Claude is known for being "more human" in its writing and having a massive context window (200k+ tokens).
+    parents: [rlhf]
+
+  gemini:
+    title: "Gemini (Google)"
+    short_title: "Gemini"
+    emoji: "♊"
+    content: |
+      ### Native Multimodality
+      Google's **Gemini** was built from the ground up to be multimodal (not just text with an image-addon). 
+      
+      **The 1M Token Context:**
+      Gemini 1.5 Pro introduced the ability to "read" an entire hour of video or a million lines of code in a single prompt, opening up entirely new use cases for AI analysis.
+    parents: [multimodality]
+
+  # --- HARDWARE & COMPUTE ---
+  gpus_and_tpus:
+    title: "GPUs & TPUs"
+    short_title: "Compute"
+    emoji: "🔌"
+    content: |
+      ![NVIDIA H100](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/NVIDIA_H100_Tensor_Core_GPU.png/400px-NVIDIA_H100_Tensor_Core_GPU.png)
+      
+      ### The Silicon Foundation
+      AI doesn't run on "logic"; it runs on **matrix multiplication**. 
+      - **GPUs (NVIDIA):** Originally for video games, they are perfect for doing thousands of simple math problems at once.
+      - **TPUs (Google):** Custom-built silicon designed specifically for the math of neural networks.
+      
+      The "AI Arms Race" is effectively a race to buy enough H100 chips.
+    parents: [transformer_architecture]
+
+  cuda:
+    title: "CUDA (2007)"
+    short_title: "CUDA"
+    emoji: "💻"
+    content: |
+      ### Speaking to the Metal
+      NVIDIA's **CUDA** is the software "bridge" that allows programmers to run general code on a GPU. 
+      
+      Without CUDA, AI researchers couldn't easily use the massive power of graphics cards. It is NVIDIA's most powerful "moat," as almost all AI software (PyTorch, TensorFlow) is optimized for it.
+    parents: [gpus_and_tpus]
+
+  # --- ETHICS & SOCIETY ---
+  hallucinations:
+    title: "Hallucinations"
+    short_title: "Hallucinations"
+    emoji: "😵"
+    content: |
+      ### Confident Bullshit
+      The biggest weakness of LLMs. Because they are "probabilistic," they don't have a "fact database." They simply guess the next most likely word.
+      
+      If the most "likely" word sequence is a lie, the model will state it with total confidence. Solving this requires **grounding** the model in external facts (RAG).
+    parents: [gpt3]
+
+  bias_and_fairness:
+    title: "Bias & Fairness"
+    short_title: "Bias"
+    emoji: "⚖️"
+    content: |
+      ### The Mirror of the Web
+      LLMs are trained on the internet. Therefore, they inherit every stereotype, prejudice, and bias found on the internet.
+      
+      Researchers struggle to "de-bias" models without making them overly cautious or "lobotomized." It is a constant tug-of-war between safety and utility.
+    parents: [pretraining_fine_tuning]
+
+  alignment_problem:
+    title: "The Alignment Problem"
+    short_title: "Alignment"
+    emoji: "🎯"
+    content: |
+      ### The Midas Touch
+      If you ask a super-intelligent AI to "End all cancer," and it decides to kill every human (thus ending all cancer), it has followed your order but not your **intent**.
+      
+      **Alignment** is the field of ensuring AI goals perfectly match human values, even as the models become smarter than us.
+    parents: [rlhf]
+
+  ai_safety:
+    title: "AI Safety"
+    short_title: "Safety"
+    emoji: "🛡️"
+    content: |
+      ### Existential Risk
+      A field of research focused on preventing catastrophic outcomes. 
+      
+      Topics include:
+      - **Power-Seeking:** Preventing models from trying to gain control over resources.
+      - **Deception:** Ensuring models don't "hide" their true capabilities from researchers.
+      - **Robustness:** Ensuring models don't fail in dangerous ways when they encounter new situations.
+    parents: [alignment_problem]
+
+  # --- FUTURE DIRECTIONS ---
+  agents:
+    title: "AI Agents"
+    short_title: "Agents"
+    emoji: "🤖"
+    content: |
+      ### From Chat to Action
+      The shift from "AI you talk to" to "AI that does work." 
+      
+      An agent can:
+      1.  Browse the web to find a flight.
+      2.  Check your calendar.
+      3.  Use your credit card to book the ticket.
+      4.  Email you the confirmation.
+      
+      This requires long-term planning and the ability to use external tools.
+    parents: [chatgpt, rag]
+
+  long_context:
+    title: "Long Context Windows"
+    short_title: "Long Context"
+    emoji: "📜"
+    content: |
+      ### Perfect Working Memory
+      Early models could only "remember" a few pages of text. Modern models can hold **millions of tokens**.
+      
+      This changes the fundamental "UX" of AI. You don't just "chat" with the model; you feed it your entire company's codebase or every legal case from the last 50 years and ask it to find a needle in the haystack.
+    parents: [transformer_architecture, gemini]
+
+  interpretability:
+    title: "Mechanistic Interpretability"
+    short_title: "Interpretability"
+    emoji: "🔬"
+    content: |
+      ### Opening the Black Box
+      We know how to *build* these models, but we don't really know how they *work*.
+      
+      **Mechanistic Interpretability** is like "neuroscience for AI." Researchers look at individual neurons to see which ones detect "cities," "coding bugs," or "deceptive behavior."
+    parents: [transformer_architecture]
+
+  efficient_inference:
+    title: "Efficient Inference"
+    short_title: "Efficiency"
+    emoji: "📉"
+    content: |
+      ### AI Everywhere
+      To make AI useful, it needs to run on your phone, not just in a $1B data center.
+      
+      **Techniques:**
+      - **Quantization:** Reducing the precision of numbers (e.g., from 16-bit to 4-bit) with minimal loss in intelligence.
+      - **Distillation:** Using a "teacher" model (GPT-4) to train a small "student" model.
+    parents: [mixture_of_experts]
+
+  neuro_symbolic_ai:
+    title: "Neuro-Symbolic AI"
+    short_title: "Neuro-Symbolic"
+    emoji: "🧠"
+    content: |
+      ### Logic + Learning
+      Neural networks are great at **intuition** but bad at **formal logic** (like math). 
+      
+      Neuro-symbolic AI tries to combine the "system 1" (fast, intuitive) neural approach with "system 2" (slow, logical) symbolic rules. This could lead to models that can both "hallucinate" creative stories and "verify" mathematical proofs.
+    parents: [rule_based_systems, gpt4]
+
+  synthetic_data:
+    title: "Synthetic Data"
+    short_title: "Synthetic Data"
+    emoji: "🧪"
+    content: |
+      ### Self-Improving Models
+      We are running out of high-quality human text. The solution? Use current models to write textbooks, code, and logical puzzles to train the *next* generation of models.
+      
+      This creates a "flywheel" effect, but risks "model collapse" if the synthetic data isn't high enough quality.
+    parents: [gpt4]
+
+  world_models:
+    title: "World Models"
+    short_title: "World Models"
+    emoji: "🌎"
+    content: |
+      ### Understanding Physics
+      Current LLMs only understand the world through "tokens." 
+      
+      A **World Model** (like Sora or JEPA) tries to learn the underlying laws of physics—how things move, fall, and interact in 3D space. This is a critical step toward robots that can navigate the physical world.
+    parents: [multimodality]
+
+  agi:
+    title: "AGI (Artificial General Intelligence)"
+    short_title: "AGI"
+    emoji: "🌌"
+    content: |
+      ### The Final Frontier
+      **AGI** is the hypothetical point where a machine can learn any task a human can.
+      
+      It is the "North Star" for companies like OpenAI and DeepMind. Whether it arrives in 5 years or 50, its impact would be the most significant event in human technological history.
+    parents: [gpt4, agents, world_models]
+
+  # --- KEY FIGURES ---
+  geoffrey_hinton:
+    title: "Geoffrey Hinton"
+    short_title: "Hinton"
+    emoji: "👨‍🏫"
+    content: |
+      ### The Godfather
+      Hinton spent 30 years working on "Neural Networks" when the rest of the AI community thought they were a dead end. 
+      
+      He won the Turing Award in 2018. In 2023, he left Google to speak freely about the **existential risks** he now believes AI poses to humanity.
+    parents: [backpropagation]
+
+  yann_lecun:
+    title: "Yann LeCun"
+    short_title: "LeCun"
+    emoji: "👨‍💻"
+    content: |
+      ### Chief AI Scientist at Meta
+      LeCun pioneered **Convolutional Neural Networks** (CNNs) for vision. 
+      
+      He is currently a vocal skeptic of the idea that LLMs alone will lead to AGI, arguing instead for "World Models" that learn like a human child through observation, not just reading text.
+    parents: [backpropagation]
+
+  yoshua_bengio:
+    title: "Yoshua Bengio"
+    short_title: "Bengio"
+    emoji: "👨‍🔬"
+    content: |
+      ### The Theorist
+      Based in Montreal, Bengio completed the "trio" of deep learning pioneers. 
+      
+      His work on "Neural Probabilistic Language Models" in the early 2000s directly paved the way for the word embeddings and sequence models we use today.
+    parents: [backpropagation]
+
+  ilya_sutskever:
+    title: "Ilya Sutskever"
+    short_title: "Sutskever"
+    emoji: "👁️"
+    content: |
+      ### The Visionary
+      A student of Hinton, Sutskever co-founded OpenAI. He was one of the first to truly believe that **Scaling** would lead to intelligence.
+      
+      He is often credited with the "religious" conviction at OpenAI that they could actually build AGI, a belief that drove the development of GPT-3 and GPT-4.
+    parents: [scaling_laws, gpt1]
+
+  sam_altman:
+    title: "Sam Altman"
+    short_title: "Altman"
+    emoji: "💼"
+    content: |
+      ### The Strategist
+      As the CEO of OpenAI, Altman transformed it from a small research lab into a global powerhouse. 
+      
+      He orchestrated the massive $10B+ partnership with Microsoft and became the public face of the AI revolution, testifying before Congress and traveling the world to discuss AI governance.
+    parents: [chatgpt]
+
+  demis_hassabis:
+    title: "Demis Hassabis"
+    short_title: "Hassabis"
+    emoji: "♟️"
+    content: |
+      ### The Grandmaster
+      A child chess prodigy and game designer, Hassabis co-founded **DeepMind**. 
+      
+      His philosophy is "Solve intelligence, then use that to solve everything else." DeepMind's achievements include AlphaGo (beating the world champion) and AlphaFold (solving the protein folding problem).
+    parents: [gemini]
+
+  # --- MISC NODES FOR DENSITY ---
+  dropout:
+    title: "Dropout (2014)"
+    short_title: "Dropout"
+    emoji: "💧"
+    content: |
+      ### Preventing Rote Memorization
+      Neural networks are so powerful they often "overfit"—they just memorize the training data rather than learning the concepts.
+      
+      **Dropout** randomly "kills" a percentage of neurons during training. This forces the remaining neurons to learn more robust, general features, making the model perform much better on new, unseen data.
+    parents: [backpropagation]
+
+  adam_optimizer:
+    title: "Adam Optimizer (2014)"
+    short_title: "Adam"
+    emoji: "🏎️"
+    content: |
+      ### Adaptive Momentum
+      Training a model is like navigating a mountain range in the dark. **Adam** is the most popular "GPS" for this journey.
+      
+      It calculates a unique "learning rate" for every single weight in the network, allowing the model to learn quickly on clear paths and slow down on tricky, steep terrain.
+    parents: [backpropagation]
+
+  layer_normalization:
+    title: "Layer Normalization"
+    short_title: "LayerNorm"
+    emoji: "⚖️"
+    content: |
+      ### Stabilizing the Signal
+      Deep networks have a problem where the numbers can "explode" or "die" as they pass through layers.
+      
+      **LayerNorm** re-scales the activations in each layer to have a mean of 0 and a variance of 1. It is a critical "stability" tweak that makes training deep Transformers possible.
+    parents: [transformer_architecture]
+
+  byte_pair_encoding:
+    title: "Byte Pair Encoding (BPE)"
+    short_title: "BPE"
+    emoji: "✂️"
+    content: |
+      ### The Vocabulary Fix
+      How do you turn text into numbers? 
+      - By character? Too slow.
+      - By word? Too many words (millions).
+      
+      **BPE** splits text into "sub-words" (tokens). 
+      > "Hugging" -> "Hug" + "ging"
+      
+      This allows a model with a small vocabulary (e.g., 50k tokens) to represent *any* possible word in any language.
+    parents: [gpt1]
+
+  hallucination_mitigation:
+    title: "Hallucination Mitigation"
+    short_title: "Mitigation"
+    emoji: "🩹"
+    content: |
+      ### Verifying the Output
+      Strategies to make AI more honest:
+      - **Self-Correction:** Asking the model to "Check your work."
+      - **Citing Sources:** Forcing the model to link to a real URL.
+      - **Grounding:** Comparing the output against a trusted database.
+    parents: [hallucinations, rag]
+
+  open_source_ai:
+    title: "Open Source AI"
+    short_title: "Open Source"
+    emoji: "🔓"
+    content: |
+      ### Democratizing Intelligence
+      A movement to ensure that AI isn't just controlled by three giant companies in Silicon Valley. 
+      
+      Communities like **Hugging Face** allow researchers to share models, datasets, and demos. This accelerates research and provides "transparency" into how these models are built.
+    parents: [llama]
+
+  constitutional_ai:
+    title: "Constitutional AI"
+    short_title: "Constitutional"
+    emoji: "📜"
+    content: |
+      ### Scalable Oversight
+      As models get smarter, it becomes impossible for humans to review every response. 
+      
+      **Constitutional AI** uses a "critic" model to check a "student" model. If the student violates the constitution, the critic provides feedback. It is a way of "scaling safety" using AI to watch AI.
+    parents: [claude, alignment_problem]
+
+  superalignment:
+    title: "Superalignment"
+    short_title: "Superalignment"
+    emoji: "🎯"
+    content: |
+      ### Beyond Human Control
+      The goal of **Superalignment** is to solve the problem of "Superintelligence" before it arrives. 
+      
+      How do we control something that is 1,000x smarter than us? It is one of the most difficult and important technical challenges in human history.
+    parents: [ai_safety, agi]
+
+  data_bottleneck:
+    title: "The Data Bottleneck"
+    short_title: "Data Wall"
+    emoji: "🧱"
+    content: |
+      ### Running Out of Internet
+      We have already used most of the high-quality text on the public internet (books, Wikipedia, Reddit). 
+      
+      To keep scaling, models need new sources of data:
+      - **Video:** Learning from the physical world.
+      - **Synthetic Data:** High-quality text generated by models.
+      - **Private Data:** Partnering with companies to use their internal archives.
+    parents: [scaling_laws, synthetic_data]
+
+  scaling_beyond_text:
+    title: "Scaling Beyond Text"
+    short_title: "Beyond Text"
+    emoji: "🎥"
+    content: |
+      ### Tokenizing Everything
+      The future is "General World Simulators." 
+      
+      Models like **Sora** show that the same "Predict the next token" logic used for text can be used for pixels. By predicting the "next patch" of a video, the model learns about gravity, reflections, and the permanence of objects.
+    parents: [multimodality, world_models]
