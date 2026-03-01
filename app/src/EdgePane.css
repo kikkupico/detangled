@@ -2,18 +2,18 @@
   position: relative;
   flex-shrink: 0;
   background: var(--bg-color);
-  height: clamp(45px, 10dvh, 85px);
+  height: clamp(48px, 10dvh, 84px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .edge-pane.up {
-  padding-top: 14px;
+  padding-top: var(--space-4);
 }
 
 .edge-pane.down {
-  padding-bottom: 22px;
+  padding-bottom: var(--space-6);
 }
 
 .edge-svg {
@@ -25,10 +25,10 @@
 
 @media (min-width: 768px) {
   .edge-pane.up {
-    padding-top: 15px;
+    padding-top: var(--space-4);
   }
   .edge-pane.down {
-    padding-bottom: 15px;
+    padding-bottom: var(--space-4);
   }
 }
 
@@ -68,7 +68,7 @@
 .edge-title-text {
   fill: var(--text-muted);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
@@ -76,6 +76,6 @@
 
 @media (min-width: 768px) {
   .edge-title-text {
-    font-size: 15px;
+    font-size: var(--text-base);
   }
 }
