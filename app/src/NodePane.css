@@ -1,6 +1,6 @@
 .node-pane {
   flex: 1;
-  padding: var(--space-10) var(--space-8);
+  padding: var(--space-10) var(--space-8) var(--space-20);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
 
 @media (max-width: 767px) {
   .node-pane {
-    padding: var(--space-8) var(--space-6);
+    padding: var(--space-8) var(--space-6) var(--space-16);
   }
 }
 
