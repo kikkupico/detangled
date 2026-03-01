@@ -1,0 +1,276 @@
+meta:
+  title: "Shackleton's Endurance Expedition (1914-1917)"
+  description: |
+    The Imperial Trans-Antarctic Expedition is one of the greatest survival stories ever told. When Ernest Shackleton's ship *Endurance* was crushed by pack ice in the Weddell Sea, the expedition transformed from a crossing of the Antarctic continent into a desperate fight for survival. This graph traces the expedition's dramatic splits and reunions — from the 800-mile open-boat voyage of the *James Caird* to the 137-day vigil on Elephant Island — culminating in the rescue of all 28 men.
+  start: [departure]
+
+nodes:
+  departure:
+    title: "Departure from London (August 1914)"
+    short_title: "Departure"
+    emoji: "⚓"
+    content: |
+      On August 8, 1914 — just four days after Britain declared war on Germany — Sir Ernest Shackleton and a crew of 27 men sailed from London aboard the *Endurance*, a barquentine specially built for polar waters. Shackleton's ambition was breathtaking: to lead the first land crossing of the Antarctic continent, a journey of nearly 1,800 miles from the Weddell Sea coast to the Ross Sea via the South Pole.
+
+      Shackleton had already proven himself one of the great polar explorers. He had come within 97 miles of the South Pole in 1909 before turning back to save his men's lives — a decision that haunted and defined him. Now, with Amundsen having reached the Pole in 1911, the last great prize of Antarctic exploration was the continental crossing. He recruited men through what became a legendary (though likely apocryphal) advertisement: *"Men wanted for hazardous journey. Low wages, bitter cold, long hours of complete darkness. Safe return doubtful. Honour and recognition in event of success."*
+
+      ![Ernest Shackleton](https://commons.wikimedia.org/wiki/Special:FilePath/Ernest_Shackleton_before_1909.jpg?width=600)
+
+      *Sir Ernest Shackleton, whose leadership during the expedition would become the gold standard for crisis management.*
+    parents: []
+    children: [south_georgia_departure]
+
+  south_georgia_departure:
+    title: "South Georgia: Last Outpost of Civilization"
+    short_title: "South Georgia"
+    emoji: "🏔️"
+    content: |
+      After calling at Buenos Aires, the *Endurance* reached the remote whaling station of Grytviken on the sub-Antarctic island of South Georgia on November 5, 1914. The Norwegian whalers who worked these brutal waters knew the Southern Ocean better than anyone alive, and their warnings were stark: the ice in the Weddell Sea was the worst they had seen in living memory. Pack ice extended far further north than usual, and they urged Shackleton to wait.
+
+      Shackleton spent a month at Grytviken, making final preparations and waiting for conditions to improve. The crew loaded additional supplies and coal, and the ship's carpenter, Harry McNish, made last-minute modifications to the vessel. But Shackleton was impatient. He knew that every day of delay shortened the already narrow window for reaching the Antarctic coast and beginning the crossing before winter closed in. On December 5, 1914, the *Endurance* sailed south into the Weddell Sea.
+
+      ![Endurance under sail](https://commons.wikimedia.org/wiki/Special:FilePath/Endurance_under_full_sail_Frank_Hurley_State_Library_NSW_a090012h.jpg?width=800)
+
+      *The Endurance under full sail, photographed by Frank Hurley. She was a three-masted barquentine, 144 feet long, built of oak, Norwegian fir, and greenheart.*
+    parents: [departure]
+    children: [entering_pack_ice]
+
+  entering_pack_ice:
+    title: "Into the Pack Ice (December 1914)"
+    short_title: "Pack Ice"
+    emoji: "🧊"
+    content: |
+      Within days of leaving South Georgia, the *Endurance* encountered the first loose pack ice. Shackleton had hoped to push through quickly — earlier expeditions had crossed the Weddell Sea pack in as little as two days — but the ice of 1914-15 was extraordinarily heavy. The ship dodged and rammed through leads of open water, sometimes covering only a few miles per day, the timbers groaning under the impact.
+
+      The crew watched with growing unease as the floes closed in around them. Open leads would appear and vanish within hours. The temperature dropped steadily, and new ice began forming on the surface of the sea between the older, heavier floes. By mid-January 1915, the ship was making almost no progress. The men could see the Antarctic coastline tantalizingly close — the mountains of Coats Land were visible on the horizon — but they could not reach it. The Weddell Sea was swallowing them.
+
+      ![Pack ice](https://commons.wikimedia.org/wiki/Special:FilePath/Endurance_trapped_in_pack_ice.jpg?width=800)
+
+      *The Endurance navigating through pack ice in the Weddell Sea. The ship's bow was reinforced for ice-breaking, but the sheer volume of pack proved overwhelming.*
+    parents: [south_georgia_departure]
+    children: [ship_trapped]
+
+  ship_trapped:
+    title: "Trapped: Nine Months in the Ice (January 1915)"
+    short_title: "Trapped"
+    emoji: "❄️"
+    content: |
+      On January 19, 1915, the *Endurance* became firmly beset in the pack ice. The ship was frozen in place, unable to move in any direction. What followed was a surreal nine-month drift as the imprisoned vessel was carried by the slow, clockwise gyre of the Weddell Sea pack — moving steadily northwest, further and further from their intended landing point.
+
+      Shackleton's genius as a leader emerged in these long months of enforced idleness. He understood that boredom and despair were as dangerous as the cold. He organized regular routines: scientific observations, dog-training on the ice, football matches on the floes, and evening entertainments with gramophone music and theatrical performances. Frank Hurley, the expedition's Australian photographer, used the time to create some of the most extraordinary images in the history of exploration — including his famous nighttime photographs of the ship illuminated against the darkness, which required him to set off flash powder at multiple positions around the vessel.
+
+      ![Endurance at night](https://commons.wikimedia.org/wiki/Special:FilePath/Endurance_frozen_in_ice.jpg?width=800)
+
+      *Frank Hurley's iconic photograph of the Endurance trapped in the ice. Hurley created these images by placing lanterns and flash powder around the ship in temperatures far below zero.*
+    parents: [entering_pack_ice]
+    children: [ship_crushed]
+
+  ship_crushed:
+    title: "\"She's Going, Boys\" (October-November 1915)"
+    short_title: "Crushed"
+    emoji: "💔"
+    content: |
+      As the Antarctic spring arrived in October 1915, the ice began to break up — but not in the way the crew had hoped. Instead of freeing the ship, the shifting floes began to exert enormous lateral pressure on the hull. The men could hear the timbers screaming and cracking as millions of tons of ice slowly crushed the vessel. Beams buckled, the deck warped, and water began pouring in through the seams.
+
+      On October 27, Shackleton gave the order to abandon ship. The crew salvaged what they could: three lifeboats, food supplies, camping equipment, and Hurley's photographic plates. Hurley made the agonizing decision to select the best 150 glass-plate negatives and destroy the rest — smashing them on the ice so he would not be tempted to go back for them. On November 21, 1915, the shattered remains of the *Endurance* finally slipped beneath the ice. "She's going, boys," Shackleton said quietly. The 28 men were now stranded on the frozen surface of the Weddell Sea, over 1,000 miles from the nearest human settlement.
+
+      ![Endurance sinking](https://commons.wikimedia.org/wiki/Special:FilePath/Endurance_Final_Sinking.jpg?width=800)
+
+      *The final moments of the Endurance as she slips beneath the ice of the Weddell Sea. Frank Hurley captured this image knowing it was the last record of their ship.*
+    parents: [ship_trapped]
+    children: [ocean_camp]
+
+  ocean_camp:
+    title: "Ocean Camp: Stranded on the Ice"
+    short_title: "Ocean Camp"
+    emoji: "⛺"
+    content: |
+      With the *Endurance* gone, the 28 men established "Ocean Camp" on a large, thick ice floe. Shackleton initially planned to march across the ice to Paulet Island, 346 miles to the northwest, where a cache of supplies had been left by a Swedish expedition in 1903. But the attempt was abandoned almost immediately — the ice surface was a chaotic jumble of pressure ridges and soft snow, and the men, hauling two of the heavy lifeboats, could manage barely a mile per day.
+
+      Shackleton made the difficult decision to stay put and let the ice drift carry them north toward open water. It was a gamble that required extraordinary patience. The men settled into a routine of hunting seals and penguins for food, melting ice for drinking water, and waiting. Always waiting. The floe became their entire world — a slowly rotating, slowly shrinking platform of ice drifting through one of the most hostile oceans on Earth.
+
+      ![Ocean Camp](https://commons.wikimedia.org/wiki/Special:FilePath/Shackleton_expedition_Ocean_Camp.jpg?width=800)
+
+      *Ocean Camp, the crew's first home after abandoning the Endurance. The three lifeboats are visible, which would later prove to be their salvation.*
+    parents: [ship_crushed]
+    children: [patience_camp]
+
+  patience_camp:
+    title: "Patience Camp: The Long Drift"
+    short_title: "Patience Camp"
+    emoji: "⏳"
+    content: |
+      On December 29, 1915, Shackleton ordered a second attempt to march toward open water. After moving to a new floe, they established "Patience Camp," where they would remain for over three months. The name was grimly appropriate. As the ice drifted northwest, conditions deteriorated steadily. Food supplies dwindled, and the men became increasingly dependent on seal and penguin meat.
+
+      The most heartbreaking decision came when Shackleton ordered the sled dogs to be shot. The dogs had been beloved companions throughout the expedition, but they consumed food the men desperately needed and could not be carried in the lifeboats. The loss devastated the crew, particularly the dog handlers. By late March 1916, the floe had drifted close to the edge of the pack ice, and it was beginning to break apart beneath them. The ice that had trapped them for over a year was now disintegrating — and they needed to launch the boats before their platform disappeared entirely.
+
+      ![Dogs on the ice](https://commons.wikimedia.org/wiki/Special:FilePath/Dogs_on_the_ice_shackleton_expedition.jpg?width=800)
+
+      *The sled dog teams on the ice. The dogs were essential for morale during the long months of drift, making Shackleton's later order to destroy them one of the expedition's most painful moments.*
+    parents: [ocean_camp]
+    children: [boat_journey]
+
+  boat_journey:
+    title: "Escape by Boat: Seven Days in the Southern Ocean"
+    short_title: "Boat Journey"
+    emoji: "🚣"
+    content: |
+      On April 9, 1916, the ice floe split directly through the camp, and Shackleton ordered the three lifeboats — the *James Caird*, the *Dudley Docker*, and the *Stancomb Wills* — launched into the freezing sea. What followed was seven days of brutal open-boat sailing through the pack ice and the Southern Ocean's mountainous seas.
+
+      The men were soaked, frozen, and desperately thirsty — their fresh water had been contaminated by seawater. Frostbite attacked their extremities. At night, they hauled the boats onto ice floes to sleep, only to be woken when the floes cracked beneath them. One man, Holness, had to be pulled from the freezing water when the ice split under his sleeping bag. Navigation was nearly impossible in the overcast conditions, and the boats were constantly in danger of being separated or crushed between converging floes. But Shackleton kept his men together and heading northwest, toward the nearest land.
+
+      ![Launching boats](https://commons.wikimedia.org/wiki/Special:FilePath/Shackleton_Endurance_Aurora_expedition_boats_launch.jpg?width=800)
+
+      *The three lifeboats being prepared for launch. These small vessels, designed as ship's boats, were never meant for extended ocean voyages.*
+    parents: [patience_camp]
+    children: [elephant_island]
+
+  elephant_island:
+    title: "Elephant Island: Land at Last"
+    short_title: "Elephant Island"
+    emoji: "🏝️"
+    content: |
+      On April 15, 1916, the three boats reached the desolate shore of Elephant Island — a barren, mountainous rock at the northern tip of the Antarctic Peninsula. It was the first time the men had stood on solid ground in 497 days. Several of them broke down and wept. They gorged themselves on hot food and slept on ground that did not move beneath them.
+
+      But Elephant Island offered no salvation. It was uninhabited, lay far from any shipping lane, and no rescue party would think to look for them there. Shackleton made the decision that would define the expedition: he would take five men in the largest lifeboat, the *James Caird*, and sail 800 nautical miles across the most violent ocean on Earth to South Georgia, where the whaling stations could mount a rescue. The remaining 22 men would wait on the island under the command of Frank Wild. It was, by any measure, one of the most audacious small-boat voyages ever attempted.
+
+      ![Elephant Island party](https://commons.wikimedia.org/wiki/Special:FilePath/Elephant_island_party.jpg?width=800)
+
+      *The 22 men left behind on Elephant Island, photographed as the James Caird departed. They would wait 137 days for rescue.*
+    parents: [boat_journey]
+    children: [james_caird_voyage, elephant_island_camp]
+
+  james_caird_voyage:
+    title: "The James Caird: 800 Miles of Open Ocean"
+    short_title: "James Caird"
+    emoji: "⛵"
+    content: |
+      On April 24, 1916, Shackleton, navigator Frank Worsley, second officer Tom Crean, carpenter Harry McNish, and seamen Timothy McCarthy and John Vincent set sail in the *James Caird* — a 22-foot lifeboat that McNish had reinforced with salvaged wood and canvas. Their destination was South Georgia, 800 nautical miles to the northeast across the Drake Passage, the most treacherous stretch of ocean in the world.
+
+      For 16 days, the six men endured conditions that defy description. Waves reached 60 feet in height. The boat was constantly awash, and the men had to chip ice from the rigging and hull to prevent the vessel from becoming top-heavy and capsizing. Navigation depended entirely on Worsley's ability to take sun sights through brief gaps in the clouds — he managed only four observations in the entire voyage. Drinking water ran low, and the men suffered from severe thirst, frostbite, and salt-water boils. On May 8, they spotted the black cliffs of South Georgia through the spray. Against all probability, Worsley's navigation had been virtually perfect.
+
+      ![Launching the James Caird](https://commons.wikimedia.org/wiki/Special:FilePath/LaunchingTheJamesCaird2.jpg?width=800)
+
+      *The launch of the James Caird from Elephant Island. The small boat would cross 800 miles of the world's worst seas.*
+    parents: [elephant_island]
+    children: [south_georgia_landing]
+
+  elephant_island_camp:
+    title: "Wild's Camp: 137 Days of Waiting"
+    short_title: "Wild's Camp"
+    emoji: "🐧"
+    content: |
+      The 22 men left on Elephant Island under Frank Wild's command faced a different kind of ordeal: the agony of waiting with no certainty that rescue would ever come. They sheltered beneath the two remaining overturned lifeboats, which they propped on low stone walls to create a makeshift hut. The floor was a bed of rocks and penguin guano. Wind-driven snow blasted through every gap.
+
+      Wild maintained discipline and morale with quiet, steady authority. Each morning, he would roll up his sleeping bag and announce, "Lash up and stow, boys — the Boss may come today." Food consisted of seal, penguin, and limpets, supplemented by seaweed. The surgeon, Alexander Macklin, and the other doctor, James McIlroy, performed operations in the cramped, filthy conditions — most notably amputating the blackened, frostbitten toes of Perce Blackborow, the youngest member of the expedition, using chloroform salvaged from the ship's medical supplies. The men never gave up hope, but as weeks turned to months, despair crept closer.
+
+      ![Elephant Island hut](https://commons.wikimedia.org/wiki/Special:FilePath/Shackleton_Endurance_Aurora_expedition_hut_Elephant_Island.jpg?width=800)
+
+      *The shelter on Elephant Island, constructed from the two overturned lifeboats. Twenty-two men lived in this cramped space for nearly five months.*
+    parents: [elephant_island]
+    children: [all_rescued]
+
+  south_georgia_landing:
+    title: "South Georgia: The Wrong Coast"
+    short_title: "Landfall"
+    emoji: "🏖️"
+    content: |
+      The *James Caird* made landfall on the south coast of South Georgia on May 10, 1916 — but hurricane-force winds prevented a landing for another two days. When the six men finally staggered ashore at King Haakon Bay on the uninhabited southern coast, they were utterly spent. They had been at sea for 17 days, had almost no fresh water remaining, and several men could barely walk.
+
+      But their ordeal was not over. The whaling stations — and rescue — were on the northern coast of the island, separated from them by a mountainous, glaciated interior that had never been crossed by any human being. The *James Caird* was too battered to risk another sea voyage around the island's coast. Shackleton made one final, desperate decision: he, Worsley, and Crean would cross the mountains on foot. McCarthy, McNish, and Vincent — the three weakest men — would remain at King Haakon Bay under the shelter of the overturned *James Caird* to await rescue from the other side.
+
+      ![South Georgia mountains](https://commons.wikimedia.org/wiki/Special:FilePath/Allardyce_Range_South_Georgia.jpg?width=800)
+
+      *The mountainous interior of South Georgia. No one had ever crossed this terrain, and Shackleton, Worsley, and Crean would attempt it with no map, no sleeping bags, and only screws from the James Caird driven through the soles of their boots for traction.*
+    parents: [james_caird_voyage]
+    children: [mountain_crossing, king_haakon_bay]
+
+  mountain_crossing:
+    title: "The Mountain Crossing: 36 Hours Without Rest"
+    short_title: "Mountain Crossing"
+    emoji: "🏔️"
+    content: |
+      At 2:00 a.m. on May 19, 1916, under a full moon, Shackleton, Worsley, and Crean set out to cross the interior of South Georgia. They carried only a length of rope, a carpenter's adze (used as an ice axe), a Primus stove, and enough food for three days. They had no map — the island's interior was completely unexplored — and no sleeping bags. If they stopped moving for long, they would freeze to death.
+
+      The crossing took 36 hours of continuous marching over glaciers, razor-edged ridges, and fog-shrouded mountain passes. Three times they climbed to the top of a ridge only to find a sheer precipice on the other side and had to retrace their steps. At one point, trapped on a ridge with darkness falling and temperatures plummeting, Shackleton made a characteristically bold decision: he coiled the rope beneath the three men and they slid down a steep, unknown slope like a toboggan, plunging into the darkness at terrifying speed. They landed safely in deep snow at the bottom. Later, Shackleton would write that he felt a fourth presence walking beside the three exhausted men — a mystical companion that sustained them through the final miles.
+
+      ![South Georgia terrain](https://commons.wikimedia.org/wiki/Special:FilePath/Fortuna_Glacier_South_Georgia.jpg?width=800)
+
+      *The glaciated terrain of South Georgia's interior. Shackleton, Worsley, and Crean crossed mountains and glaciers like these with almost no equipment.*
+    parents: [south_georgia_landing]
+    children: [stromness_arrival]
+
+  king_haakon_bay:
+    title: "King Haakon Bay: Waiting Under the Caird"
+    short_title: "King Haakon Bay"
+    emoji: "🏕️"
+    content: |
+      While Shackleton, Worsley, and Crean attempted the mountain crossing, the three remaining men — Harry McNish, Timothy McCarthy, and John Vincent — stayed behind at the landing point in King Haakon Bay. McNish was suffering from the effects of the voyage and could barely walk; Vincent was in an even worse state, having largely collapsed during the boat journey.
+
+      The men sheltered under the overturned *James Caird*, which they propped up on rocks to create a crude bivouac. They had a small supply of seal meat and could melt ice for water, but they were utterly dependent on Shackleton reaching the whaling stations and sending help. If the mountain crossing failed — if the three men fell into a crevasse, or were stopped by impassable terrain — the men at King Haakon Bay would share the fate of the 22 on Elephant Island: a slow, uncertain wait with no guarantee of rescue.
+
+      ![James Caird](https://commons.wikimedia.org/wiki/Special:FilePath/James_Caird_in_South_Georgia_Museum.jpg?width=800)
+
+      *The James Caird, preserved in the South Georgia Museum. This 22-foot boat carried six men across 800 miles of the Southern Ocean.*
+    parents: [south_georgia_landing]
+    children: [rescue_success]
+
+  stromness_arrival:
+    title: "Stromness: \"My Name is Shackleton\""
+    short_title: "Stromness"
+    emoji: "🏭"
+    content: |
+      At 3:00 p.m. on May 20, 1916, Shackleton, Worsley, and Crean heard the steam whistle of the Stromness whaling station calling the workers to their shift. It was the first sound of the outside world they had heard in 17 months. They stumbled the final miles downhill toward the station, following a stream that led to the sea.
+
+      The three men who walked into Stromness were almost unrecognizable as human beings. Their hair was long and matted, their beards were caked with seal blubber and soot, and their clothes were in rags. Their faces were black with blubber-smoke and frostbite. Two small children saw them first and ran away in terror. The station foreman, Matthias Andersen, came out and stared at them without recognition. "My name is Shackleton," said the figure in the middle. Andersen, who had known Shackleton when the *Endurance* had called at South Georgia 17 months earlier, turned away and wept. The station manager, Thoralf Sorlle, was summoned, and he too broke down. "Come in, come in," he said. That evening, a boat was immediately dispatched to King Haakon Bay to pick up McNish, McCarthy, and Vincent.
+
+      ![Stromness whaling station](https://commons.wikimedia.org/wiki/Special:FilePath/Grytviken_Whaling_Station.jpg?width=800)
+
+      *A South Georgia whaling station. It was to a station like this that three ragged, filthy men walked out of the mountains in May 1916.*
+    parents: [mountain_crossing]
+    children: [rescue_attempts]
+
+  rescue_attempts:
+    title: "Three Failed Rescue Attempts"
+    short_title: "Failed Rescues"
+    emoji: "🚫"
+    content: |
+      Reaching South Georgia was only half the battle. Twenty-two men were still stranded on Elephant Island, 800 miles to the southwest, surrounded by the same pack ice that had destroyed the *Endurance*. Shackleton immediately began organizing a rescue, but the Southern Ocean and its ice would thwart him three times before he succeeded.
+
+      The first attempt, aboard the whaling vessel *Southern Sky*, was turned back by pack ice 60 miles from Elephant Island. Shackleton traveled to the Falkland Islands and then to Punta Arenas, Chile, where the British expatriate community helped him secure the *Instituto de Pesca No. 1* from the Uruguayan government. This ship, too, was stopped by ice, this time within 100 miles of the island. A third attempt, aboard the schooner *Emma* lent by the British Association of Magallanes, failed when the engine broke down. Each failure drove Shackleton to near-despair — he knew that with every passing week, the men on Elephant Island were growing weaker. He had promised to come back for them, and he was determined to keep that promise.
+
+      ![Pack ice](https://commons.wikimedia.org/wiki/Special:FilePath/Weddell_Sea_pack_ice.jpg?width=800)
+
+      *The pack ice of the Southern Ocean that blocked three successive rescue attempts, keeping Shackleton from his stranded men.*
+    parents: [stromness_arrival]
+    children: [rescue_success]
+
+  rescue_success:
+    title: "The Yelcho: \"They're All There!\""
+    short_title: "Rescue"
+    emoji: "🚢"
+    content: |
+      On his fourth attempt, the Chilean government lent Shackleton the small steel-hulled tug *Yelcho*, commanded by Piloto Luis Pardo. On August 30, 1916 — more than four months after the *James Caird* had sailed from Elephant Island — the *Yelcho* broke through a gap in the pack ice and approached the island in thick fog.
+
+      As the fog lifted, Shackleton stood at the bow, scanning the beach with binoculars. He counted the figures emerging from under the overturned boats. "They're all there!" he shouted. Every single man had survived. Wild had maintained order and hope throughout the 137 days of waiting. The men on the beach saw the ship and erupted in wild celebration — lighting signal fires and waving frantically. Within an hour, all 22 men were aboard the *Yelcho*. Not a single member of the expedition had been lost. The men at King Haakon Bay had already been recovered months earlier from South Georgia.
+
+      ![Rescue at Elephant Island](https://commons.wikimedia.org/wiki/Special:FilePath/Elephant_Isle_party_being_rescued_by_the_tug_Yelcho.jpg?width=800)
+
+      *The rescue of the Elephant Island party by the Yelcho on August 30, 1916. Every man survived.*
+    parents: [rescue_attempts, king_haakon_bay]
+    children: [all_rescued]
+
+  all_rescued:
+    title: "\"All Safe, All Well\""
+    short_title: "All Safe"
+    emoji: "🎉"
+    content: |
+      On September 3, 1916, the *Yelcho* arrived in Punta Arenas, Chile, with all 28 members of the expedition alive. Shackleton cabled his wife Emily with three words: **"All safe all well."** The men were greeted as heroes in Chile, but the world's attention was consumed by the carnage of World War I — the Battle of the Somme had begun just two months earlier. Many of the expedition members went almost directly from the Antarctic to the Western Front.
+
+      Shackleton's expedition had failed in its original objective — the Antarctic continent remained uncrossed until Vivian Fuchs accomplished it in 1958. But the *Endurance* expedition became something far greater than a geographical achievement: it became the supreme example of leadership, endurance, and the refusal to abandon one's people. Shackleton brought every single man home alive from one of the most hostile environments on Earth, through circumstances that should have killed them all. His leadership style — leading by example, sharing every hardship, maintaining morale through humor and optimism, and never giving up — is studied today in military academies, business schools, and leadership programs around the world.
+
+      ![Shackleton's grave](https://commons.wikimedia.org/wiki/Special:FilePath/Shackleton%27s_grave_South_Georgia.jpg?width=600)
+
+      *Shackleton's grave at Grytviken, South Georgia. He died on the island in 1922 during a later expedition. At his wife's request, he was buried there — in the place he loved, at the edge of the Antarctic.*
+    parents: [rescue_success, elephant_island_camp]
+    children: []
