@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   touch-action: none;
-  background: #fafafa;
+  background: var(--bg-color);
   user-select: none;
 }
 
@@ -16,9 +16,9 @@
 
 .gv-edge {
   fill: none;
-  stroke: #ccc;
+  stroke: var(--accent-color);
   stroke-width: 1.5;
-  transition: stroke 0.15s;
+  transition: stroke var(--transition-fast);
 }
 
 .gv-node {
@@ -26,20 +26,20 @@
 }
 
 .gv-edge-stub {
-  stroke: #ccc;
+  stroke: var(--accent-color);
   stroke-width: 1.5;
 }
 
 .gv-edge-dot {
-  fill: #ccc;
+  fill: var(--accent-color);
   stroke: none;
 }
 
 .gv-node circle {
   fill: #fff;
-  stroke: #1a1a1a;
+  stroke: var(--text-primary);
   stroke-width: 2;
-  transition: fill 0.15s, stroke-width 0.15s;
+  transition: fill var(--transition-fast), stroke-width var(--transition-fast);
 }
 
 .gv-node:hover circle {
@@ -49,24 +49,24 @@
 
 .gv-node.current circle {
   fill: #fff;
-  stroke: #1a1a1a;
+  stroke: var(--text-primary);
   stroke-width: 4;
 }
 
 .gv-label-bg {
-  fill: #fafafa;
+  fill: var(--bg-color);
   stroke: none;
   opacity: 0.9;
 }
 
 .gv-node-title {
-  fill: #555;
-  font-family: "DM Sans", system-ui, sans-serif;
+  fill: var(--text-muted);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
-  transition: font-size 0.3s ease;
+  transition: font-size var(--transition-med);
 }
 
 @media (min-width: 768px) {
@@ -76,18 +76,18 @@
 }
 
 .gv-node.current .gv-node-title {
-  fill: #555;
+  fill: var(--text-muted);
   font-weight: 600;
 }
 
 .gv-node-depth {
-  fill: #1a1a1a;
-  font-family: "DM Sans", system-ui, sans-serif;
+  fill: var(--text-primary);
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
-  transition: font-size 0.3s ease;
+  transition: font-size var(--transition-med);
 }
 
 @media (min-width: 768px) {
@@ -97,14 +97,14 @@
 }
 
 .gv-node.current .gv-node-depth {
-  fill: #1a1a1a;
+  fill: var(--text-primary);
 }
 
 .gv-node-emoji {
   font-size: 16px;
   text-anchor: middle;
   pointer-events: none;
-  transition: font-size 0.3s ease;
+  transition: font-size var(--transition-med);
 }
 
 @media (min-width: 768px) {

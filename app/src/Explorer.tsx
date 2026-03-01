@@ -3,6 +3,8 @@ import type { Graph } from "./types";
 import NodePane from "./NodePane";
 import EdgePane from "./EdgePane";
 import GraphView from "./GraphView";
+import Header from "./Header";
+import SiblingCarousel from "./SiblingCarousel";
 import "./Explorer.css";
 
 interface Props {
@@ -147,47 +149,15 @@ export default function Explorer({ graph, onBack }: Props) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [navigate, showGraph]);
 
-  // Graph icon (tree)
-  const graphIconSvg = (
-    <svg className="header-icon-svg" viewBox="0 0 20 20" width="20" height="20">
-      <circle cx="10" cy="4" r="2.5" />
-      <circle cx="5" cy="14" r="2.5" />
-      <circle cx="15" cy="14" r="2.5" />
-      <line x1="10" y1="6.5" x2="5" y2="11.5" />
-      <line x1="10" y1="6.5" x2="15" y2="11.5" />
-    </svg>
-  );
-
-  // Page/details icon (lines)
-  const pageIconSvg = (
-    <svg className="header-icon-svg" viewBox="0 0 20 20" width="20" height="20">
-      <rect x="3" y="2" width="14" height="16" rx="2" fill="none" stroke="#000" strokeWidth="1.5" />
-      <line x1="6" y1="6" x2="14" y2="6" stroke="#000" strokeWidth="1.5" />
-      <line x1="6" y1="10" x2="14" y2="10" stroke="#000" strokeWidth="1.5" />
-      <line x1="6" y1="14" x2="11" y2="14" stroke="#000" strokeWidth="1.5" />
-    </svg>
-  );
-
   return (
     <div className="explorer-wrapper">
       <div className="explorer">
-        {/* Unified header */}
-        <div className="header-bar">
-          <button className="header-btn" onClick={onBack} title="Back to home" aria-label="Back">
-            <svg className="header-icon-svg" viewBox="0 0 20 20" width="20" height="20">
-              <path d="M10 3 L3 9 V17 H8 V12 H12 V17 H17 V9 L10 3 Z" fill="none" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <span className="header-title">{graph.meta.title}</span>
-          <button
-            className="header-btn"
-            onClick={() => setShowGraph(!showGraph)}
-            title={showGraph ? "Details view" : "Graph view"}
-            aria-label={showGraph ? "Details view" : "Graph view"}
-          >
-            {showGraph ? pageIconSvg : graphIconSvg}
-          </button>
-        </div>
+        <Header
+          graph={graph}
+          showGraph={showGraph}
+          onBack={onBack}
+          onToggleView={() => setShowGraph(!showGraph)}
+        />
 
         {showGraph ? (
           <GraphView
@@ -200,7 +170,6 @@ export default function Explorer({ graph, onBack }: Props) {
           />
         ) : (
           <>
-            {/* Top pane - parents */}
             <EdgePane
               nodes={parentNodes}
               direction="up"
@@ -208,7 +177,6 @@ export default function Explorer({ graph, onBack }: Props) {
               onSelect={setCurrentId}
             />
 
-            {/* Mid pane - current node with overlaid carousel */}
             <div
               className="mid-pane-wrapper"
               ref={midRef}
@@ -216,44 +184,14 @@ export default function Explorer({ graph, onBack }: Props) {
               onPointerUp={onPointerUp}
             >
               <NodePane node={node} />
-              {sortedSiblings.length > 1 && (
-                <div className="sibling-carousel">
-                  <button
-                    className="nav-arrow-mini left"
-                    onClick={() => navigate("right")}
-                    disabled={sortedSiblings.findIndex((n) => n.id === currentId) === 0}
-                    aria-label="Previous sibling"
-                  >
-                    <svg viewBox="0 0 20 20" width="16" height="16">
-                      <path d="M12 5 L7 10 L12 15" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  <div className="sibling-dots">
-                    {sortedSiblings.map((s) => (
-                      <button
-                        key={s.id}
-                        className={`sibling-dot ${s.id === currentId ? "active" : ""}`}
-                        onClick={() => setCurrentId(s.id)}
-                        title={s.shortTitle}
-                        aria-label={s.shortTitle}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    className="nav-arrow-mini right"
-                    onClick={() => navigate("left")}
-                    disabled={sortedSiblings.findIndex((n) => n.id === currentId) === sortedSiblings.length - 1}
-                    aria-label="Next sibling"
-                  >
-                    <svg viewBox="0 0 20 20" width="16" height="16">
-                      <path d="M8 5 L13 10 L8 15" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                </div>
-              )}
+              <SiblingCarousel
+                sortedSiblings={sortedSiblings}
+                currentId={currentId}
+                onNavigate={navigate}
+                onSelect={setCurrentId}
+              />
             </div>
 
-            {/* Bottom pane - children */}
             <EdgePane
               nodes={childNodes}
               direction="down"

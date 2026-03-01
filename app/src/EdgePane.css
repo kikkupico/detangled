@@ -1,7 +1,7 @@
 .edge-pane {
   position: relative;
   flex-shrink: 0;
-  background: #fafafa;
+  background: var(--bg-color);
   height: 120px;
   overflow: hidden;
   display: flex;
@@ -46,9 +46,9 @@
 
 .edge-circle {
   fill: #fff;
-  stroke: #1a1a1a;
+  stroke: var(--text-primary);
   stroke-width: 2;
-  transition: fill 0.15s, r 0.3s ease, stroke-width 0.15s;
+  transition: fill var(--transition-fast), r var(--transition-med), stroke-width var(--transition-fast);
 }
 
 @media (min-width: 768px) {
@@ -63,12 +63,12 @@
 }
 
 .edge-group:hover .edge-line {
-  stroke: #1a1a1a;
+  stroke: var(--text-primary);
 }
 
 .edge-title-text {
-  fill: #555;
-  font-family: "DM Sans", system-ui, sans-serif;
+  fill: var(--text-muted);
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
   text-anchor: middle;
