@@ -12,25 +12,24 @@ interface Props {
 export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(480);
-  const [svgHeight, setSvgHeight] = useState(window.innerWidth >= 768 ? 155 : 125);
+  const [svgHeight, setSvgHeight] = useState(100);
 
   useEffect(() => {
     const updateDimensions = () => {
-      if (containerRef.current) {
-        setWidth(containerRef.current.offsetWidth);
-      }
-      setSvgHeight(window.innerWidth >= 768 ? 155 : 125);
+      const el = containerRef.current;
+      if (!el) return;
+      setWidth(el.offsetWidth);
+      const style = getComputedStyle(el);
+      const svgH = el.clientHeight
+        - parseFloat(style.paddingTop)
+        - parseFloat(style.paddingBottom);
+      setSvgHeight(Math.max(50, svgH));
     };
 
     updateDimensions();
     const ro = new ResizeObserver(updateDimensions);
     if (containerRef.current) ro.observe(containerRef.current);
-    
-    window.addEventListener("resize", updateDimensions);
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-      ro.disconnect();
-    };
+    return () => ro.disconnect();
   }, []);
 
   const count = nodes.length;
@@ -51,7 +50,7 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
         <svg
           className="edge-svg"
           viewBox={`0 0 ${width} ${svgHeight}`}
-          preserveAspectRatio="xMidYMid meet"
+          preserveAspectRatio="none"
         >
           {nodes.map((node, i) => {
             const cx = ((i + 1) / (count + 1)) * width;

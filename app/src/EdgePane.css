@@ -2,7 +2,7 @@
   position: relative;
   flex-shrink: 0;
   background: var(--bg-color);
-  height: 120px;
+  height: clamp(90px, 22dvh, 180px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -18,23 +18,17 @@
 
 .edge-svg {
   width: 100%;
-  height: 100px;
+  flex: 1;
   display: block;
   overflow: visible;
 }
 
 @media (min-width: 768px) {
-  .edge-pane {
-    height: 160px;
-  }
   .edge-pane.up {
     padding-top: 30px;
   }
   .edge-pane.down {
     padding-bottom: 30px;
-  }
-  .edge-svg {
-    height: 130px;
   }
 }
 
