@@ -2,18 +2,18 @@
   position: relative;
   flex-shrink: 0;
   background: var(--bg-color);
-  height: clamp(90px, 22dvh, 180px);
+  height: clamp(45px, 10dvh, 85px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .edge-pane.up {
-  padding-top: 20px;
+  padding-top: 14px;
 }
 
 .edge-pane.down {
-  padding-bottom: 20px;
+  padding-bottom: 22px;
 }
 
 .edge-svg {
@@ -25,10 +25,10 @@
 
 @media (min-width: 768px) {
   .edge-pane.up {
-    padding-top: 30px;
+    padding-top: 15px;
   }
   .edge-pane.down {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
   }
 }
 
@@ -58,6 +58,11 @@
 
 .edge-group:hover .edge-line {
   stroke: var(--text-primary);
+}
+
+.edge-label-bg {
+  fill: var(--bg-color);
+  opacity: 0.9;
 }
 
 .edge-title-text {

@@ -40,7 +40,7 @@
 .header-bar {
   display: flex;
   align-items: center;
-  padding: 0.6rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   flex-shrink: 0;
 }
 

@@ -33,15 +33,16 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
   }, []);
 
   const count = nodes.length;
-  const circleR = 5;
-  const titleSpace = 12;
-  const stagger = 22;
+  const circleR = 3.5;
+  const titleSpace = 6;
+  const stagger = 18;
+
   const edgeEndY = direction === "up" ? svgHeight + 5 : -5;
   const r = 4; // corner radius
   // Base (un-staggered) circle Y — used to keep the horizontal bus at a fixed level
   const circleCYBase = direction === "up"
-    ? circleR + 6 + titleSpace
-    : svgHeight - circleR - 6 - titleSpace;
+    ? circleR + 2 + titleSpace
+    : svgHeight - circleR - 2 - titleSpace;
   const turnY = (circleCYBase + edgeEndY) / 2;
 
   return (
@@ -59,8 +60,8 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
             // Alternate Y position so adjacent labels don't overlap
             const staggerOffset = (i % 2) * stagger;
             const cy = direction === "up"
-              ? circleR + 6 + titleSpace + staggerOffset
-              : svgHeight - circleR - 6 - titleSpace - staggerOffset;
+              ? circleR + 2 + titleSpace + staggerOffset
+              : svgHeight - circleR - 2 - titleSpace - staggerOffset;
 
             const startY = direction === "up" ? cy + circleR : cy - circleR;
             const dirSign = direction === "up" ? 1 : -1;
@@ -80,7 +81,11 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
               ].join(" ");
             }
 
-            const labelY = direction === "up" ? cy - circleR - 6 : cy + circleR + 16;
+            const labelY = direction === "up" ? cy - circleR - 4 : cy + circleR + 15;
+            const labelText = `${node.shortTitle}${labelFn(node) !== "0" ? ` +${labelFn(node)}` : ""}`;
+            // Tighten: ~7.2px per character, no extra padding
+            const rectW = labelText.length * 7.2;
+            const rectH = 14;
 
             return (
               <g
@@ -90,9 +95,17 @@ export default function EdgePane({ nodes, direction, labelFn, onSelect }: Props)
                 style={{ cursor: "pointer" }}
               >
                 <path d={path} className="edge-line" />
+                <rect
+                  x={cx - rectW / 2}
+                  y={labelY - 10}
+                  width={rectW}
+                  height={rectH}
+                  rx={2}
+                  className="edge-label-bg"
+                />
                 <circle cx={cx} cy={cy} r={circleR} className="edge-circle" />
                 <text x={cx} y={labelY} className="edge-title-text">
-                  {node.shortTitle}{labelFn(node) !== "0" && ` +${labelFn(node)}`}
+                  {labelText}
                 </text>
               </g>
             );
