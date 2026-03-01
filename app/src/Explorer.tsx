@@ -4,7 +4,6 @@ import NodePane from "./NodePane";
 import EdgePane from "./EdgePane";
 import GraphView from "./GraphView";
 import Header from "./Header";
-import SiblingCarousel from "./SiblingCarousel";
 import "./Explorer.css";
 
 interface Props {
@@ -224,6 +223,10 @@ export default function Explorer({ graph, onBack }: Props) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [navigate, showGraph]);
 
+  const currentIndex = sortedSiblings.findIndex((n) => n.id === currentId);
+  const prevSibling = currentIndex > 0 ? sortedSiblings[currentIndex - 1] : null;
+  const nextSibling = currentIndex < sortedSiblings.length - 1 ? sortedSiblings[currentIndex + 1] : null;
+
   return (
     <div className="explorer-wrapper">
       <div className="explorer">
@@ -256,10 +259,10 @@ export default function Explorer({ graph, onBack }: Props) {
               className="mid-pane-wrapper"
               ref={midRef}
             >
-              <NodePane node={node} />
-              <SiblingCarousel
-                sortedSiblings={sortedSiblings}
-                currentId={currentId}
+              <NodePane 
+                node={node} 
+                prevSibling={prevSibling}
+                nextSibling={nextSibling}
                 onNavigate={navigate}
               />
             </div>
