@@ -29,9 +29,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-6);
-  min-height: var(--space-8);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+  min-height: var(--space-10);
+  background: var(--bg-color);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  padding: 0 var(--space-1);
+  box-shadow: var(--shadow-sm), 0 4px 12px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: var(--space-4);
+  z-index: 10;
 }
 
 .node-nav-btn {
@@ -47,27 +55,48 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
   transition: all var(--transition-fast);
-  opacity: 0.5;
+  min-width: 80px;
 }
 
+@media (min-width: 768px) {
+  .node-nav-btn {
+    min-width: 120px;
+  }
+}
+
+.node-nav-btn.left { justify-content: flex-start; }
+.node-nav-btn.right { justify-content: flex-end; }
+
 .node-nav-btn:hover {
-  background: var(--bg-color);
+  background: var(--panel-bg);
   color: var(--text-primary);
-  opacity: 1;
+  box-shadow: var(--shadow-sm);
 }
 
 .node-nav-btn span {
-  max-width: 100px;
+  max-width: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+@media (min-width: 768px) {
+  .node-nav-btn span {
+    max-width: 150px;
+  }
+}
+
 .node-nav-spacer {
-  width: 60px; /* Placeholder to keep layout balanced */
+  width: 80px;
+}
+
+@media (min-width: 768px) {
+  .node-nav-spacer {
+    width: 120px;
+  }
 }
 
 .node-short-title {
@@ -78,7 +107,6 @@
   letter-spacing: 0.12em;
   font-weight: 700;
   text-align: center;
-  opacity: 0.6;
   user-select: none;
   flex: 1;
 }
