@@ -36,7 +36,6 @@
   border-radius: var(--radius-full);
   border: 1px solid var(--border-color);
   padding: 0 var(--space-1);
-  box-shadow: var(--shadow-sm), 0 4px 12px rgba(0, 0, 0, 0.03);
   position: sticky;
   top: var(--space-4);
   z-index: 10;

@@ -19,7 +19,7 @@ export default function NodePane({ node, prevSibling, nextSibling, onNavigate }:
 
   return (
     <div className="node-pane" ref={paneRef}>
-      <div className="node-nav-header">
+      <div className="node-nav-header ambient amb-elevation-1 amb-rounded-full">
         {prevSibling ? (
           <button 
             className="node-nav-btn left" 

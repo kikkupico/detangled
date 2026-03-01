@@ -79,17 +79,21 @@ export default function App() {
   }
 
   if (graph) {
-    return <Explorer graph={graph} onBack={handleBack} />;
+    return (
+      <div className="amb-light-t">
+        <Explorer graph={graph} onBack={handleBack} />
+      </div>
+    );
   }
 
   return (
-    <>
+    <div className="amb-light-t">
       <HomeScreen onLoad={handleLoad} />
       {error && (
         <p style={{ color: "#e74c3c", textAlign: "center", fontSize: "0.85rem" }}>
           {error}
         </p>
       )}
-    </>
+    </div>
   );
 }
