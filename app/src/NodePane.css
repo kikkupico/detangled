@@ -11,7 +11,7 @@
 
 @media (max-width: 767px) {
   .node-pane {
-    padding: 0 var(--space-6) var(--space-20);
+    padding: 0 0 var(--space-20);
     align-items: stretch;
   }
 }
