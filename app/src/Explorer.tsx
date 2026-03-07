@@ -229,7 +229,7 @@ export default function Explorer({ graph, onBack }: Props) {
 
   return (
     <div className="explorer-wrapper">
-      <div className="explorer">
+      <div className="explorer ambient amb-elevation-3">
         <Header
           graph={graph}
           showGraph={showGraph}

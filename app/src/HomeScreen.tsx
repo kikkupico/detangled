@@ -21,11 +21,11 @@ export default function HomeScreen({ onLoad }: Props) {
 
   return (
     <div className="home">
-      <img src="./logo.jpg" alt="detangled" className="home-logo" />
+      <img src="./logo.jpg" alt="detangled" className="home-logo ambient amb-elevation-1" />
       <p className="home-subtitle">Explore structured knowledge as a graph</p>
 
       <textarea
-        className="home-textarea"
+        className="home-textarea ambient amb-elevation-1"
         placeholder="Paste your YAML here..."
         value={yaml}
         onChange={(e) => {
@@ -36,7 +36,7 @@ export default function HomeScreen({ onLoad }: Props) {
 
       {error && <p className="home-error">{error}</p>}
 
-      <button className="home-btn primary" onClick={handleLoad}>
+      <button className="home-btn primary ambient amb-elevation-1" onClick={handleLoad}>
         Visualise
       </button>
 
@@ -45,7 +45,7 @@ export default function HomeScreen({ onLoad }: Props) {
         {examples.map((ex) => (
           <button
             key={ex.name}
-            className="home-btn example"
+            className="home-btn example ambient amb-elevation-1"
             onClick={() => onLoad(ex.yaml)}
           >
             {ex.name}

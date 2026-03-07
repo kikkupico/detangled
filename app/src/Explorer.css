@@ -24,7 +24,6 @@
     max-width: 900px;
     height: calc(100dvh - var(--space-16));
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0,0,0,0.05);
     border: 1px solid var(--border-color);
   }
 }
