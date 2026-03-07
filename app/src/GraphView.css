@@ -25,6 +25,20 @@
   cursor: pointer;
 }
 
+.gv-edge--highlighted {
+  stroke: var(--text-primary);
+  stroke-width: 2.5;
+}
+
+.gv-edge-stub--highlighted {
+  stroke: var(--text-primary);
+  stroke-width: 2.5;
+}
+
+.gv-edge-dot--highlighted {
+  fill: var(--text-primary);
+}
+
 .gv-edge-stub {
   stroke: var(--border-med);
   stroke-width: 1.5;

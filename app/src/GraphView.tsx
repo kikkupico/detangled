@@ -16,6 +16,7 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
   });
   const [hasInitialized, setHasInitialized] = useState(false);
   const [dragging, setDragging] = useState(false);
+  const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
   const dragStart = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
   const activePointers = useRef<Map<number, { x: number; y: number }>>(new Map());
   const lastPinchState = useRef<{ dist: number; mx: number; my: number } | null>(null);
@@ -83,6 +84,20 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
 
     return { layoutNodes: layoutNodesArr, edges: edgesArr, width: w, height: h, nodeRadius };
   }, [graph]);
+
+  // Memoised map: nodeId -> set of edge indices the node participates in (incoming or outgoing)
+  const nodeEdgeMap = useMemo(() => {
+    const map = new Map<string, Set<number>>();
+    edges.forEach((e, i) => {
+      if (!map.has(e.from)) map.set(e.from, new Set());
+      if (!map.has(e.to)) map.set(e.to, new Set());
+      map.get(e.from)!.add(i);
+      map.get(e.to)!.add(i);
+    });
+    return map;
+  }, [edges]);
+
+  const hoveredEdges = hoveredNodeId ? (nodeEdgeMap.get(hoveredNodeId) ?? null) : null;
 
   // Center graph initially if no saved transform
   useEffect(() => {
@@ -248,7 +263,7 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
             <path
               key={i}
               d={`M ${e.fromPos.x} ${fromY} C ${e.fromPos.x} ${midY}, ${e.toPos.x} ${midY}, ${e.toPos.x} ${toY}`}
-              className="gv-edge"
+              className={`gv-edge${hoveredEdges?.has(i) ? " gv-edge--highlighted" : ""}`}
             />
           );
         })}
@@ -262,6 +277,8 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
               key={n.id}
               className={`gv-node ${n.id === currentId ? "current" : ""}`}
               onClick={() => onSelect(n.id)}
+              onMouseEnter={() => setHoveredNodeId(n.id)}
+              onMouseLeave={() => setHoveredNodeId(null)}
             >
               <circle cx={n.x} cy={n.y} r={20} />
               <rect
@@ -287,16 +304,19 @@ export default function GraphView({ graph, currentId, onSelect }: Props) {
             </g>
           );
         })}
-        {edges.map((e, i) => (
-          <g key={`stubs-${i}`}>
-            {/* outgoing stub: from dot inside node down to border */}
-            <line x1={e.fromPos.x} y1={e.fromPos.y + 13} x2={e.fromPos.x} y2={e.fromPos.y + 21} className="gv-edge-stub" />
-            <circle cx={e.fromPos.x} cy={e.fromPos.y + 13} r={1.5} className="gv-edge-dot" />
-            {/* incoming stub: from border up to dot inside node */}
-            <line x1={e.toPos.x} y1={e.toPos.y - 21} x2={e.toPos.x} y2={e.toPos.y - 13} className="gv-edge-stub" />
-            <circle cx={e.toPos.x} cy={e.toPos.y - 13} r={1.5} className="gv-edge-dot" />
-          </g>
-        ))}
+        {edges.map((e, i) => {
+          const hl = hoveredEdges?.has(i);
+          return (
+            <g key={`stubs-${i}`}>
+              {/* outgoing stub: from dot inside node down to border */}
+              <line x1={e.fromPos.x} y1={e.fromPos.y + 13} x2={e.fromPos.x} y2={e.fromPos.y + 21} className={`gv-edge-stub${hl ? " gv-edge-stub--highlighted" : ""}`} />
+              <circle cx={e.fromPos.x} cy={e.fromPos.y + 13} r={1.5} className={`gv-edge-dot${hl ? " gv-edge-dot--highlighted" : ""}`} />
+              {/* incoming stub: from border up to dot inside node */}
+              <line x1={e.toPos.x} y1={e.toPos.y - 21} x2={e.toPos.x} y2={e.toPos.y - 13} className={`gv-edge-stub${hl ? " gv-edge-stub--highlighted" : ""}`} />
+              <circle cx={e.toPos.x} cy={e.toPos.y - 13} r={1.5} className={`gv-edge-dot${hl ? " gv-edge-dot--highlighted" : ""}`} />
+            </g>
+          );
+        })}
       </svg>
     </div>
   );
